@@ -1,0 +1,97 @@
+Assuming unrestricted shared filesystem usage.
+None
+host: BGS-STU22-136
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 10
+Rules claiming more threads will be scaled down.
+Job stats:
+job                            count
+---------------------------  -------
+all                                1
+convert_tree                       2
+dates                              1
+generate_descriptor                2
+generate_initial_descriptor        2
+ha_dna                             2
+initial_treesort                   2
+nonha_dna                          1
+root                               2
+run_ha_workflow                    1
+run_nonha_workflow                 1
+treesort                           2
+total                             19
+
+Select jobs to execute...
+Execute 2 jobs...
+[Tue Aug 25 14:24:56 2026]
+localrule run_nonha_workflow:
+    output: non-ha-10reps/results/0/tree-raw_pb2.nwk, non-ha-10reps/results/0/tree-raw_pb1.nwk, non-ha-10reps/results/0/tree-raw_na.nwk, non-ha-10reps/results/0/tree-raw_np.nwk, non-ha-10reps/results/0/tree-raw_pa.nwk, non-ha-10reps/results/0/tree-raw_ns.nwk, non-ha-10reps/results/0/tree-raw_mp.nwk, non-ha-10reps/results/1/tree-raw_pb2.nwk, non-ha-10reps/results/1/tree-raw_pb1.nwk, non-ha-10reps/results/1/tree-raw_na.nwk, non-ha-10reps/results/1/tree-raw_np.nwk, non-ha-10reps/results/1/tree-raw_pa.nwk, non-ha-10reps/results/1/tree-raw_ns.nwk, non-ha-10reps/results/1/tree-raw_mp.nwk, non-ha-10reps/results/0/aligned_pb2.fasta, non-ha-10reps/results/0/aligned_pb1.fasta, non-ha-10reps/results/0/aligned_na.fasta, non-ha-10reps/results/0/aligned_np.fasta, non-ha-10reps/results/0/aligned_pa.fasta, non-ha-10reps/results/0/aligned_ns.fasta, non-ha-10reps/results/0/aligned_mp.fasta, non-ha-10reps/results/1/aligned_pb2.fasta, non-ha-10reps/results/1/aligned_pb1.fasta, non-ha-10reps/results/1/aligned_na.fasta, non-ha-10reps/results/1/aligned_np.fasta, non-ha-10reps/results/1/aligned_pa.fasta, non-ha-10reps/results/1/aligned_ns.fasta, non-ha-10reps/results/1/aligned_mp.fasta
+    jobid: 6
+    reason: Missing output files: non-ha-10reps/results/1/aligned_pa.fasta, non-ha-10reps/results/0/tree-raw_pb2.nwk, non-ha-10reps/results/1/tree-raw_pb2.nwk, non-ha-10reps/results/1/tree-raw_ns.nwk, non-ha-10reps/results/0/aligned_na.fasta, non-ha-10reps/results/1/tree-raw_pb1.nwk, non-ha-10reps/results/1/aligned_na.fasta, non-ha-10reps/results/0/tree-raw_mp.nwk, non-ha-10reps/results/0/tree-raw_na.nwk, non-ha-10reps/results/0/aligned_np.fasta, non-ha-10reps/results/1/tree-raw_mp.nwk, non-ha-10reps/results/1/aligned_pb1.fasta, non-ha-10reps/results/0/aligned_mp.fasta, non-ha-10reps/results/1/aligned_np.fasta, non-ha-10reps/results/1/tree-raw_np.nwk, non-ha-10reps/results/1/aligned_ns.fasta, non-ha-10reps/results/1/aligned_pb2.fasta, non-ha-10reps/results/0/aligned_pa.fasta, non-ha-10reps/results/0/tree-raw_pa.nwk, non-ha-10reps/results/0/tree-raw_np.nwk, non-ha-10reps/results/1/tree-raw_na.nwk, non-ha-10reps/results/0/tree-raw_pb1.nwk, non-ha-10reps/results/0/aligned_ns.fasta, non-ha-10reps/results/1/tree-raw_pa.nwk, non-ha-10reps/results/0/tree-raw_ns.nwk, non-ha-10reps/results/0/aligned_pb1.fasta, non-ha-10reps/results/0/aligned_pb2.fasta, non-ha-10reps/results/1/aligned_mp.fasta
+    resources: tmpdir=/var/folders/d_/56m2n50525gb3y_7mkr2t1880000gp/T
+Shell command: 
+        nextstrain build --ambient non-ha-10reps
+        
+[Tue Aug 25 14:24:56 2026]
+localrule run_ha_workflow:
+    output: ha-100reps/results/0/tree-raw_ha.nwk, ha-100reps/results/1/tree-raw_ha.nwk, ha-100reps/results/0/aligned_ha.fasta, ha-100reps/results/1/aligned_ha.fasta
+    jobid: 4
+    reason: Missing output files: ha-100reps/results/1/aligned_ha.fasta, ha-100reps/results/0/tree-raw_ha.nwk, ha-100reps/results/0/aligned_ha.fasta, ha-100reps/results/1/tree-raw_ha.nwk
+    resources: tmpdir=/var/folders/d_/56m2n50525gb3y_7mkr2t1880000gp/T
+Shell command: 
+        nextstrain build --ambient ha-100reps
+        
+RuleException:
+CalledProcessError in file "/Users/jort/coding/h5nx-reassortment-and-risk-assessment/treesort-sameStrains-replicates/20260302-newReplicates/for-parcc/base-build-mini/Snakefile", line 84:
+Command 'set -euo pipefail;  
+        nextstrain build --ambient non-ha-10reps' returned non-zero exit status 1.
+[Tue Aug 25 14:24:56 2026]
+Error in rule run_nonha_workflow:
+    message: None
+    jobid: 6
+    output: non-ha-10reps/results/0/tree-raw_pb2.nwk, non-ha-10reps/results/0/tree-raw_pb1.nwk, non-ha-10reps/results/0/tree-raw_na.nwk, non-ha-10reps/results/0/tree-raw_np.nwk, non-ha-10reps/results/0/tree-raw_pa.nwk, non-ha-10reps/results/0/tree-raw_ns.nwk, non-ha-10reps/results/0/tree-raw_mp.nwk, non-ha-10reps/results/1/tree-raw_pb2.nwk, non-ha-10reps/results/1/tree-raw_pb1.nwk, non-ha-10reps/results/1/tree-raw_na.nwk, non-ha-10reps/results/1/tree-raw_np.nwk, non-ha-10reps/results/1/tree-raw_pa.nwk, non-ha-10reps/results/1/tree-raw_ns.nwk, non-ha-10reps/results/1/tree-raw_mp.nwk, non-ha-10reps/results/0/aligned_pb2.fasta, non-ha-10reps/results/0/aligned_pb1.fasta, non-ha-10reps/results/0/aligned_na.fasta, non-ha-10reps/results/0/aligned_np.fasta, non-ha-10reps/results/0/aligned_pa.fasta, non-ha-10reps/results/0/aligned_ns.fasta, non-ha-10reps/results/0/aligned_mp.fasta, non-ha-10reps/results/1/aligned_pb2.fasta, non-ha-10reps/results/1/aligned_pb1.fasta, non-ha-10reps/results/1/aligned_na.fasta, non-ha-10reps/results/1/aligned_np.fasta, non-ha-10reps/results/1/aligned_pa.fasta, non-ha-10reps/results/1/aligned_ns.fasta, non-ha-10reps/results/1/aligned_mp.fasta
+    shell:
+        
+        nextstrain build --ambient non-ha-10reps
+        
+        (command exited with non-zero exit code)
+RuleException:
+CalledProcessError in file "/Users/jort/coding/h5nx-reassortment-and-risk-assessment/treesort-sameStrains-replicates/20260302-newReplicates/for-parcc/base-build-mini/Snakefile", line 69:
+Command 'set -euo pipefail;  
+        nextstrain build --ambient ha-100reps' returned non-zero exit status 1.
+[Tue Aug 25 14:24:56 2026]
+Error in rule run_ha_workflow:
+    message: None
+    jobid: 4
+    output: ha-100reps/results/0/tree-raw_ha.nwk, ha-100reps/results/1/tree-raw_ha.nwk, ha-100reps/results/0/aligned_ha.fasta, ha-100reps/results/1/aligned_ha.fasta
+    shell:
+        
+        nextstrain build --ambient ha-100reps
+        
+        (command exited with non-zero exit code)
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look below for error messages
+[Tue Aug 25 14:24:56 2026]
+Error in rule run_nonha_workflow:
+    message: None
+    jobid: 6
+    output: non-ha-10reps/results/0/tree-raw_pb2.nwk, non-ha-10reps/results/0/tree-raw_pb1.nwk, non-ha-10reps/results/0/tree-raw_na.nwk, non-ha-10reps/results/0/tree-raw_np.nwk, non-ha-10reps/results/0/tree-raw_pa.nwk, non-ha-10reps/results/0/tree-raw_ns.nwk, non-ha-10reps/results/0/tree-raw_mp.nwk, non-ha-10reps/results/1/tree-raw_pb2.nwk, non-ha-10reps/results/1/tree-raw_pb1.nwk, non-ha-10reps/results/1/tree-raw_na.nwk, non-ha-10reps/results/1/tree-raw_np.nwk, non-ha-10reps/results/1/tree-raw_pa.nwk, non-ha-10reps/results/1/tree-raw_ns.nwk, non-ha-10reps/results/1/tree-raw_mp.nwk, non-ha-10reps/results/0/aligned_pb2.fasta, non-ha-10reps/results/0/aligned_pb1.fasta, non-ha-10reps/results/0/aligned_na.fasta, non-ha-10reps/results/0/aligned_np.fasta, non-ha-10reps/results/0/aligned_pa.fasta, non-ha-10reps/results/0/aligned_ns.fasta, non-ha-10reps/results/0/aligned_mp.fasta, non-ha-10reps/results/1/aligned_pb2.fasta, non-ha-10reps/results/1/aligned_pb1.fasta, non-ha-10reps/results/1/aligned_na.fasta, non-ha-10reps/results/1/aligned_np.fasta, non-ha-10reps/results/1/aligned_pa.fasta, non-ha-10reps/results/1/aligned_ns.fasta, non-ha-10reps/results/1/aligned_mp.fasta
+    shell:
+        
+        nextstrain build --ambient non-ha-10reps
+        
+        (command exited with non-zero exit code)
+[Tue Aug 25 14:24:56 2026]
+Error in rule run_ha_workflow:
+    message: None
+    jobid: 4
+    output: ha-100reps/results/0/tree-raw_ha.nwk, ha-100reps/results/1/tree-raw_ha.nwk, ha-100reps/results/0/aligned_ha.fasta, ha-100reps/results/1/aligned_ha.fasta
+    shell:
+        
+        nextstrain build --ambient ha-100reps
+        
+        (command exited with non-zero exit code)
+Complete log(s): /Users/jort/coding/h5nx-reassortment-and-risk-assessment/treesort-sameStrains-replicates/20260302-newReplicates/for-parcc/base-build-mini/.snakemake/log/2026-08-25T142456.211470.snakemake.log
+WorkflowError:
+At least one job did not complete successfully.

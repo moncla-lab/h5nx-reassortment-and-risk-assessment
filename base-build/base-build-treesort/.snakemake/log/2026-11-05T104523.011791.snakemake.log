@@ -1,0 +1,794 @@
+Assuming unrestricted shared filesystem usage.
+None
+host: BGS-STU22-136
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 10
+Rules claiming more threads will be scaled down.
+Job stats:
+job                            count
+---------------------------  -------
+all                                1
+convert_tree                       2
+dates                              1
+generate_descriptor                2
+generate_initial_descriptor        2
+ha_align                           1
+ha_copy_align                      2
+ha_dna                             1
+ha_tree                            2
+initial_treesort                   2
+nonha_align                        7
+nonha_copy_align                  14
+nonha_dna                          7
+nonha_tree                        14
+root                               2
+treesort                           2
+total                             62
+
+Select jobs to execute...
+Execute 8 jobs...
+[Thu Nov  5 10:45:23 2026]
+Job 29: 
+        Aligning sequences to config/reference_mp.gb
+          - filling gaps with N
+        
+Reason: Missing output files: non-ha-10reps/results/alignments/aligned_mp.fasta
+Shell command: 
+        augur align             --sequences filtered/filtered_mp.fasta             --reference-sequence config/reference_mp.gb             --output non-ha-10reps/results/alignments/aligned_mp.fasta             --remove-reference             --nthreads auto
+        
+[Thu Nov  5 10:45:23 2026]
+Job 6: 
+        Aligning sequences to config/reference_ha.gb
+          - filling gaps with N
+        
+Reason: Missing output files: ha-100reps/results/alignments/aligned_ha.fasta
+Shell command: 
+        augur align             --sequences filtered/filtered_ha.fasta             --reference-sequence config/reference_ha.gb             --output ha-100reps/results/alignments/aligned_ha.fasta             --remove-reference             --nthreads auto
+        
+[Thu Nov  5 10:45:23 2026]
+Job 14: 
+        Aligning sequences to config/reference_pb1.gb
+          - filling gaps with N
+        
+Reason: Missing output files: non-ha-10reps/results/alignments/aligned_pb1.fasta
+Shell command: 
+        augur align             --sequences filtered/filtered_pb1.fasta             --reference-sequence config/reference_pb1.gb             --output non-ha-10reps/results/alignments/aligned_pb1.fasta             --remove-reference             --nthreads auto
+        
+[Thu Nov  5 10:45:23 2026]
+Job 23: 
+        Aligning sequences to config/reference_pa.gb
+          - filling gaps with N
+        
+Reason: Missing output files: non-ha-10reps/results/alignments/aligned_pa.fasta
+Shell command: 
+        augur align             --sequences filtered/filtered_pa.fasta             --reference-sequence config/reference_pa.gb             --output non-ha-10reps/results/alignments/aligned_pa.fasta             --remove-reference             --nthreads auto
+        
+[Thu Nov  5 10:45:23 2026]
+Job 11: 
+        Aligning sequences to config/reference_pb2.gb
+          - filling gaps with N
+        
+Reason: Missing output files: non-ha-10reps/results/alignments/aligned_pb2.fasta
+Shell command: 
+        augur align             --sequences filtered/filtered_pb2.fasta             --reference-sequence config/reference_pb2.gb             --output non-ha-10reps/results/alignments/aligned_pb2.fasta             --remove-reference             --nthreads auto
+        
+[Thu Nov  5 10:45:23 2026]
+Job 26: 
+        Aligning sequences to config/reference_ns.gb
+          - filling gaps with N
+        
+Reason: Missing output files: non-ha-10reps/results/alignments/aligned_ns.fasta
+Shell command: 
+        augur align             --sequences filtered/filtered_ns.fasta             --reference-sequence config/reference_ns.gb             --output non-ha-10reps/results/alignments/aligned_ns.fasta             --remove-reference             --nthreads auto
+        
+[Thu Nov  5 10:45:23 2026]
+Job 17: 
+        Aligning sequences to config/reference_na.gb
+          - filling gaps with N
+        
+Reason: Missing output files: non-ha-10reps/results/alignments/aligned_na.fasta
+Shell command: 
+        augur align             --sequences filtered/filtered_na.fasta             --reference-sequence config/reference_na.gb             --output non-ha-10reps/results/alignments/aligned_na.fasta             --remove-reference             --nthreads auto
+        
+[Thu Nov  5 10:45:23 2026]
+Job 20: 
+        Aligning sequences to config/reference_np.gb
+          - filling gaps with N
+        
+Reason: Missing output files: non-ha-10reps/results/alignments/aligned_np.fasta
+Shell command: 
+        augur align             --sequences filtered/filtered_np.fasta             --reference-sequence config/reference_np.gb             --output non-ha-10reps/results/alignments/aligned_np.fasta             --remove-reference             --nthreads auto
+        
+[Thu Nov  5 10:45:30 2026]
+Finished jobid: 29 (Rule: nonha_align)
+1 of 62 steps (2%) done
+Select jobs to execute...
+Execute 2 jobs...
+[Thu Nov  5 10:45:30 2026]
+localrule nonha_copy_align:
+    input: non-ha-10reps/results/alignments/aligned_mp.fasta
+    output: non-ha-10reps/results/1/aligned_mp.fasta
+    jobid: 53
+    reason: Missing output files: non-ha-10reps/results/1/aligned_mp.fasta; Input files updated by another job: non-ha-10reps/results/alignments/aligned_mp.fasta
+    wildcards: rep=1, segment=mp
+    resources: tmpdir=/var/folders/d_/56m2n50525gb3y_7mkr2t1880000gp/T
+Shell command: 
+        cp non-ha-10reps/results/alignments/aligned_mp.fasta non-ha-10reps/results/1/aligned_mp.fasta
+        
+[Thu Nov  5 10:45:30 2026]
+localrule nonha_copy_align:
+    input: non-ha-10reps/results/alignments/aligned_mp.fasta
+    output: non-ha-10reps/results/0/aligned_mp.fasta
+    jobid: 28
+    reason: Missing output files: non-ha-10reps/results/0/aligned_mp.fasta; Input files updated by another job: non-ha-10reps/results/alignments/aligned_mp.fasta
+    wildcards: rep=0, segment=mp
+    resources: tmpdir=/var/folders/d_/56m2n50525gb3y_7mkr2t1880000gp/T
+Shell command: 
+        cp non-ha-10reps/results/alignments/aligned_mp.fasta non-ha-10reps/results/0/aligned_mp.fasta
+        
+[Thu Nov  5 10:45:30 2026]
+Finished jobid: 53 (Rule: nonha_copy_align)
+2 of 62 steps (3%) done
+Select jobs to execute...
+Execute 1 jobs...
+[Thu Nov  5 10:45:31 2026]
+Job 52: Building tree
+Reason: Missing output files: non-ha-10reps/results/1/tree-raw_mp.nwk; Input files updated by another job: non-ha-10reps/results/1/aligned_mp.fasta
+Shell command: 
+        augur tree             --alignment non-ha-10reps/results/1/aligned_mp.fasta             --output non-ha-10reps/results/1/tree-raw_mp.nwk             --method iqtree             --nthreads auto
+        
+[Thu Nov  5 10:45:31 2026]
+Finished jobid: 28 (Rule: nonha_copy_align)
+3 of 62 steps (5%) done
+Select jobs to execute...
+Execute 1 jobs...
+[Thu Nov  5 10:45:31 2026]
+Job 27: Building tree
+Reason: Missing output files: non-ha-10reps/results/0/tree-raw_mp.nwk; Input files updated by another job: non-ha-10reps/results/0/aligned_mp.fasta
+Shell command: 
+        augur tree             --alignment non-ha-10reps/results/0/aligned_mp.fasta             --output non-ha-10reps/results/0/tree-raw_mp.nwk             --method iqtree             --nthreads auto
+        
+[Thu Nov  5 10:45:31 2026]
+Finished jobid: 17 (Rule: nonha_align)
+4 of 62 steps (6%) done
+Select jobs to execute...
+Execute 2 jobs...
+[Thu Nov  5 10:45:31 2026]
+localrule nonha_copy_align:
+    input: non-ha-10reps/results/alignments/aligned_na.fasta
+    output: non-ha-10reps/results/0/aligned_na.fasta
+    jobid: 16
+    reason: Missing output files: non-ha-10reps/results/0/aligned_na.fasta; Input files updated by another job: non-ha-10reps/results/alignments/aligned_na.fasta
+    wildcards: rep=0, segment=na
+    resources: tmpdir=/var/folders/d_/56m2n50525gb3y_7mkr2t1880000gp/T
+Shell command: 
+        cp non-ha-10reps/results/alignments/aligned_na.fasta non-ha-10reps/results/0/aligned_na.fasta
+        
+[Thu Nov  5 10:45:31 2026]
+localrule nonha_copy_align:
+    input: non-ha-10reps/results/alignments/aligned_na.fasta
+    output: non-ha-10reps/results/1/aligned_na.fasta
+    jobid: 45
+    reason: Missing output files: non-ha-10reps/results/1/aligned_na.fasta; Input files updated by another job: non-ha-10reps/results/alignments/aligned_na.fasta
+    wildcards: rep=1, segment=na
+    resources: tmpdir=/var/folders/d_/56m2n50525gb3y_7mkr2t1880000gp/T
+Shell command: 
+        cp non-ha-10reps/results/alignments/aligned_na.fasta non-ha-10reps/results/1/aligned_na.fasta
+        
+[Thu Nov  5 10:45:31 2026]
+Finished jobid: 20 (Rule: nonha_align)
+5 of 62 steps (8%) done
+[Thu Nov  5 10:45:31 2026]
+Finished jobid: 26 (Rule: nonha_align)
+6 of 62 steps (10%) done
+Select jobs to execute...
+Execute 2 jobs...
+[Thu Nov  5 10:45:31 2026]
+localrule nonha_copy_align:
+    input: non-ha-10reps/results/alignments/aligned_np.fasta
+    output: non-ha-10reps/results/0/aligned_np.fasta
+    jobid: 19
+    reason: Missing output files: non-ha-10reps/results/0/aligned_np.fasta; Input files updated by another job: non-ha-10reps/results/alignments/aligned_np.fasta
+    wildcards: rep=0, segment=np
+    resources: tmpdir=/var/folders/d_/56m2n50525gb3y_7mkr2t1880000gp/T
+Shell command: 
+        cp non-ha-10reps/results/alignments/aligned_np.fasta non-ha-10reps/results/0/aligned_np.fasta
+        
+[Thu Nov  5 10:45:31 2026]
+localrule nonha_copy_align:
+    input: non-ha-10reps/results/alignments/aligned_ns.fasta
+    output: non-ha-10reps/results/1/aligned_ns.fasta
+    jobid: 51
+    reason: Missing output files: non-ha-10reps/results/1/aligned_ns.fasta; Input files updated by another job: non-ha-10reps/results/alignments/aligned_ns.fasta
+    wildcards: rep=1, segment=ns
+    resources: tmpdir=/var/folders/d_/56m2n50525gb3y_7mkr2t1880000gp/T
+Shell command: 
+        cp non-ha-10reps/results/alignments/aligned_ns.fasta non-ha-10reps/results/1/aligned_ns.fasta
+        
+Select jobs to execute...
+[Thu Nov  5 10:45:31 2026]
+Finished jobid: 16 (Rule: nonha_copy_align)
+7 of 62 steps (11%) done
+Execute 1 jobs...
+[Thu Nov  5 10:45:31 2026]
+localrule nonha_copy_align:
+    input: non-ha-10reps/results/alignments/aligned_np.fasta
+    output: non-ha-10reps/results/1/aligned_np.fasta
+    jobid: 47
+    reason: Missing output files: non-ha-10reps/results/1/aligned_np.fasta; Input files updated by another job: non-ha-10reps/results/alignments/aligned_np.fasta
+    wildcards: rep=1, segment=np
+    resources: tmpdir=/var/folders/d_/56m2n50525gb3y_7mkr2t1880000gp/T
+Shell command: 
+        cp non-ha-10reps/results/alignments/aligned_np.fasta non-ha-10reps/results/1/aligned_np.fasta
+        
+[Thu Nov  5 10:45:31 2026]
+Finished jobid: 23 (Rule: nonha_align)
+8 of 62 steps (13%) done
+[Thu Nov  5 10:45:31 2026]
+Finished jobid: 45 (Rule: nonha_copy_align)
+9 of 62 steps (15%) done
+[Thu Nov  5 10:45:31 2026]
+Finished jobid: 51 (Rule: nonha_copy_align)
+10 of 62 steps (16%) done
+[Thu Nov  5 10:45:31 2026]
+Finished jobid: 19 (Rule: nonha_copy_align)
+11 of 62 steps (18%) done
+Select jobs to execute...
+Execute 4 jobs...
+[Thu Nov  5 10:45:31 2026]
+localrule nonha_copy_align:
+    input: non-ha-10reps/results/alignments/aligned_ns.fasta
+    output: non-ha-10reps/results/0/aligned_ns.fasta
+    jobid: 25
+    reason: Missing output files: non-ha-10reps/results/0/aligned_ns.fasta; Input files updated by another job: non-ha-10reps/results/alignments/aligned_ns.fasta
+    wildcards: rep=0, segment=ns
+    resources: tmpdir=/var/folders/d_/56m2n50525gb3y_7mkr2t1880000gp/T
+Shell command: 
+        cp non-ha-10reps/results/alignments/aligned_ns.fasta non-ha-10reps/results/0/aligned_ns.fasta
+        
+[Thu Nov  5 10:45:31 2026]
+Job 18: Building tree
+Reason: Missing output files: non-ha-10reps/results/0/tree-raw_np.nwk; Input files updated by another job: non-ha-10reps/results/0/aligned_np.fasta
+Shell command: 
+        augur tree             --alignment non-ha-10reps/results/0/aligned_np.fasta             --output non-ha-10reps/results/0/tree-raw_np.nwk             --method iqtree             --nthreads auto
+        
+[Thu Nov  5 10:45:31 2026]
+Job 15: Building tree
+Reason: Missing output files: non-ha-10reps/results/0/tree-raw_na.nwk; Input files updated by another job: non-ha-10reps/results/0/aligned_na.fasta
+Shell command: 
+        augur tree             --alignment non-ha-10reps/results/0/aligned_na.fasta             --output non-ha-10reps/results/0/tree-raw_na.nwk             --method iqtree             --nthreads auto
+        
+[Thu Nov  5 10:45:31 2026]
+Job 50: Building tree
+Reason: Missing output files: non-ha-10reps/results/1/tree-raw_ns.nwk; Input files updated by another job: non-ha-10reps/results/1/aligned_ns.fasta
+Shell command: 
+        augur tree             --alignment non-ha-10reps/results/1/aligned_ns.fasta             --output non-ha-10reps/results/1/tree-raw_ns.nwk             --method iqtree             --nthreads auto
+        
+[Thu Nov  5 10:45:31 2026]
+Finished jobid: 47 (Rule: nonha_copy_align)
+12 of 62 steps (19%) done
+[Thu Nov  5 10:45:31 2026]
+Finished jobid: 25 (Rule: nonha_copy_align)
+13 of 62 steps (21%) done
+Select jobs to execute...
+Execute 2 jobs...
+[Thu Nov  5 10:45:31 2026]
+Job 46: Building tree
+Reason: Missing output files: non-ha-10reps/results/1/tree-raw_np.nwk; Input files updated by another job: non-ha-10reps/results/1/aligned_np.fasta
+Shell command: 
+        augur tree             --alignment non-ha-10reps/results/1/aligned_np.fasta             --output non-ha-10reps/results/1/tree-raw_np.nwk             --method iqtree             --nthreads auto
+        
+[Thu Nov  5 10:45:32 2026]
+Job 24: Building tree
+Reason: Missing output files: non-ha-10reps/results/0/tree-raw_ns.nwk; Input files updated by another job: non-ha-10reps/results/0/aligned_ns.fasta
+Shell command: 
+        augur tree             --alignment non-ha-10reps/results/0/aligned_ns.fasta             --output non-ha-10reps/results/0/tree-raw_ns.nwk             --method iqtree             --nthreads auto
+        
+[Thu Nov  5 10:45:32 2026]
+Finished jobid: 6 (Rule: ha_align)
+14 of 62 steps (23%) done
+Select jobs to execute...
+Execute 1 jobs...
+[Thu Nov  5 10:45:32 2026]
+localrule nonha_copy_align:
+    input: non-ha-10reps/results/alignments/aligned_pa.fasta
+    output: non-ha-10reps/results/1/aligned_pa.fasta
+    jobid: 49
+    reason: Missing output files: non-ha-10reps/results/1/aligned_pa.fasta; Input files updated by another job: non-ha-10reps/results/alignments/aligned_pa.fasta
+    wildcards: rep=1, segment=pa
+    resources: tmpdir=/var/folders/d_/56m2n50525gb3y_7mkr2t1880000gp/T
+Shell command: 
+        cp non-ha-10reps/results/alignments/aligned_pa.fasta non-ha-10reps/results/1/aligned_pa.fasta
+        
+[Thu Nov  5 10:45:32 2026]
+Finished jobid: 11 (Rule: nonha_align)
+15 of 62 steps (24%) done
+Select jobs to execute...
+Execute 1 jobs...
+[Thu Nov  5 10:45:32 2026]
+localrule nonha_copy_align:
+    input: non-ha-10reps/results/alignments/aligned_pb2.fasta
+    output: non-ha-10reps/results/0/aligned_pb2.fasta
+    jobid: 10
+    reason: Missing output files: non-ha-10reps/results/0/aligned_pb2.fasta; Input files updated by another job: non-ha-10reps/results/alignments/aligned_pb2.fasta
+    wildcards: rep=0, segment=pb2
+    resources: tmpdir=/var/folders/d_/56m2n50525gb3y_7mkr2t1880000gp/T
+Shell command: 
+        cp non-ha-10reps/results/alignments/aligned_pb2.fasta non-ha-10reps/results/0/aligned_pb2.fasta
+        
+Select jobs to execute...
+[Thu Nov  5 10:45:32 2026]
+Finished jobid: 49 (Rule: nonha_copy_align)
+16 of 62 steps (26%) done
+Execute 1 jobs...
+[Thu Nov  5 10:45:32 2026]
+Job 48: Building tree
+Reason: Missing output files: non-ha-10reps/results/1/tree-raw_pa.nwk; Input files updated by another job: non-ha-10reps/results/1/aligned_pa.fasta
+Shell command: 
+        augur tree             --alignment non-ha-10reps/results/1/aligned_pa.fasta             --output non-ha-10reps/results/1/tree-raw_pa.nwk             --method iqtree             --nthreads auto
+        
+[Thu Nov  5 10:45:32 2026]
+Finished jobid: 14 (Rule: nonha_align)
+17 of 62 steps (27%) done
+[Thu Nov  5 10:45:32 2026]
+Finished jobid: 10 (Rule: nonha_copy_align)
+18 of 62 steps (29%) done
+Select jobs to execute...
+Execute 2 jobs...
+[Thu Nov  5 10:45:32 2026]
+Job 31: converting rna sequences in alignments to dna
+Reason: Missing output files: non-ha-10reps/results/alignments/aligned_pb1_dna.fasta; Input files updated by another job: non-ha-10reps/results/alignments/aligned_pb1.fasta, non-ha-10reps/results/alignments/aligned_np.fasta, non-ha-10reps/results/alignments/aligned_ns.fasta, non-ha-10reps/results/alignments/aligned_mp.fasta, non-ha-10reps/results/alignments/aligned_na.fasta, non-ha-10reps/results/alignments/aligned_pa.fasta, non-ha-10reps/results/alignments/aligned_pb2.fasta; Set of input files has changed since last execution
+Shell command: 
+        python scripts/rna-to-dna.py             --alignments non-ha-10reps/results/alignments/aligned_pb2.fasta non-ha-10reps/results/alignments/aligned_pb1.fasta non-ha-10reps/results/alignments/aligned_pa.fasta non-ha-10reps/results/alignments/aligned_np.fasta non-ha-10reps/results/alignments/aligned_na.fasta non-ha-10reps/results/alignments/aligned_mp.fasta non-ha-10reps/results/alignments/aligned_ns.fasta             --dna_alignments non-ha-10reps/results/alignments/aligned_pb1_dna.fasta
+        
+[Thu Nov  5 10:45:32 2026]
+localrule nonha_copy_align:
+    input: non-ha-10reps/results/alignments/aligned_pb1.fasta
+    output: non-ha-10reps/results/1/aligned_pb1.fasta
+    jobid: 43
+    reason: Missing output files: non-ha-10reps/results/1/aligned_pb1.fasta; Input files updated by another job: non-ha-10reps/results/alignments/aligned_pb1.fasta
+    wildcards: rep=1, segment=pb1
+    resources: tmpdir=/var/folders/d_/56m2n50525gb3y_7mkr2t1880000gp/T
+Shell command: 
+        cp non-ha-10reps/results/alignments/aligned_pb1.fasta non-ha-10reps/results/1/aligned_pb1.fasta
+        
+Select jobs to execute...
+[Thu Nov  5 10:45:33 2026]
+Finished jobid: 31 (Rule: nonha_dna)
+19 of 62 steps (31%) done
+Execute 1 jobs...
+[Thu Nov  5 10:45:33 2026]
+localrule nonha_copy_align:
+    input: non-ha-10reps/results/alignments/aligned_pb1.fasta
+    output: non-ha-10reps/results/0/aligned_pb1.fasta
+    jobid: 13
+    reason: Missing output files: non-ha-10reps/results/0/aligned_pb1.fasta; Input files updated by another job: non-ha-10reps/results/alignments/aligned_pb1.fasta
+    wildcards: rep=0, segment=pb1
+    resources: tmpdir=/var/folders/d_/56m2n50525gb3y_7mkr2t1880000gp/T
+Shell command: 
+        cp non-ha-10reps/results/alignments/aligned_pb1.fasta non-ha-10reps/results/0/aligned_pb1.fasta
+        
+[Thu Nov  5 10:45:33 2026]
+Finished jobid: 43 (Rule: nonha_copy_align)
+20 of 62 steps (32%) done
+Select jobs to execute...
+Execute 1 jobs...
+[Thu Nov  5 10:45:33 2026]
+Job 8: converting rna sequences in alignments to dna
+Reason: Missing output files: ha-100reps/results/alignments/aligned_ha_dna.fasta; Input files updated by another job: ha-100reps/results/alignments/aligned_ha.fasta
+Shell command: 
+        python scripts/rna-to-dna.py             --alignments ha-100reps/results/alignments/aligned_ha.fasta             --dna_alignments ha-100reps/results/alignments/aligned_ha_dna.fasta ;
+        
+Select jobs to execute...
+[Thu Nov  5 10:45:33 2026]
+Finished jobid: 13 (Rule: nonha_copy_align)
+21 of 62 steps (34%) done
+Execute 1 jobs...
+[Thu Nov  5 10:45:33 2026]
+Job 30: converting rna sequences in alignments to dna
+Reason: Missing output files: non-ha-10reps/results/alignments/aligned_pb2_dna.fasta; Input files updated by another job: non-ha-10reps/results/alignments/aligned_pb1.fasta, non-ha-10reps/results/alignments/aligned_np.fasta, non-ha-10reps/results/alignments/aligned_ns.fasta, non-ha-10reps/results/alignments/aligned_mp.fasta, non-ha-10reps/results/alignments/aligned_na.fasta, non-ha-10reps/results/alignments/aligned_pa.fasta, non-ha-10reps/results/alignments/aligned_pb2.fasta; Set of input files has changed since last execution
+Shell command: 
+        python scripts/rna-to-dna.py             --alignments non-ha-10reps/results/alignments/aligned_pb2.fasta non-ha-10reps/results/alignments/aligned_pb1.fasta non-ha-10reps/results/alignments/aligned_pa.fasta non-ha-10reps/results/alignments/aligned_np.fasta non-ha-10reps/results/alignments/aligned_na.fasta non-ha-10reps/results/alignments/aligned_mp.fasta non-ha-10reps/results/alignments/aligned_ns.fasta             --dna_alignments non-ha-10reps/results/alignments/aligned_pb2_dna.fasta
+        
+[Thu Nov  5 10:45:33 2026]
+Finished jobid: 8 (Rule: ha_dna)
+22 of 62 steps (35%) done
+Select jobs to execute...
+Execute 1 jobs...
+[Thu Nov  5 10:45:33 2026]
+Job 33: converting rna sequences in alignments to dna
+Reason: Missing output files: non-ha-10reps/results/alignments/aligned_np_dna.fasta; Input files updated by another job: non-ha-10reps/results/alignments/aligned_pb1.fasta, non-ha-10reps/results/alignments/aligned_np.fasta, non-ha-10reps/results/alignments/aligned_ns.fasta, non-ha-10reps/results/alignments/aligned_mp.fasta, non-ha-10reps/results/alignments/aligned_na.fasta, non-ha-10reps/results/alignments/aligned_pa.fasta, non-ha-10reps/results/alignments/aligned_pb2.fasta; Set of input files has changed since last execution
+Shell command: 
+        python scripts/rna-to-dna.py             --alignments non-ha-10reps/results/alignments/aligned_pb2.fasta non-ha-10reps/results/alignments/aligned_pb1.fasta non-ha-10reps/results/alignments/aligned_pa.fasta non-ha-10reps/results/alignments/aligned_np.fasta non-ha-10reps/results/alignments/aligned_na.fasta non-ha-10reps/results/alignments/aligned_mp.fasta non-ha-10reps/results/alignments/aligned_ns.fasta             --dna_alignments non-ha-10reps/results/alignments/aligned_np_dna.fasta
+        
+Select jobs to execute...
+[Thu Nov  5 10:45:33 2026]
+Finished jobid: 30 (Rule: nonha_dna)
+23 of 62 steps (37%) done
+Execute 1 jobs...
+[Thu Nov  5 10:45:33 2026]
+localrule ha_copy_align:
+    input: ha-100reps/results/alignments/aligned_ha.fasta
+    output: ha-100reps/results/1/aligned_ha.fasta
+    jobid: 58
+    reason: Missing output files: ha-100reps/results/1/aligned_ha.fasta; Input files updated by another job: ha-100reps/results/alignments/aligned_ha.fasta
+    wildcards: rep=1, segment=ha
+    resources: tmpdir=/var/folders/d_/56m2n50525gb3y_7mkr2t1880000gp/T
+Shell command: 
+        cp ha-100reps/results/alignments/aligned_ha.fasta ha-100reps/results/1/aligned_ha.fasta
+        
+Select jobs to execute...
+[Thu Nov  5 10:45:33 2026]
+Finished jobid: 33 (Rule: nonha_dna)
+24 of 62 steps (39%) done
+Execute 1 jobs...
+[Thu Nov  5 10:45:33 2026]
+localrule nonha_copy_align:
+    input: non-ha-10reps/results/alignments/aligned_pa.fasta
+    output: non-ha-10reps/results/0/aligned_pa.fasta
+    jobid: 22
+    reason: Missing output files: non-ha-10reps/results/0/aligned_pa.fasta; Input files updated by another job: non-ha-10reps/results/alignments/aligned_pa.fasta
+    wildcards: rep=0, segment=pa
+    resources: tmpdir=/var/folders/d_/56m2n50525gb3y_7mkr2t1880000gp/T
+Shell command: 
+        cp non-ha-10reps/results/alignments/aligned_pa.fasta non-ha-10reps/results/0/aligned_pa.fasta
+        
+[Thu Nov  5 10:45:33 2026]
+Finished jobid: 58 (Rule: ha_copy_align)
+25 of 62 steps (40%) done
+Select jobs to execute...
+Execute 1 jobs...
+[Thu Nov  5 10:45:34 2026]
+localrule nonha_copy_align:
+    input: non-ha-10reps/results/alignments/aligned_pb2.fasta
+    output: non-ha-10reps/results/1/aligned_pb2.fasta
+    jobid: 41
+    reason: Missing output files: non-ha-10reps/results/1/aligned_pb2.fasta; Input files updated by another job: non-ha-10reps/results/alignments/aligned_pb2.fasta
+    wildcards: rep=1, segment=pb2
+    resources: tmpdir=/var/folders/d_/56m2n50525gb3y_7mkr2t1880000gp/T
+Shell command: 
+        cp non-ha-10reps/results/alignments/aligned_pb2.fasta non-ha-10reps/results/1/aligned_pb2.fasta
+        
+Select jobs to execute...
+[Thu Nov  5 10:45:34 2026]
+Finished jobid: 22 (Rule: nonha_copy_align)
+26 of 62 steps (42%) done
+Execute 1 jobs...
+[Thu Nov  5 10:45:34 2026]
+Job 44: Building tree
+Reason: Missing output files: non-ha-10reps/results/1/tree-raw_na.nwk; Input files updated by another job: non-ha-10reps/results/1/aligned_na.fasta
+Shell command: 
+        augur tree             --alignment non-ha-10reps/results/1/aligned_na.fasta             --output non-ha-10reps/results/1/tree-raw_na.nwk             --method iqtree             --nthreads auto
+        
+[Thu Nov  5 10:45:34 2026]
+Finished jobid: 41 (Rule: nonha_copy_align)
+27 of 62 steps (44%) done
+Select jobs to execute...
+Execute 1 jobs...
+[Thu Nov  5 10:45:34 2026]
+Job 40: Building tree
+Reason: Missing output files: non-ha-10reps/results/1/tree-raw_pb2.nwk; Input files updated by another job: non-ha-10reps/results/1/aligned_pb2.fasta
+Shell command: 
+        augur tree             --alignment non-ha-10reps/results/1/aligned_pb2.fasta             --output non-ha-10reps/results/1/tree-raw_pb2.nwk             --method iqtree             --nthreads auto
+        
+Select jobs to execute...
+[Thu Nov  5 10:46:12 2026]
+Finished jobid: 48 (Rule: nonha_tree)
+28 of 62 steps (45%) done
+Execute 1 jobs...
+[Thu Nov  5 10:46:12 2026]
+Job 9: Building tree
+Reason: Missing output files: non-ha-10reps/results/0/tree-raw_pb2.nwk; Input files updated by another job: non-ha-10reps/results/0/aligned_pb2.fasta
+Shell command: 
+        augur tree             --alignment non-ha-10reps/results/0/aligned_pb2.fasta             --output non-ha-10reps/results/0/tree-raw_pb2.nwk             --method iqtree             --nthreads auto
+        
+Select jobs to execute...
+[Thu Nov  5 10:46:16 2026]
+Finished jobid: 15 (Rule: nonha_tree)
+29 of 62 steps (47%) done
+Execute 1 jobs...
+[Thu Nov  5 10:46:16 2026]
+Job 21: Building tree
+Reason: Missing output files: non-ha-10reps/results/0/tree-raw_pa.nwk; Input files updated by another job: non-ha-10reps/results/0/aligned_pa.fasta
+Shell command: 
+        augur tree             --alignment non-ha-10reps/results/0/aligned_pa.fasta             --output non-ha-10reps/results/0/tree-raw_pa.nwk             --method iqtree             --nthreads auto
+        
+Select jobs to execute...
+[Thu Nov  5 10:46:17 2026]
+Finished jobid: 40 (Rule: nonha_tree)
+30 of 62 steps (48%) done
+Execute 1 jobs...
+[Thu Nov  5 10:46:17 2026]
+Job 35: converting rna sequences in alignments to dna
+Reason: Missing output files: non-ha-10reps/results/alignments/aligned_ns_dna.fasta; Input files updated by another job: non-ha-10reps/results/alignments/aligned_pb1.fasta, non-ha-10reps/results/alignments/aligned_np.fasta, non-ha-10reps/results/alignments/aligned_ns.fasta, non-ha-10reps/results/alignments/aligned_mp.fasta, non-ha-10reps/results/alignments/aligned_na.fasta, non-ha-10reps/results/alignments/aligned_pa.fasta, non-ha-10reps/results/alignments/aligned_pb2.fasta; Set of input files has changed since last execution
+Shell command: 
+        python scripts/rna-to-dna.py             --alignments non-ha-10reps/results/alignments/aligned_pb2.fasta non-ha-10reps/results/alignments/aligned_pb1.fasta non-ha-10reps/results/alignments/aligned_pa.fasta non-ha-10reps/results/alignments/aligned_np.fasta non-ha-10reps/results/alignments/aligned_na.fasta non-ha-10reps/results/alignments/aligned_mp.fasta non-ha-10reps/results/alignments/aligned_ns.fasta             --dna_alignments non-ha-10reps/results/alignments/aligned_ns_dna.fasta
+        
+Select jobs to execute...
+[Thu Nov  5 10:46:17 2026]
+Finished jobid: 35 (Rule: nonha_dna)
+31 of 62 steps (50%) done
+Execute 1 jobs...
+[Thu Nov  5 10:46:17 2026]
+Job 7: generating dates.csv file from alignment
+Reason: Missing output files: treesort/dates.csv; Input files updated by another job: ha-100reps/results/alignments/aligned_ha.fasta
+Shell command: 
+		python scripts/generate_dates.py 			--alignment ha-100reps/results/alignments/aligned_ha.fasta 			--dates treesort/dates.csv
+		
+[Thu Nov  5 10:46:18 2026]
+Finished jobid: 7 (Rule: dates)
+32 of 62 steps (52%) done
+Select jobs to execute...
+Execute 1 jobs...
+[Thu Nov  5 10:46:18 2026]
+Job 36: converting rna sequences in alignments to dna
+Reason: Missing output files: non-ha-10reps/results/alignments/aligned_mp_dna.fasta; Input files updated by another job: non-ha-10reps/results/alignments/aligned_pb1.fasta, non-ha-10reps/results/alignments/aligned_np.fasta, non-ha-10reps/results/alignments/aligned_ns.fasta, non-ha-10reps/results/alignments/aligned_mp.fasta, non-ha-10reps/results/alignments/aligned_na.fasta, non-ha-10reps/results/alignments/aligned_pa.fasta, non-ha-10reps/results/alignments/aligned_pb2.fasta; Set of input files has changed since last execution
+Shell command: 
+        python scripts/rna-to-dna.py             --alignments non-ha-10reps/results/alignments/aligned_pb2.fasta non-ha-10reps/results/alignments/aligned_pb1.fasta non-ha-10reps/results/alignments/aligned_pa.fasta non-ha-10reps/results/alignments/aligned_np.fasta non-ha-10reps/results/alignments/aligned_na.fasta non-ha-10reps/results/alignments/aligned_mp.fasta non-ha-10reps/results/alignments/aligned_ns.fasta             --dna_alignments non-ha-10reps/results/alignments/aligned_mp_dna.fasta
+        
+Select jobs to execute...
+[Thu Nov  5 10:46:18 2026]
+Finished jobid: 36 (Rule: nonha_dna)
+33 of 62 steps (53%) done
+Execute 1 jobs...
+[Thu Nov  5 10:46:18 2026]
+Job 12: Building tree
+Reason: Missing output files: non-ha-10reps/results/0/tree-raw_pb1.nwk; Input files updated by another job: non-ha-10reps/results/0/aligned_pb1.fasta
+Shell command: 
+        augur tree             --alignment non-ha-10reps/results/0/aligned_pb1.fasta             --output non-ha-10reps/results/0/tree-raw_pb1.nwk             --method iqtree             --nthreads auto
+        
+Select jobs to execute...
+[Thu Nov  5 10:46:20 2026]
+Finished jobid: 44 (Rule: nonha_tree)
+34 of 62 steps (55%) done
+Execute 1 jobs...
+[Thu Nov  5 10:46:20 2026]
+Job 34: converting rna sequences in alignments to dna
+Reason: Missing output files: non-ha-10reps/results/alignments/aligned_pa_dna.fasta; Input files updated by another job: non-ha-10reps/results/alignments/aligned_pb1.fasta, non-ha-10reps/results/alignments/aligned_np.fasta, non-ha-10reps/results/alignments/aligned_ns.fasta, non-ha-10reps/results/alignments/aligned_mp.fasta, non-ha-10reps/results/alignments/aligned_na.fasta, non-ha-10reps/results/alignments/aligned_pa.fasta, non-ha-10reps/results/alignments/aligned_pb2.fasta; Set of input files has changed since last execution
+Shell command: 
+        python scripts/rna-to-dna.py             --alignments non-ha-10reps/results/alignments/aligned_pb2.fasta non-ha-10reps/results/alignments/aligned_pb1.fasta non-ha-10reps/results/alignments/aligned_pa.fasta non-ha-10reps/results/alignments/aligned_np.fasta non-ha-10reps/results/alignments/aligned_na.fasta non-ha-10reps/results/alignments/aligned_mp.fasta non-ha-10reps/results/alignments/aligned_ns.fasta             --dna_alignments non-ha-10reps/results/alignments/aligned_pa_dna.fasta
+        
+Select jobs to execute...
+[Thu Nov  5 10:46:20 2026]
+Finished jobid: 34 (Rule: nonha_dna)
+35 of 62 steps (56%) done
+Execute 1 jobs...
+[Thu Nov  5 10:46:20 2026]
+localrule ha_copy_align:
+    input: ha-100reps/results/alignments/aligned_ha.fasta
+    output: ha-100reps/results/0/aligned_ha.fasta
+    jobid: 5
+    reason: Missing output files: ha-100reps/results/0/aligned_ha.fasta; Input files updated by another job: ha-100reps/results/alignments/aligned_ha.fasta
+    wildcards: rep=0, segment=ha
+    resources: tmpdir=/var/folders/d_/56m2n50525gb3y_7mkr2t1880000gp/T
+Shell command: 
+        cp ha-100reps/results/alignments/aligned_ha.fasta ha-100reps/results/0/aligned_ha.fasta
+        
+Select jobs to execute...
+[Thu Nov  5 10:46:20 2026]
+Finished jobid: 5 (Rule: ha_copy_align)
+36 of 62 steps (58%) done
+Execute 1 jobs...
+[Thu Nov  5 10:46:20 2026]
+Job 4: Building tree
+Reason: Missing output files: ha-100reps/results/0/tree-raw_ha.nwk; Input files updated by another job: ha-100reps/results/0/aligned_ha.fasta
+Shell command: 
+        augur tree             --alignment ha-100reps/results/0/aligned_ha.fasta             --output ha-100reps/results/0/tree-raw_ha.nwk             --method iqtree             --nthreads auto
+        
+Select jobs to execute...
+[Thu Nov  5 10:46:21 2026]
+Finished jobid: 46 (Rule: nonha_tree)
+37 of 62 steps (60%) done
+Execute 1 jobs...
+[Thu Nov  5 10:46:21 2026]
+Job 32: converting rna sequences in alignments to dna
+Reason: Missing output files: non-ha-10reps/results/alignments/aligned_na_dna.fasta; Input files updated by another job: non-ha-10reps/results/alignments/aligned_pb1.fasta, non-ha-10reps/results/alignments/aligned_np.fasta, non-ha-10reps/results/alignments/aligned_ns.fasta, non-ha-10reps/results/alignments/aligned_mp.fasta, non-ha-10reps/results/alignments/aligned_na.fasta, non-ha-10reps/results/alignments/aligned_pa.fasta, non-ha-10reps/results/alignments/aligned_pb2.fasta; Set of input files has changed since last execution
+Shell command: 
+        python scripts/rna-to-dna.py             --alignments non-ha-10reps/results/alignments/aligned_pb2.fasta non-ha-10reps/results/alignments/aligned_pb1.fasta non-ha-10reps/results/alignments/aligned_pa.fasta non-ha-10reps/results/alignments/aligned_np.fasta non-ha-10reps/results/alignments/aligned_na.fasta non-ha-10reps/results/alignments/aligned_mp.fasta non-ha-10reps/results/alignments/aligned_ns.fasta             --dna_alignments non-ha-10reps/results/alignments/aligned_na_dna.fasta
+        
+Select jobs to execute...
+[Thu Nov  5 10:46:21 2026]
+Finished jobid: 32 (Rule: nonha_dna)
+38 of 62 steps (61%) done
+Execute 1 jobs...
+[Thu Nov  5 10:46:21 2026]
+Job 57: Building tree
+Reason: Missing output files: ha-100reps/results/1/tree-raw_ha.nwk; Input files updated by another job: ha-100reps/results/1/aligned_ha.fasta
+Shell command: 
+        augur tree             --alignment ha-100reps/results/1/aligned_ha.fasta             --output ha-100reps/results/1/tree-raw_ha.nwk             --method iqtree             --nthreads auto
+        
+Select jobs to execute...
+[Thu Nov  5 10:46:21 2026]
+Finished jobid: 18 (Rule: nonha_tree)
+39 of 62 steps (63%) done
+Execute 1 jobs...
+[Thu Nov  5 10:46:21 2026]
+Job 42: Building tree
+Reason: Missing output files: non-ha-10reps/results/1/tree-raw_pb1.nwk; Input files updated by another job: non-ha-10reps/results/1/aligned_pb1.fasta
+Shell command: 
+        augur tree             --alignment non-ha-10reps/results/1/aligned_pb1.fasta             --output non-ha-10reps/results/1/tree-raw_pb1.nwk             --method iqtree             --nthreads auto
+        
+[Thu Nov  5 10:46:26 2026]
+Finished jobid: 24 (Rule: nonha_tree)
+40 of 62 steps (65%) done
+[Thu Nov  5 10:46:27 2026]
+Finished jobid: 50 (Rule: nonha_tree)
+41 of 62 steps (66%) done
+[Thu Nov  5 10:46:28 2026]
+Finished jobid: 52 (Rule: nonha_tree)
+42 of 62 steps (68%) done
+[Thu Nov  5 10:46:28 2026]
+Finished jobid: 27 (Rule: nonha_tree)
+43 of 62 steps (69%) done
+[Thu Nov  5 10:46:43 2026]
+Finished jobid: 9 (Rule: nonha_tree)
+44 of 62 steps (71%) done
+[Thu Nov  5 10:46:46 2026]
+Finished jobid: 21 (Rule: nonha_tree)
+45 of 62 steps (73%) done
+[Thu Nov  5 10:46:47 2026]
+Finished jobid: 12 (Rule: nonha_tree)
+46 of 62 steps (74%) done
+[Thu Nov  5 10:46:56 2026]
+Finished jobid: 4 (Rule: ha_tree)
+47 of 62 steps (76%) done
+Select jobs to execute...
+Execute 1 jobs...
+[Thu Nov  5 10:46:56 2026]
+Job 3: inferring root of phylogeny
+Reason: Missing output files: ha-100reps/results/0/rerooted.newick; Input files updated by another job: ha-100reps/results/alignments/aligned_ha.fasta, ha-100reps/results/0/tree-raw_ha.nwk, treesort/dates.csv
+Shell command: 
+		treetime clock 			--tree ha-100reps/results/0/tree-raw_ha.nwk 			--dates treesort/dates.csv 			--aln ha-100reps/results/alignments/aligned_ha.fasta 			--outdir "ha-100reps/results/0"
+		
+[Thu Nov  5 10:46:58 2026]
+Finished jobid: 42 (Rule: nonha_tree)
+48 of 62 steps (77%) done
+[Thu Nov  5 10:46:58 2026]
+Finished jobid: 3 (Rule: root)
+49 of 62 steps (79%) done
+Select jobs to execute...
+Execute 1 jobs...
+[Thu Nov  5 10:46:58 2026]
+Job 2: generating descriptor file for treesort
+Reason: Missing output files: treesort/0/0/descriptor.csv; Input files updated by another job: non-ha-10reps/results/alignments/aligned_mp_dna.fasta, non-ha-10reps/results/0/tree-raw_na.nwk, non-ha-10reps/results/0/tree-raw_pb1.nwk, non-ha-10reps/results/alignments/aligned_np_dna.fasta, ha-100reps/results/alignments/aligned_ha_dna.fasta, non-ha-10reps/results/alignments/aligned_pa_dna.fasta, non-ha-10reps/results/alignments/aligned_ns_dna.fasta, non-ha-10reps/results/0/tree-raw_pa.nwk, non-ha-10reps/results/0/tree-raw_ns.nwk, non-ha-10reps/results/alignments/aligned_pb2_dna.fasta, ha-100reps/results/0/rerooted.newick, non-ha-10reps/results/alignments/aligned_pb1_dna.fasta, non-ha-10reps/results/0/tree-raw_pb2.nwk, non-ha-10reps/results/0/tree-raw_mp.nwk, non-ha-10reps/results/alignments/aligned_na_dna.fasta, non-ha-10reps/results/0/tree-raw_np.nwk
+Shell command: 
+        python scripts/generate_descriptor.py             --ha_tree ha-100reps/results/0/rerooted.newick             --ha_alignment ha-100reps/results/alignments/aligned_ha_dna.fasta             --nonha_trees non-ha-10reps/results/0/tree-raw_pb2.nwk non-ha-10reps/results/0/tree-raw_pb1.nwk non-ha-10reps/results/0/tree-raw_na.nwk non-ha-10reps/results/0/tree-raw_np.nwk non-ha-10reps/results/0/tree-raw_pa.nwk non-ha-10reps/results/0/tree-raw_ns.nwk non-ha-10reps/results/0/tree-raw_mp.nwk             --nonha_alignments non-ha-10reps/results/alignments/aligned_pb2_dna.fasta non-ha-10reps/results/alignments/aligned_pb1_dna.fasta non-ha-10reps/results/alignments/aligned_na_dna.fasta non-ha-10reps/results/alignments/aligned_np_dna.fasta non-ha-10reps/results/alignments/aligned_pa_dna.fasta non-ha-10reps/results/alignments/aligned_ns_dna.fasta non-ha-10reps/results/alignments/aligned_mp_dna.fasta             --segments pb2 pb1 na np pa ns mp             --descriptor treesort/0/0/descriptor.csv
+        
+[Thu Nov  5 10:46:58 2026]
+Finished jobid: 2 (Rule: generate_initial_descriptor)
+50 of 62 steps (81%) done
+Select jobs to execute...
+Execute 1 jobs...
+[Thu Nov  5 10:46:58 2026]
+Job 1: performing first treesort run for each ha tree
+Reason: Missing output files: treesort/0/0/ha_treesort.tre; Input files updated by another job: treesort/0/0/descriptor.csv
+Shell command: 
+        cd treesort/0/0
+        treesort -i descriptor.csv -o ha_treesort.tre
+        find . -type f -name descriptor.concatenated.fasta -delete
+        
+[Thu Nov  5 10:46:59 2026]
+Finished jobid: 57 (Rule: ha_tree)
+51 of 62 steps (82%) done
+Select jobs to execute...
+Execute 1 jobs...
+[Thu Nov  5 10:46:59 2026]
+Job 56: inferring root of phylogeny
+Reason: Missing output files: ha-100reps/results/1/rerooted.newick; Input files updated by another job: ha-100reps/results/alignments/aligned_ha.fasta, ha-100reps/results/1/tree-raw_ha.nwk, treesort/dates.csv
+Shell command: 
+		treetime clock 			--tree ha-100reps/results/1/tree-raw_ha.nwk 			--dates treesort/dates.csv 			--aln ha-100reps/results/alignments/aligned_ha.fasta 			--outdir "ha-100reps/results/1"
+		
+[Thu Nov  5 10:47:01 2026]
+Finished jobid: 56 (Rule: root)
+52 of 62 steps (84%) done
+Select jobs to execute...
+Execute 1 jobs...
+[Thu Nov  5 10:47:01 2026]
+Job 55: generating descriptor file for treesort
+Reason: Missing output files: treesort/1/0/descriptor.csv; Input files updated by another job: non-ha-10reps/results/alignments/aligned_mp_dna.fasta, ha-100reps/results/1/rerooted.newick, non-ha-10reps/results/0/tree-raw_na.nwk, non-ha-10reps/results/0/tree-raw_pb1.nwk, non-ha-10reps/results/alignments/aligned_np_dna.fasta, ha-100reps/results/alignments/aligned_ha_dna.fasta, non-ha-10reps/results/alignments/aligned_pa_dna.fasta, non-ha-10reps/results/alignments/aligned_ns_dna.fasta, non-ha-10reps/results/0/tree-raw_pa.nwk, non-ha-10reps/results/0/tree-raw_ns.nwk, non-ha-10reps/results/alignments/aligned_pb2_dna.fasta, non-ha-10reps/results/0/tree-raw_pb2.nwk, non-ha-10reps/results/alignments/aligned_pb1_dna.fasta, non-ha-10reps/results/0/tree-raw_mp.nwk, non-ha-10reps/results/alignments/aligned_na_dna.fasta, non-ha-10reps/results/0/tree-raw_np.nwk
+Shell command: 
+        python scripts/generate_descriptor.py             --ha_tree ha-100reps/results/1/rerooted.newick             --ha_alignment ha-100reps/results/alignments/aligned_ha_dna.fasta             --nonha_trees non-ha-10reps/results/0/tree-raw_pb2.nwk non-ha-10reps/results/0/tree-raw_pb1.nwk non-ha-10reps/results/0/tree-raw_na.nwk non-ha-10reps/results/0/tree-raw_np.nwk non-ha-10reps/results/0/tree-raw_pa.nwk non-ha-10reps/results/0/tree-raw_ns.nwk non-ha-10reps/results/0/tree-raw_mp.nwk             --nonha_alignments non-ha-10reps/results/alignments/aligned_pb2_dna.fasta non-ha-10reps/results/alignments/aligned_pb1_dna.fasta non-ha-10reps/results/alignments/aligned_na_dna.fasta non-ha-10reps/results/alignments/aligned_np_dna.fasta non-ha-10reps/results/alignments/aligned_pa_dna.fasta non-ha-10reps/results/alignments/aligned_ns_dna.fasta non-ha-10reps/results/alignments/aligned_mp_dna.fasta             --segments pb2 pb1 na np pa ns mp             --descriptor treesort/1/0/descriptor.csv
+        
+[Thu Nov  5 10:47:01 2026]
+Finished jobid: 55 (Rule: generate_initial_descriptor)
+53 of 62 steps (85%) done
+Select jobs to execute...
+Execute 1 jobs...
+[Thu Nov  5 10:47:01 2026]
+Job 54: performing first treesort run for each ha tree
+Reason: Missing output files: treesort/1/0/ha_treesort.tre; Input files updated by another job: treesort/1/0/descriptor.csv
+Shell command: 
+        cd treesort/1/0
+        treesort -i descriptor.csv -o ha_treesort.tre
+        find . -type f -name descriptor.concatenated.fasta -delete
+        
+[Thu Nov  5 10:48:23 2026]
+Finished jobid: 1 (Rule: initial_treesort)
+54 of 62 steps (87%) done
+Select jobs to execute...
+Execute 1 jobs...
+[Thu Nov  5 10:48:23 2026]
+Job 39: converting bifurcated backbone trees from nexus to newick format
+Reason: Missing output files: treesort/0/0/ha_treesort.nwk; Input files updated by another job: treesort/0/0/ha_treesort.tre
+Shell command: 
+        python scripts/to_nwk.py             --tree treesort/0/0/ha_treesort.tre             --output treesort/0/0/ha_treesort.nwk
+        
+[Thu Nov  5 10:48:23 2026]
+Finished jobid: 39 (Rule: convert_tree)
+55 of 62 steps (89%) done
+Select jobs to execute...
+Execute 1 jobs...
+[Thu Nov  5 10:48:24 2026]
+Job 38: generating descriptor file for treesort
+Reason: Missing output files: treesort/0/1/descriptor.csv; Input files updated by another job: non-ha-10reps/results/1/tree-raw_ns.nwk, non-ha-10reps/results/alignments/aligned_mp_dna.fasta, non-ha-10reps/results/1/tree-raw_pa.nwk, non-ha-10reps/results/alignments/aligned_np_dna.fasta, treesort/0/0/ha_treesort.nwk, ha-100reps/results/alignments/aligned_ha_dna.fasta, non-ha-10reps/results/alignments/aligned_pa_dna.fasta, non-ha-10reps/results/alignments/aligned_ns_dna.fasta, non-ha-10reps/results/1/tree-raw_pb2.nwk, non-ha-10reps/results/1/tree-raw_pb1.nwk, non-ha-10reps/results/1/tree-raw_np.nwk, non-ha-10reps/results/alignments/aligned_pb2_dna.fasta, non-ha-10reps/results/1/tree-raw_na.nwk, non-ha-10reps/results/alignments/aligned_pb1_dna.fasta, non-ha-10reps/results/1/tree-raw_mp.nwk, non-ha-10reps/results/alignments/aligned_na_dna.fasta
+Shell command: 
+        python scripts/generate_descriptor.py             --ha_tree treesort/0/0/ha_treesort.nwk             --ha_alignment ha-100reps/results/alignments/aligned_ha_dna.fasta             --nonha_trees non-ha-10reps/results/1/tree-raw_pb2.nwk non-ha-10reps/results/1/tree-raw_pb1.nwk non-ha-10reps/results/1/tree-raw_na.nwk non-ha-10reps/results/1/tree-raw_np.nwk non-ha-10reps/results/1/tree-raw_pa.nwk non-ha-10reps/results/1/tree-raw_ns.nwk non-ha-10reps/results/1/tree-raw_mp.nwk             --nonha_alignments non-ha-10reps/results/alignments/aligned_pb2_dna.fasta non-ha-10reps/results/alignments/aligned_pb1_dna.fasta non-ha-10reps/results/alignments/aligned_na_dna.fasta non-ha-10reps/results/alignments/aligned_np_dna.fasta non-ha-10reps/results/alignments/aligned_pa_dna.fasta non-ha-10reps/results/alignments/aligned_ns_dna.fasta non-ha-10reps/results/alignments/aligned_mp_dna.fasta             --segments pb2 pb1 na np pa ns mp             --descriptor treesort/0/1/descriptor.csv
+        
+[Thu Nov  5 10:48:24 2026]
+Finished jobid: 38 (Rule: generate_descriptor)
+56 of 62 steps (90%) done
+Select jobs to execute...
+Execute 1 jobs...
+[Thu Nov  5 10:48:24 2026]
+Job 37: performing replicate treesort runs for each ha tree
+Reason: Missing output files: treesort/0/1/ha_treesort.tre; Input files updated by another job: treesort/0/1/descriptor.csv
+Shell command: 
+        cd treesort/0/1
+        treesort -i descriptor.csv -o ha_treesort.tre --no-collapse
+        find . -type f -name descriptor.concatenated.fasta -delete
+        
+[Thu Nov  5 10:48:26 2026]
+Finished jobid: 54 (Rule: initial_treesort)
+57 of 62 steps (92%) done
+Select jobs to execute...
+Execute 1 jobs...
+[Thu Nov  5 10:48:26 2026]
+Job 61: converting bifurcated backbone trees from nexus to newick format
+Reason: Missing output files: treesort/1/0/ha_treesort.nwk; Input files updated by another job: treesort/1/0/ha_treesort.tre
+Shell command: 
+        python scripts/to_nwk.py             --tree treesort/1/0/ha_treesort.tre             --output treesort/1/0/ha_treesort.nwk
+        
+[Thu Nov  5 10:48:26 2026]
+Finished jobid: 61 (Rule: convert_tree)
+58 of 62 steps (94%) done
+Select jobs to execute...
+Execute 1 jobs...
+[Thu Nov  5 10:48:26 2026]
+Job 60: generating descriptor file for treesort
+Reason: Missing output files: treesort/1/1/descriptor.csv; Input files updated by another job: non-ha-10reps/results/1/tree-raw_ns.nwk, non-ha-10reps/results/alignments/aligned_mp_dna.fasta, non-ha-10reps/results/alignments/aligned_np_dna.fasta, non-ha-10reps/results/1/tree-raw_pb1.nwk, ha-100reps/results/alignments/aligned_ha_dna.fasta, non-ha-10reps/results/alignments/aligned_pa_dna.fasta, non-ha-10reps/results/alignments/aligned_ns_dna.fasta, non-ha-10reps/results/1/tree-raw_pb2.nwk, non-ha-10reps/results/1/tree-raw_np.nwk, non-ha-10reps/results/1/tree-raw_pa.nwk, non-ha-10reps/results/alignments/aligned_pb2_dna.fasta, non-ha-10reps/results/1/tree-raw_na.nwk, non-ha-10reps/results/alignments/aligned_pb1_dna.fasta, non-ha-10reps/results/1/tree-raw_mp.nwk, treesort/1/0/ha_treesort.nwk, non-ha-10reps/results/alignments/aligned_na_dna.fasta
+Shell command: 
+        python scripts/generate_descriptor.py             --ha_tree treesort/1/0/ha_treesort.nwk             --ha_alignment ha-100reps/results/alignments/aligned_ha_dna.fasta             --nonha_trees non-ha-10reps/results/1/tree-raw_pb2.nwk non-ha-10reps/results/1/tree-raw_pb1.nwk non-ha-10reps/results/1/tree-raw_na.nwk non-ha-10reps/results/1/tree-raw_np.nwk non-ha-10reps/results/1/tree-raw_pa.nwk non-ha-10reps/results/1/tree-raw_ns.nwk non-ha-10reps/results/1/tree-raw_mp.nwk             --nonha_alignments non-ha-10reps/results/alignments/aligned_pb2_dna.fasta non-ha-10reps/results/alignments/aligned_pb1_dna.fasta non-ha-10reps/results/alignments/aligned_na_dna.fasta non-ha-10reps/results/alignments/aligned_np_dna.fasta non-ha-10reps/results/alignments/aligned_pa_dna.fasta non-ha-10reps/results/alignments/aligned_ns_dna.fasta non-ha-10reps/results/alignments/aligned_mp_dna.fasta             --segments pb2 pb1 na np pa ns mp             --descriptor treesort/1/1/descriptor.csv
+        
+[Thu Nov  5 10:48:26 2026]
+Finished jobid: 60 (Rule: generate_descriptor)
+59 of 62 steps (95%) done
+Select jobs to execute...
+Execute 1 jobs...
+[Thu Nov  5 10:48:26 2026]
+Job 59: performing replicate treesort runs for each ha tree
+Reason: Missing output files: treesort/1/1/ha_treesort.tre; Input files updated by another job: treesort/1/1/descriptor.csv
+Shell command: 
+        cd treesort/1/1
+        treesort -i descriptor.csv -o ha_treesort.tre --no-collapse
+        find . -type f -name descriptor.concatenated.fasta -delete
+        
+[Thu Nov  5 10:49:48 2026]
+Finished jobid: 37 (Rule: treesort)
+60 of 62 steps (97%) done
+[Thu Nov  5 10:49:50 2026]
+Finished jobid: 59 (Rule: treesort)
+61 of 62 steps (98%) done
+Select jobs to execute...
+Execute 1 jobs...
+[Thu Nov  5 10:49:50 2026]
+localrule all:
+    input: treesort/0/0/ha_treesort.tre, treesort/0/1/ha_treesort.tre, treesort/1/0/ha_treesort.tre, treesort/1/1/ha_treesort.tre
+    jobid: 0
+    reason: Input files updated by another job: treesort/1/1/ha_treesort.tre, treesort/0/1/ha_treesort.tre, treesort/0/0/ha_treesort.tre, treesort/1/0/ha_treesort.tre
+    resources: tmpdir=/var/folders/d_/56m2n50525gb3y_7mkr2t1880000gp/T
+Shell command: None
+[Thu Nov  5 10:49:50 2026]
+Finished jobid: 0 (Rule: all)
+62 of 62 steps (100%) done
+Complete log(s): /Users/jort/coding/h5nx-reassortment-and-risk-assessment/2321-replicates/20261104/20261104-2321-tinyTest/.snakemake/log/2026-11-05T104523.011791.snakemake.log

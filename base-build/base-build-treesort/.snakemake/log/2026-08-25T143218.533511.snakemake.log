@@ -1,0 +1,290 @@
+Assuming unrestricted shared filesystem usage.
+None
+host: BGS-STU22-136
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 8
+Rules claiming more threads will be scaled down.
+Job stats:
+job                            count
+---------------------------  -------
+all                                1
+convert_tree                       2
+dates                              1
+generate_descriptor                2
+generate_initial_descriptor        2
+ha_align                           2
+ha_dna                             2
+ha_tree                            2
+initial_treesort                   2
+nonha_align                       14
+nonha_dna                          1
+nonha_tree                        14
+root                               2
+treesort                           2
+total                             49
+
+Select jobs to execute...
+Execute 8 jobs...
+[Tue Aug 25 14:32:18 2026]
+Job 22: 
+        Aligning sequences to config/reference_np.gb
+          - filling gaps with N
+        
+Reason: Missing output files: non-ha-10reps/results/0/aligned_np.fasta
+[Tue Aug 25 14:32:18 2026]
+Job 8: 
+        Aligning sequences to config/reference_ha.gb
+          - filling gaps with N
+        
+Reason: Missing output files: ha-100reps/results/1/aligned_ha.fasta
+[Tue Aug 25 14:32:18 2026]
+Job 20: 
+        Aligning sequences to config/reference_pa.gb
+          - filling gaps with N
+        
+Reason: Missing output files: non-ha-10reps/results/1/aligned_pa.fasta
+[Tue Aug 25 14:32:18 2026]
+Job 18: 
+        Aligning sequences to config/reference_pa.gb
+          - filling gaps with N
+        
+Reason: Missing output files: non-ha-10reps/results/0/aligned_pa.fasta
+[Tue Aug 25 14:32:18 2026]
+Job 30: 
+        Aligning sequences to config/reference_mp.gb
+          - filling gaps with N
+        
+Reason: Missing output files: non-ha-10reps/results/0/aligned_mp.fasta
+[Tue Aug 25 14:32:18 2026]
+Job 16: 
+        Aligning sequences to config/reference_pb1.gb
+          - filling gaps with N
+        
+Reason: Missing output files: non-ha-10reps/results/1/aligned_pb1.fasta
+[Tue Aug 25 14:32:18 2026]
+Job 14: 
+        Aligning sequences to config/reference_pb1.gb
+          - filling gaps with N
+        
+Reason: Missing output files: non-ha-10reps/results/0/aligned_pb1.fasta
+[Tue Aug 25 14:32:18 2026]
+Job 24: 
+        Aligning sequences to config/reference_np.gb
+          - filling gaps with N
+        
+Reason: Missing output files: non-ha-10reps/results/1/aligned_np.fasta
+Select jobs to execute...
+[Tue Aug 25 14:32:21 2026]
+Finished jobid: 22 (Rule: nonha_align)
+1 of 49 steps (2%) done
+Execute 1 jobs...
+[Tue Aug 25 14:32:21 2026]
+Job 26: 
+        Aligning sequences to config/reference_na.gb
+          - filling gaps with N
+        
+Reason: Missing output files: non-ha-10reps/results/0/aligned_na.fasta
+[Tue Aug 25 14:32:21 2026]
+Finished jobid: 8 (Rule: ha_align)
+2 of 49 steps (4%) done
+[Tue Aug 25 14:32:21 2026]
+Finished jobid: 30 (Rule: nonha_align)
+3 of 49 steps (6%) done
+[Tue Aug 25 14:32:21 2026]
+Finished jobid: 18 (Rule: nonha_align)
+4 of 49 steps (8%) done
+[Tue Aug 25 14:32:21 2026]
+Finished jobid: 24 (Rule: nonha_align)
+5 of 49 steps (10%) done
+Select jobs to execute...
+Execute 4 jobs...
+[Tue Aug 25 14:32:21 2026]
+Job 29: Building tree
+Reason: Missing output files: non-ha-10reps/results/0/tree-raw_mp.nwk; Input files updated by another job: non-ha-10reps/results/0/aligned_mp.fasta; Set of input files has changed since last execution; Code has changed since last execution; Params have changed since last execution: Union of exclusive params before and now across all output: before: <nothing exclusive> now: 'iqtree' 
+[Tue Aug 25 14:32:21 2026]
+Job 23: Building tree
+Reason: Missing output files: non-ha-10reps/results/1/tree-raw_np.nwk; Input files updated by another job: non-ha-10reps/results/1/aligned_np.fasta
+[Tue Aug 25 14:32:21 2026]
+Job 44: Building tree
+Reason: Missing output files: ha-100reps/results/1/tree-raw_ha.nwk; Input files updated by another job: ha-100reps/results/1/aligned_ha.fasta
+[Tue Aug 25 14:32:21 2026]
+Job 36: 
+        Aligning sequences to config/reference_ns.gb
+          - filling gaps with N
+        
+Reason: Missing output files: non-ha-10reps/results/1/aligned_ns.fasta
+[Tue Aug 25 14:32:21 2026]
+Finished jobid: 16 (Rule: nonha_align)
+6 of 49 steps (12%) done
+[Tue Aug 25 14:32:21 2026]
+Finished jobid: 20 (Rule: nonha_align)
+7 of 49 steps (14%) done
+Select jobs to execute...
+Execute 2 jobs...
+[Tue Aug 25 14:32:21 2026]
+Job 32: 
+        Aligning sequences to config/reference_mp.gb
+          - filling gaps with N
+        
+Reason: Missing output files: non-ha-10reps/results/1/aligned_mp.fasta
+[Tue Aug 25 14:32:21 2026]
+Job 21: Building tree
+Reason: Missing output files: non-ha-10reps/results/0/tree-raw_np.nwk; Input files updated by another job: non-ha-10reps/results/0/aligned_np.fasta; Set of input files has changed since last execution; Code has changed since last execution; Params have changed since last execution: Union of exclusive params before and now across all output: before: <nothing exclusive> now: 'iqtree' 
+[Tue Aug 25 14:32:21 2026]
+Finished jobid: 14 (Rule: nonha_align)
+8 of 49 steps (16%) done
+Select jobs to execute...
+Execute 1 jobs...
+[Tue Aug 25 14:32:21 2026]
+Job 15: Building tree
+Reason: Missing output files: non-ha-10reps/results/1/tree-raw_pb1.nwk; Input files updated by another job: non-ha-10reps/results/1/aligned_pb1.fasta
+Select jobs to execute...
+[Tue Aug 25 14:32:24 2026]
+Finished jobid: 36 (Rule: nonha_align)
+9 of 49 steps (18%) done
+Execute 1 jobs...
+[Tue Aug 25 14:32:24 2026]
+Job 13: Building tree
+Reason: Missing output files: non-ha-10reps/results/0/tree-raw_pb1.nwk; Input files updated by another job: non-ha-10reps/results/0/aligned_pb1.fasta
+Select jobs to execute...
+[Tue Aug 25 14:32:24 2026]
+Finished jobid: 32 (Rule: nonha_align)
+10 of 49 steps (20%) done
+Execute 1 jobs...
+[Tue Aug 25 14:32:24 2026]
+Job 31: Building tree
+Reason: Missing output files: non-ha-10reps/results/1/tree-raw_mp.nwk; Input files updated by another job: non-ha-10reps/results/1/aligned_mp.fasta; Set of input files has changed since last execution; Code has changed since last execution; Params have changed since last execution: Union of exclusive params before and now across all output: before: <nothing exclusive> now: 'iqtree' 
+[Tue Aug 25 14:32:24 2026]
+Finished jobid: 26 (Rule: nonha_align)
+11 of 49 steps (22%) done
+Select jobs to execute...
+Execute 1 jobs...
+[Tue Aug 25 14:32:24 2026]
+Job 17: Building tree
+Reason: Missing output files: non-ha-10reps/results/0/tree-raw_pa.nwk; Input files updated by another job: non-ha-10reps/results/0/aligned_pa.fasta
+Select jobs to execute...
+Terminating processes on user request, this might take some time.
+RuleException:
+CalledProcessError in file "/Users/jort/coding/h5nx-reassortment-and-risk-assessment/treesort-sameStrains-replicates/20260302-newReplicates/for-parcc/base-build-mini/Snakefile-nonha", line 111:
+Command 'set -euo pipefail;  
+        augur tree             --alignment non-ha-10reps/results/1/aligned_mp.fasta             --output non-ha-10reps/results/1/tree-raw_mp.nwk             --method iqtree             --nthreads auto' died with <Signals.SIGINT: 2>.
+[Tue Aug 25 14:32:38 2026]
+Error in rule nonha_tree:
+    message: None
+    jobid: 31
+    input: non-ha-10reps/results/1/aligned_mp.fasta
+    output: non-ha-10reps/results/1/tree-raw_mp.nwk
+    shell:
+        
+        augur tree             --alignment non-ha-10reps/results/1/aligned_mp.fasta             --output non-ha-10reps/results/1/tree-raw_mp.nwk             --method iqtree             --nthreads auto
+        
+        (command exited with non-zero exit code)
+RuleException:
+CalledProcessError in file "/Users/jort/coding/h5nx-reassortment-and-risk-assessment/treesort-sameStrains-replicates/20260302-newReplicates/for-parcc/base-build-mini/Snakefile-nonha", line 111:
+Command 'set -euo pipefail;  
+        augur tree             --alignment non-ha-10reps/results/1/aligned_np.fasta             --output non-ha-10reps/results/1/tree-raw_np.nwk             --method iqtree             --nthreads auto' died with <Signals.SIGINT: 2>.
+[Tue Aug 25 14:32:38 2026]
+Error in rule nonha_tree:
+    message: None
+    jobid: 23
+    input: non-ha-10reps/results/1/aligned_np.fasta
+    output: non-ha-10reps/results/1/tree-raw_np.nwk
+    shell:
+        
+        augur tree             --alignment non-ha-10reps/results/1/aligned_np.fasta             --output non-ha-10reps/results/1/tree-raw_np.nwk             --method iqtree             --nthreads auto
+        
+        (command exited with non-zero exit code)
+RuleException:
+CalledProcessError in file "/Users/jort/coding/h5nx-reassortment-and-risk-assessment/treesort-sameStrains-replicates/20260302-newReplicates/for-parcc/base-build-mini/Snakefile-nonha", line 111:
+Command 'set -euo pipefail;  
+        augur tree             --alignment non-ha-10reps/results/0/aligned_pb1.fasta             --output non-ha-10reps/results/0/tree-raw_pb1.nwk             --method iqtree             --nthreads auto' died with <Signals.SIGINT: 2>.
+[Tue Aug 25 14:32:38 2026]
+Error in rule nonha_tree:
+    message: None
+    jobid: 13
+    input: non-ha-10reps/results/0/aligned_pb1.fasta
+    output: non-ha-10reps/results/0/tree-raw_pb1.nwk
+    shell:
+        
+        augur tree             --alignment non-ha-10reps/results/0/aligned_pb1.fasta             --output non-ha-10reps/results/0/tree-raw_pb1.nwk             --method iqtree             --nthreads auto
+        
+        (command exited with non-zero exit code)
+RuleException:
+CalledProcessError in file "/Users/jort/coding/h5nx-reassortment-and-risk-assessment/treesort-sameStrains-replicates/20260302-newReplicates/for-parcc/base-build-mini/Snakefile-nonha", line 111:
+Command 'set -euo pipefail;  
+        augur tree             --alignment non-ha-10reps/results/0/aligned_pa.fasta             --output non-ha-10reps/results/0/tree-raw_pa.nwk             --method iqtree             --nthreads auto' died with <Signals.SIGINT: 2>.
+[Tue Aug 25 14:32:38 2026]
+Error in rule nonha_tree:
+    message: None
+    jobid: 17
+    input: non-ha-10reps/results/0/aligned_pa.fasta
+    output: non-ha-10reps/results/0/tree-raw_pa.nwk
+    shell:
+        
+        augur tree             --alignment non-ha-10reps/results/0/aligned_pa.fasta             --output non-ha-10reps/results/0/tree-raw_pa.nwk             --method iqtree             --nthreads auto
+        
+        (command exited with non-zero exit code)
+RuleException:
+CalledProcessError in file "/Users/jort/coding/h5nx-reassortment-and-risk-assessment/treesort-sameStrains-replicates/20260302-newReplicates/for-parcc/base-build-mini/Snakefile-nonha", line 111:
+Command 'set -euo pipefail;  
+        augur tree             --alignment non-ha-10reps/results/0/aligned_mp.fasta             --output non-ha-10reps/results/0/tree-raw_mp.nwk             --method iqtree             --nthreads auto' died with <Signals.SIGINT: 2>.
+[Tue Aug 25 14:32:38 2026]
+Error in rule nonha_tree:
+    message: None
+    jobid: 29
+    input: non-ha-10reps/results/0/aligned_mp.fasta
+    output: non-ha-10reps/results/0/tree-raw_mp.nwk
+    shell:
+        
+        augur tree             --alignment non-ha-10reps/results/0/aligned_mp.fasta             --output non-ha-10reps/results/0/tree-raw_mp.nwk             --method iqtree             --nthreads auto
+        
+        (command exited with non-zero exit code)
+RuleException:
+CalledProcessError in file "/Users/jort/coding/h5nx-reassortment-and-risk-assessment/treesort-sameStrains-replicates/20260302-newReplicates/for-parcc/base-build-mini/Snakefile-nonha", line 111:
+Command 'set -euo pipefail;  
+        augur tree             --alignment non-ha-10reps/results/1/aligned_pb1.fasta             --output non-ha-10reps/results/1/tree-raw_pb1.nwk             --method iqtree             --nthreads auto' died with <Signals.SIGINT: 2>.
+[Tue Aug 25 14:32:38 2026]
+Error in rule nonha_tree:
+    message: None
+    jobid: 15
+    input: non-ha-10reps/results/1/aligned_pb1.fasta
+    output: non-ha-10reps/results/1/tree-raw_pb1.nwk
+    shell:
+        
+        augur tree             --alignment non-ha-10reps/results/1/aligned_pb1.fasta             --output non-ha-10reps/results/1/tree-raw_pb1.nwk             --method iqtree             --nthreads auto
+        
+        (command exited with non-zero exit code)
+RuleException:
+CalledProcessError in file "/Users/jort/coding/h5nx-reassortment-and-risk-assessment/treesort-sameStrains-replicates/20260302-newReplicates/for-parcc/base-build-mini/Snakefile-ha", line 111:
+Command 'set -euo pipefail;  
+        augur tree             --alignment ha-100reps/results/1/aligned_ha.fasta             --output ha-100reps/results/1/tree-raw_ha.nwk             --method iqtree             --nthreads auto' died with <Signals.SIGINT: 2>.
+[Tue Aug 25 14:32:38 2026]
+Error in rule ha_tree:
+    message: None
+    jobid: 44
+    input: ha-100reps/results/1/aligned_ha.fasta
+    output: ha-100reps/results/1/tree-raw_ha.nwk
+    shell:
+        
+        augur tree             --alignment ha-100reps/results/1/aligned_ha.fasta             --output ha-100reps/results/1/tree-raw_ha.nwk             --method iqtree             --nthreads auto
+        
+        (command exited with non-zero exit code)
+RuleException:
+CalledProcessError in file "/Users/jort/coding/h5nx-reassortment-and-risk-assessment/treesort-sameStrains-replicates/20260302-newReplicates/for-parcc/base-build-mini/Snakefile-nonha", line 111:
+Command 'set -euo pipefail;  
+        augur tree             --alignment non-ha-10reps/results/0/aligned_np.fasta             --output non-ha-10reps/results/0/tree-raw_np.nwk             --method iqtree             --nthreads auto' died with <Signals.SIGINT: 2>.
+[Tue Aug 25 14:32:38 2026]
+Error in rule nonha_tree:
+    message: None
+    jobid: 21
+    input: non-ha-10reps/results/0/aligned_np.fasta
+    output: non-ha-10reps/results/0/tree-raw_np.nwk
+    shell:
+        
+        augur tree             --alignment non-ha-10reps/results/0/aligned_np.fasta             --output non-ha-10reps/results/0/tree-raw_np.nwk             --method iqtree             --nthreads auto
+        
+        (command exited with non-zero exit code)
+Complete log(s): /Users/jort/coding/h5nx-reassortment-and-risk-assessment/treesort-sameStrains-replicates/20260302-newReplicates/for-parcc/base-build-mini/.snakemake/log/2026-08-25T143218.533511.snakemake.log
+WorkflowError:
+At least one job did not complete successfully.

@@ -1,0 +1,43 @@
+Assuming unrestricted shared filesystem usage.
+None
+host: BGS-STU22-136
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 8
+Rules claiming more threads will be scaled down.
+Job stats:
+job                    count
+-------------------  -------
+all                        1
+generate_descriptor        1
+treesort                   1
+total                      3
+
+Select jobs to execute...
+Execute 1 jobs...
+[Tue Aug 25 14:42:38 2026]
+Job 47: generating descriptor file for treesort
+Reason: Missing output files: treesort/1/1/descriptor.csv
+[Tue Aug 25 14:42:38 2026]
+Finished jobid: 47 (Rule: generate_descriptor)
+1 of 3 steps (33%) done
+Select jobs to execute...
+Execute 1 jobs...
+[Tue Aug 25 14:42:38 2026]
+Job 46: performing replicate treesort runs for each ha tree
+Reason: Missing output files: treesort/1/1/ha_treesort.tre; Input files updated by another job: treesort/1/1/descriptor.csv
+[Tue Aug 25 14:42:43 2026]
+Finished jobid: 46 (Rule: treesort)
+2 of 3 steps (67%) done
+Select jobs to execute...
+Execute 1 jobs...
+[Tue Aug 25 14:42:43 2026]
+localrule all:
+    input: treesort/0/0/ha_treesort.tre, treesort/0/1/ha_treesort.tre, treesort/1/0/ha_treesort.tre, treesort/1/1/ha_treesort.tre, ha-100reps/results/0/tree-raw_ha.nwk, ha-100reps/results/1/tree-raw_ha.nwk, ha-100reps/results/0/aligned_ha.fasta, ha-100reps/results/1/aligned_ha.fasta, non-ha-10reps/results/0/tree-raw_pb2.nwk, non-ha-10reps/results/0/tree-raw_pb1.nwk, non-ha-10reps/results/0/tree-raw_na.nwk, non-ha-10reps/results/0/tree-raw_np.nwk, non-ha-10reps/results/0/tree-raw_pa.nwk, non-ha-10reps/results/0/tree-raw_ns.nwk, non-ha-10reps/results/0/tree-raw_mp.nwk, non-ha-10reps/results/1/tree-raw_pb2.nwk, non-ha-10reps/results/1/tree-raw_pb1.nwk, non-ha-10reps/results/1/tree-raw_na.nwk, non-ha-10reps/results/1/tree-raw_np.nwk, non-ha-10reps/results/1/tree-raw_pa.nwk, non-ha-10reps/results/1/tree-raw_ns.nwk, non-ha-10reps/results/1/tree-raw_mp.nwk, non-ha-10reps/results/0/aligned_pb2.fasta, non-ha-10reps/results/0/aligned_pb1.fasta, non-ha-10reps/results/0/aligned_na.fasta, non-ha-10reps/results/0/aligned_np.fasta, non-ha-10reps/results/0/aligned_pa.fasta, non-ha-10reps/results/0/aligned_ns.fasta, non-ha-10reps/results/0/aligned_mp.fasta, non-ha-10reps/results/1/aligned_pb2.fasta, non-ha-10reps/results/1/aligned_pb1.fasta, non-ha-10reps/results/1/aligned_na.fasta, non-ha-10reps/results/1/aligned_np.fasta, non-ha-10reps/results/1/aligned_pa.fasta, non-ha-10reps/results/1/aligned_ns.fasta, non-ha-10reps/results/1/aligned_mp.fasta, treesort/0/0/descriptor.csv, treesort/1/0/descriptor.csv
+    jobid: 0
+    reason: Input files updated by another job: treesort/1/1/ha_treesort.tre
+    resources: tmpdir=/var/folders/d_/56m2n50525gb3y_7mkr2t1880000gp/T
+[Tue Aug 25 14:42:43 2026]
+Finished jobid: 0 (Rule: all)
+3 of 3 steps (100%) done
+Complete log(s): /Users/jort/coding/h5nx-reassortment-and-risk-assessment/treesort-sameStrains-replicates/20260302-newReplicates/for-parcc/base-build-mini/.snakemake/log/2026-08-25T144238.331442.snakemake.log

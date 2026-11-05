@@ -1,0 +1,63 @@
+Assuming unrestricted shared filesystem usage.
+host: BGS-STU22-136
+Building DAG of jobs...
+Using shell: /Users/jort/.nextstrain/runtimes/conda/env/bin/bash
+Provided cores: 10
+Rules claiming more threads will be scaled down.
+Job stats:
+job                            count
+---------------------------  -------
+ha_copy_align                      1
+ha_tree                            1
+root                               1
+generate_initial_descriptor        1
+initial_treesort                   1
+convert_tree                       1
+generate_descriptor                9
+treesort                           9
+all                                1
+total                             25
+
+Select jobs to execute...
+Execute 1 jobs...
+[Wed Sep 23 10:57:57 2026]
+localrule ha_copy_align:
+    input: ha-100reps/results/alignments/aligned_ha.fasta
+    output: ha-100reps/results/100/aligned_ha.fasta
+    jobid: 2562
+    reason: Updated input files: ha-100reps/results/alignments/aligned_ha.fasta
+    wildcards: rep=100, segment=ha
+    resources: tmpdir=/var/folders/d_/56m2n50525gb3y_7mkr2t1880000gp/T
+Shell command: 
+        cp ha-100reps/results/alignments/aligned_ha.fasta ha-100reps/results/100/aligned_ha.fasta
+        
+[Wed Sep 23 10:57:57 2026]
+Finished jobid: 2562 (Rule: ha_copy_align)
+1 of 25 steps (4%) done
+Select jobs to execute...
+Execute 1 jobs...
+[Wed Sep 23 10:57:57 2026]
+Job 2561: Building tree
+Reason: Input files updated by another job: ha-100reps/results/100/aligned_ha.fasta
+Shell command: 
+        augur tree             --alignment ha-100reps/results/100/aligned_ha.fasta             --output ha-100reps/results/100/tree-raw_ha.nwk             --method iqtree             --nthreads auto
+        
+Terminating processes on user request, this might take some time.
+RuleException:
+CalledProcessError in file "/Users/jort/coding/h5nx-reassortment-and-risk-assessment/2321-replicates/20260922/20260902-2321/Snakefile-ha", line 119:
+Command 'set -euo pipefail;  
+        augur tree             --alignment ha-100reps/results/100/aligned_ha.fasta             --output ha-100reps/results/100/tree-raw_ha.nwk             --method iqtree             --nthreads auto' died with <Signals.SIGINT: 2>.
+[Wed Sep 23 10:58:09 2026]
+Error in rule ha_tree:
+    message: None
+    jobid: 2561
+    input: ha-100reps/results/100/aligned_ha.fasta
+    output: ha-100reps/results/100/tree-raw_ha.nwk
+    shell:
+        
+        augur tree             --alignment ha-100reps/results/100/aligned_ha.fasta             --output ha-100reps/results/100/tree-raw_ha.nwk             --method iqtree             --nthreads auto
+        
+        (command exited with non-zero exit code)
+Complete log(s): /Users/jort/coding/h5nx-reassortment-and-risk-assessment/2321-replicates/20260922/20260902-2321/.snakemake/log/2026-09-23T105756.163155.snakemake.log
+WorkflowError:
+At least one job did not complete successfully.

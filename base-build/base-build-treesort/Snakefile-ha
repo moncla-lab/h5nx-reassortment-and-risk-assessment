@@ -1,0 +1,284 @@
+"""This file specifies the entire avian-flu pipeline that will be run, with
+specific parameters for subsampling, tree building, and visualization. In this
+build, you will generate 1 tree: an H5N1 tree for the HA genes. In this simple
+build, clade annotation has been removed. This template should provide a
+reasonable starting place to customize your own build. Simply edit and add
+components to this Snakefile."""
+
+"""Here, define your wildcards. To include more subtypes or gene segments, simply
+add those to these lists, separated by commas"""
+# SUBTYPES = ["h5nx"]
+SEGMENTS = ["ha"]
+REPS = range(config["ha_reps"])
+
+wildcard_constraints:
+    segment="|".join(SEGMENTS)
+
+"""This rule tells Snakemak that at the end of the pipeline, you should have
+generated JSON files in the auspice folder for each subtype and segment."""
+rule all:
+   input:
+       trees = expand(
+           "ha-100reps/results/{rep}/tree-raw_{segment}.nwk",
+           segment=SEGMENTS, rep=REPS
+       ),
+       alignments = expand(
+           "ha-100reps/results/alignments/aligned_{segment}.fasta",
+           segment=SEGMENTS, rep= REPS
+       ),
+       auspice_json = expand("ha-100reps/auspice/{rep}/flu_avian_{segment}.json", segment=SEGMENTS, rep=REPS)
+
+"""Specify all input files here. For this build, you'll start with input sequences
+from the example_data folder, which contain metadata information in the
+sequence header. Specify here files denoting specific strains to include or drop,
+references sequences, and files for auspice visualization (lat_longs, colors)"""
+rule files:
+    params:
+        input_sequences = "data/{segment}_dates.fasta",
+        dropped_strains = "config/dropped_strains.txt",
+        include_strains = "config/include_strains.txt",
+        reference = "config/reference_{segment}.gb",
+        colors = "config/colors.tsv",
+        lat_longs = "config/lat_longs.tsv",
+        auspice_config = "config/auspice_config.json",
+        metadata = "data/metadata_dates.tsv",
+        sequences = "filtered/filtered_{segment}.fasta",
+        strains = "filtered/filtered_{segment}_filtered.txt",
+
+
+files = rules.files.params
+
+
+
+def traits_columns(w):
+    traits = {'h5nx':'region'}
+    return traits[w.subtype]
+
+"""This function allows us to annotate HA sequences with cleavage site information,
+without trying to apply it to the other segments"""
+def node_data_by_wildcards(w):
+    """for ha, include cleavage site and treesort data during export; for other segments, do not"""
+    if w.segment == "ha":
+        node_data = [rules.refine.output.node_data,rules.traits.output.node_data,rules.ancestral.output.node_data,rules.translate.output.node_data,rules.cleavage_site.output.cleavage_site_annotations,rules.cleavage_site.output.cleavage_site_sequences]
+    else:
+        node_data = [rules.refine.output.node_data,rules.traits.output.node_data,rules.ancestral.output.node_data,rules.translate.output.node_data]
+    return(node_data)
+
+
+
+
+
+"""In this section of the Snakefile, rules are specified for each step of the pipeline.
+Each rule has inputs, outputs, parameters, and the specific text for the commands in
+bash. Rules reference each other, so altering one rule may require changing another
+if they depend on each other for inputs and outputs. Notes are included for
+specific rules."""
+
+
+
+rule align:
+    message:
+        """
+        Aligning sequences to {input.reference}
+          - filling gaps with N
+        """
+    input:
+        sequences = files.sequences,
+        reference = files.reference
+    output:
+        alignment = "ha-100reps/results/alignments/aligned_{segment}.fasta"
+    shell:
+        """
+        augur align \
+            --sequences {input.sequences} \
+            --reference-sequence {input.reference} \
+            --output {output.alignment} \
+            --remove-reference \
+            --nthreads auto
+        """
+
+rule copy_align:
+    input:
+        alignment = rules.align.output.alignment
+    output:
+        alignment = "ha-100reps/results/{rep}/aligned_{segment}.fasta"
+    shell:
+        """
+        cp {input.alignment} {output.alignment}
+        """
+
+rule tree:
+    message: "Building tree"
+    input:
+        alignment = rules.copy_align.output.alignment
+    output:
+        tree = "ha-100reps/results/{rep}/tree-raw_{segment}.nwk"
+    params:
+        method = "iqtree"
+    shell:
+        """
+        augur tree \
+            --alignment {input.alignment} \
+            --output {output.tree} \
+            --method {params.method} \
+            --nthreads auto
+        """
+
+rule refine:
+    message:
+        """
+        Refining tree
+          - estimate timetree
+          - use {params.coalescent} coalescent timescale
+          - estimate {params.date_inference} node dates
+        """
+    input:
+        tree = rules.tree.output.tree,
+        alignment = rules.align.output,
+        metadata = files.metadata
+    output:
+        tree = "ha-100reps/results/{rep}/tree_{segment}.nwk",
+        node_data = "ha-100reps/results/{rep}/branch-lengths_{segment}.json"
+    params:
+        coalescent = "const",
+        date_inference = "marginal"
+    shell:
+        """
+        augur refine \
+            --tree {input.tree} \
+            --alignment {input.alignment} \
+            --metadata {input.metadata} \
+            --output-tree {output.tree} \
+            --output-node-data {output.node_data} \
+            --timetree \
+            --coalescent {params.coalescent} \
+            --date-confidence \
+            --date-inference {params.date_inference} \
+        """
+
+
+rule ancestral:
+    message: "Reconstructing ancestral sequences and mutations"
+    input:
+        tree = rules.refine.output.tree,
+        alignment = "ha-100reps/results/{rep}/aligned_{segment}.fasta"
+    output:
+        node_data = "ha-100reps/results/{rep}/nt-muts_{segment}.json"
+    params:
+        inference = "joint"
+    shell:
+        """
+        augur ancestral \
+            --tree {input.tree} \
+            --alignment {input.alignment} \
+            --output-node-data {output.node_data} \
+            --inference {params.inference}\
+            --keep-ambiguous
+        """
+
+rule translate:
+    message: "Translating amino acid sequences"
+    input:
+        tree = rules.refine.output.tree,
+        node_data = rules.ancestral.output.node_data,
+        reference = files.reference
+    output:
+        node_data = "ha-100reps/results/{rep}/aa-muts_{segment}.json"
+    shell:
+        """
+        augur translate \
+            --tree {input.tree} \
+            --ancestral-sequences {input.node_data} \
+            --reference-sequence {input.reference} \
+            --output {output.node_data}
+        """
+
+rule traits:
+    message: "Inferring ancestral traits for {params.columns!s}"
+    input:
+        tree = rules.refine.output.tree,
+        metadata = files.metadata
+    output:
+        node_data = "ha-100reps/results/{rep}/traits_{segment}.json",
+    params:
+        columns = 'region'
+    shell:
+        """
+        augur traits \
+            --tree {input.tree} \
+            --metadata {input.metadata} \
+            --output {output.node_data} \
+            --columns {params.columns} \
+            --confidence
+        """
+
+"""This is a custom rule developed for the avian influenza builds and is not part
+of the Nextstrain architecture. It uses custom python scripts to determine the
+sequence of amino acids at the HA cleavage site, and annotate those sequences
+for whether they contain a furin cleavage site."""
+rule cleavage_site:
+    message: "determining sequences that harbor furin cleavage sites"
+    input:
+        alignment = "ha-100reps/results/{rep}/aligned_ha.fasta"
+    output:
+        cleavage_site_annotations = "ha-100reps/results/{rep}/cleavage-site_ha.json",
+        cleavage_site_sequences = "ha-100reps/results/{rep}/cleavage-site-sequences_ha.json"
+    shell:
+        """
+        python scripts/annotate-ha-cleavage-site.py \
+            --alignment {input.alignment} \
+            --furin_site_motif {output.cleavage_site_annotations} \
+            --cleavage_site_sequence {output.cleavage_site_sequences}
+        """
+
+
+#rule dna:
+#    message: "converting rna sequences in alignments to dna"
+#    input:
+#        alignments = expand("ha-100reps/results/{rep}/aligned_{segment}.fasta", segment=SEGMENTS, rep=REPS)
+#    output:
+#        dna_alignments = expand("ha-100reps/results/{rep}/aligned_{segment}_dna.fasta", segment=SEGMENTS, rep=REPS)
+#    shell:
+#        """
+#        python scripts/rna-to-dna.py \
+#            --alignments {input.alignments} \
+#            --dna_alignments {output.dna_alignments}
+#        """
+
+
+
+"""This rule exports the results of the pipeline into JSON format, which is required
+for visualization in auspice. To make changes to the categories of metadata
+that are colored, or how the data is visualized, alter the auspice_config files"""
+rule export:
+    message: "Exporting data files for for auspice"
+    input:
+        tree = rules.refine.output.tree,
+        metadata = files.metadata,
+        node_data = node_data_by_wildcards,
+        colors = files.colors,
+        lat_longs = files.lat_longs,
+        auspice_config = files.auspice_config
+    output:
+        auspice_json = "ha-100reps/auspice/{rep}/flu_avian_{segment}.json"
+    shell:
+        """
+        augur export v2 \
+            --tree {input.tree} \
+            --metadata {input.metadata} \
+            --node-data {input.node_data}\
+            --colors {input.colors} \
+            --lat-longs {input.lat_longs} \
+            --auspice-config {input.auspice_config} \
+            --include-root-sequence \
+            --output {output.auspice_json}
+        """
+
+
+rule clean:
+    message: "Removing directories: {params}"
+    params:
+        "results ",
+        "auspice"
+    shell:
+        "rm -rfv {params}"

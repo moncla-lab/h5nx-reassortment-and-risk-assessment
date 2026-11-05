@@ -1,0 +1,180 @@
+configfile: "config.yaml"
+
+"""Here, define your wildcards. To include more subtypes or gene segments, simply
+add those to these lists, separated by commas"""
+# SUBTYPES = ["h5nx"]
+SEGMENTS = ["pb2","pb1","na","np","pa","ns","mp"]
+HA_REPS = range(config["ha_reps"])
+NONHA_REPS = range(config["nonha_reps"])
+
+wildcard_constraints:
+    segment="|".join(SEGMENTS)
+
+ruleorder: initial_treesort > treesort
+ruleorder: generate_initial_descriptor > generate_descriptor
+
+"""This rule tells Snakemak that at the end of the pipeline, you should have
+generated JSON files in the auspice folder for each subtype and segment."""
+rule all:
+    input:
+        treesort_trees = expand("treesort/{ha_rep}/{nonha_rep}/ha_treesort.tre", ha_rep=HA_REPS, nonha_rep=NONHA_REPS)
+        
+
+"""Here, we will import the Snakemake workflows for generating the HA phylogenies
+and for generating the non-HA phylogenies. This allows the main Snakefile to inherit
+the modules' rules and run as a single workflow."""
+module ha_workflow:
+    snakefile: "Snakefile-ha"
+    config: config
+
+use rule * from ha_workflow as ha_*
+
+module nonha_workflow:
+    snakefile: "Snakefile-nonha"
+    config: config
+
+use rule * from nonha_workflow as nonha_*
+
+
+"""In this section of the Snakefile, rules are specified for each step of the pipeline.
+Each rule has inputs, outputs, parameters, and the specific text for the commands in
+bash. Rules reference each other, so altering one rule may require changing another
+if they depend on each other for inputs and outputs. Notes are included for
+specific rules."""
+
+rule dates:
+	message: "generating dates.csv file from alignment"
+	input:
+		alignment = "ha-100reps/results/alignments/aligned_ha.fasta",
+	output:
+		dates = "treesort/dates.csv"
+	shell:
+		"""
+		python scripts/generate_dates.py \
+			--alignment {input.alignment} \
+			--dates {output.dates}
+		"""
+
+rule root:
+	message: "inferring root of phylogeny"
+	input:
+		tree = "ha-100reps/results/{ha_rep}/tree-raw_ha.nwk",
+		alignment = "ha-100reps/results/alignments/aligned_ha.fasta",
+		dates = rules.dates.output.dates
+	output:
+		tree = "ha-100reps/results/{ha_rep}/rerooted.newick"
+	shell:
+		"""
+		treetime clock \
+			--tree {input.tree} \
+			--dates {input.dates} \
+			--aln {input.alignment} \
+			--outdir "ha-100reps/results/{wildcards.ha_rep}"
+		"""
+
+rule ha_dna:
+    message: "converting rna sequences in alignments to dna"
+    input:
+        ha_aln = rules.ha_all.input.alignments
+    output:
+        ha_aln_dna = "ha-100reps/results/alignments/aligned_ha_dna.fasta",
+    shell:
+        """
+        python scripts/rna-to-dna.py \
+            --alignments {input.ha_aln} \
+            --dna_alignments {output.ha_aln_dna} ;
+        """
+
+rule nonha_dna:
+    message: "converting rna sequences in alignments to dna"
+    input:
+        nonha_aln = rules.nonha_all.input.alignments
+    output:
+        nonha_aln_dna = "non-ha-10reps/results/alignments/aligned_{segment}_dna.fasta"
+    shell:
+        """
+        python scripts/rna-to-dna.py \
+            --alignments {input.nonha_aln} \
+            --dna_alignments {output.nonha_aln_dna}
+        """
+
+rule generate_initial_descriptor:
+    message: "generating descriptor file for treesort"
+    input:
+        ha_tree = rules.root.output.tree,
+        ha_aln_dna = rules.ha_dna.output.ha_aln_dna,
+        nonha_trees = expand("non-ha-10reps/results/0/tree-raw_{segment}.nwk", segment=SEGMENTS),
+        nonha_aln_dna = expand("non-ha-10reps/results/alignments/aligned_{segment}_dna.fasta", segment=SEGMENTS) #rules.initial_nonha_dna.output.nonha_aln_dna
+    output:
+        descriptor = "treesort/{ha_rep}/0/descriptor.csv"
+    shell:
+        """
+        python scripts/generate_descriptor.py \
+            --ha_tree {input.ha_tree} \
+            --ha_alignment {input.ha_aln_dna} \
+            --nonha_trees {input.nonha_trees} \
+            --nonha_alignments {input.nonha_aln_dna} \
+            --segments {SEGMENTS} \
+            --descriptor {output.descriptor}
+        """
+
+rule initial_treesort:
+    message: "performing first treesort run for each ha tree"
+    input:
+        descriptor = rules.generate_initial_descriptor.output.descriptor
+    output:
+        tree = "treesort/{ha_rep}/0/ha_treesort.tre"
+    threads: 4
+    shell:
+        """
+        cd treesort/{wildcards.ha_rep}/0
+        treesort -i descriptor.csv -o ha_treesort.tre
+        find . -type f -name descriptor.concatenated.fasta -delete
+        """
+
+rule convert_tree:
+    message: "converting bifurcated backbone trees from nexus to newick format"
+    input:
+        tree = rules.initial_treesort.output.tree
+    output:
+        tree = "treesort/{ha_rep}/0/ha_treesort.nwk"
+    shell:
+        """
+        python scripts/to_nwk.py \
+            --tree {input.tree} \
+            --output {output.tree}
+        """
+
+rule generate_descriptor:
+    message: "generating descriptor file for treesort"
+    input:
+        ha_tree = rules.convert_tree.output.tree,
+        ha_aln_dna = rules.ha_dna.output.ha_aln_dna,
+        nonha_trees = expand("non-ha-10reps/results/{{nonha_rep}}/tree-raw_{segment}.nwk", segment=SEGMENTS),
+        nonha_aln_dna = expand("non-ha-10reps/results/alignments/aligned_{segment}_dna.fasta", segment=SEGMENTS) # rules.nonha_dna.output.nonha_aln_dna
+    output:
+        descriptor = "treesort/{ha_rep}/{nonha_rep}/descriptor.csv"
+    shell:
+        """
+        python scripts/generate_descriptor.py \
+            --ha_tree {input.ha_tree} \
+            --ha_alignment {input.ha_aln_dna} \
+            --nonha_trees {input.nonha_trees} \
+            --nonha_alignments {input.nonha_aln_dna} \
+            --segments {SEGMENTS} \
+            --descriptor {output.descriptor}
+        """
+
+rule treesort:
+    message: "performing replicate treesort runs for each ha tree"
+    input:
+        descriptor = rules.generate_descriptor.output.descriptor
+    output:
+        tree = "treesort/{ha_rep}/{nonha_rep}/ha_treesort.tre"
+    threads: 4
+    shell:
+        """
+        cd treesort/{wildcards.ha_rep}/{wildcards.nonha_rep}
+        treesort -i descriptor.csv -o ha_treesort.tre --no-collapse
+        find . -type f -name descriptor.concatenated.fasta -delete
+        """

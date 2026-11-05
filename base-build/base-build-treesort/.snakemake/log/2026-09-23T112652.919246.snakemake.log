@@ -1,0 +1,208 @@
+Assuming unrestricted shared filesystem usage.
+host: BGS-STU22-136
+Building DAG of jobs...
+Using shell: /Users/jort/.nextstrain/runtimes/conda/env/bin/bash
+Provided cores: 10
+Rules claiming more threads will be scaled down.
+Job stats:
+job                            count
+---------------------------  -------
+nonha_dna                          7
+generate_initial_descriptor        2
+initial_treesort                   2
+convert_tree                       2
+generate_descriptor                2
+treesort                           2
+all                                1
+total                             18
+
+Select jobs to execute...
+Execute 7 jobs...
+[Wed Sep 23 11:26:53 2026]
+Job 31: converting rna sequences in alignments to dna
+Reason: Set of input files has changed since last execution
+Shell command: 
+        python scripts/rna-to-dna.py             --alignments non-ha-10reps/results/alignments/aligned_pb1.fasta             --dna_alignments non-ha-10reps/results/alignments/aligned_pb1_dna.fasta
+        
+[Wed Sep 23 11:26:53 2026]
+Job 33: converting rna sequences in alignments to dna
+Reason: Set of input files has changed since last execution
+Shell command: 
+        python scripts/rna-to-dna.py             --alignments non-ha-10reps/results/alignments/aligned_np.fasta             --dna_alignments non-ha-10reps/results/alignments/aligned_np_dna.fasta
+        
+[Wed Sep 23 11:26:53 2026]
+Job 35: converting rna sequences in alignments to dna
+Reason: Set of input files has changed since last execution
+Shell command: 
+        python scripts/rna-to-dna.py             --alignments non-ha-10reps/results/alignments/aligned_ns.fasta             --dna_alignments non-ha-10reps/results/alignments/aligned_ns_dna.fasta
+        
+[Wed Sep 23 11:26:53 2026]
+Job 30: converting rna sequences in alignments to dna
+Reason: Set of input files has changed since last execution
+Shell command: 
+        python scripts/rna-to-dna.py             --alignments non-ha-10reps/results/alignments/aligned_pb2.fasta             --dna_alignments non-ha-10reps/results/alignments/aligned_pb2_dna.fasta
+        
+[Wed Sep 23 11:26:53 2026]
+Job 32: converting rna sequences in alignments to dna
+Reason: Set of input files has changed since last execution
+Shell command: 
+        python scripts/rna-to-dna.py             --alignments non-ha-10reps/results/alignments/aligned_na.fasta             --dna_alignments non-ha-10reps/results/alignments/aligned_na_dna.fasta
+        
+[Wed Sep 23 11:26:53 2026]
+Job 34: converting rna sequences in alignments to dna
+Reason: Set of input files has changed since last execution
+Shell command: 
+        python scripts/rna-to-dna.py             --alignments non-ha-10reps/results/alignments/aligned_pa.fasta             --dna_alignments non-ha-10reps/results/alignments/aligned_pa_dna.fasta
+        
+[Wed Sep 23 11:26:53 2026]
+Job 36: converting rna sequences in alignments to dna
+Reason: Set of input files has changed since last execution
+Shell command: 
+        python scripts/rna-to-dna.py             --alignments non-ha-10reps/results/alignments/aligned_mp.fasta             --dna_alignments non-ha-10reps/results/alignments/aligned_mp_dna.fasta
+        
+[Wed Sep 23 11:26:53 2026]
+Finished jobid: 31 (Rule: nonha_dna)
+1 of 18 steps (6%) done
+[Wed Sep 23 11:26:53 2026]
+Finished jobid: 33 (Rule: nonha_dna)
+2 of 18 steps (11%) done
+[Wed Sep 23 11:26:53 2026]
+Finished jobid: 35 (Rule: nonha_dna)
+3 of 18 steps (17%) done
+[Wed Sep 23 11:26:53 2026]
+Finished jobid: 30 (Rule: nonha_dna)
+4 of 18 steps (22%) done
+[Wed Sep 23 11:26:53 2026]
+Finished jobid: 32 (Rule: nonha_dna)
+5 of 18 steps (28%) done
+[Wed Sep 23 11:26:53 2026]
+Finished jobid: 34 (Rule: nonha_dna)
+6 of 18 steps (33%) done
+[Wed Sep 23 11:26:53 2026]
+Finished jobid: 36 (Rule: nonha_dna)
+7 of 18 steps (39%) done
+Select jobs to execute...
+Execute 2 jobs...
+[Wed Sep 23 11:26:53 2026]
+Job 55: generating descriptor file for treesort
+Reason: Input files updated by another job: non-ha-10reps/results/alignments/aligned_ns_dna.fasta, non-ha-10reps/results/alignments/aligned_pb2_dna.fasta, non-ha-10reps/results/alignments/aligned_na_dna.fasta, non-ha-10reps/results/alignments/aligned_np_dna.fasta, non-ha-10reps/results/alignments/aligned_mp_dna.fasta, non-ha-10reps/results/alignments/aligned_pa_dna.fasta, non-ha-10reps/results/alignments/aligned_pb1_dna.fasta
+Shell command: 
+        python scripts/generate_descriptor.py             --ha_tree ha-100reps/results/1/rerooted.newick             --ha_alignment ha-100reps/results/alignments/aligned_ha_dna.fasta             --nonha_trees non-ha-10reps/results/0/tree-raw_pb2.nwk non-ha-10reps/results/0/tree-raw_pb1.nwk non-ha-10reps/results/0/tree-raw_na.nwk non-ha-10reps/results/0/tree-raw_np.nwk non-ha-10reps/results/0/tree-raw_pa.nwk non-ha-10reps/results/0/tree-raw_ns.nwk non-ha-10reps/results/0/tree-raw_mp.nwk             --nonha_alignments non-ha-10reps/results/alignments/aligned_pb2_dna.fasta non-ha-10reps/results/alignments/aligned_pb1_dna.fasta non-ha-10reps/results/alignments/aligned_na_dna.fasta non-ha-10reps/results/alignments/aligned_np_dna.fasta non-ha-10reps/results/alignments/aligned_pa_dna.fasta non-ha-10reps/results/alignments/aligned_ns_dna.fasta non-ha-10reps/results/alignments/aligned_mp_dna.fasta             --segments pb2 pb1 na np pa ns mp             --descriptor treesort/1/0/descriptor.csv
+        
+[Wed Sep 23 11:26:53 2026]
+Job 2: generating descriptor file for treesort
+Reason: Input files updated by another job: non-ha-10reps/results/alignments/aligned_ns_dna.fasta, non-ha-10reps/results/alignments/aligned_pb2_dna.fasta, non-ha-10reps/results/alignments/aligned_na_dna.fasta, non-ha-10reps/results/alignments/aligned_np_dna.fasta, non-ha-10reps/results/alignments/aligned_mp_dna.fasta, non-ha-10reps/results/alignments/aligned_pa_dna.fasta, non-ha-10reps/results/alignments/aligned_pb1_dna.fasta
+Shell command: 
+        python scripts/generate_descriptor.py             --ha_tree ha-100reps/results/0/rerooted.newick             --ha_alignment ha-100reps/results/alignments/aligned_ha_dna.fasta             --nonha_trees non-ha-10reps/results/0/tree-raw_pb2.nwk non-ha-10reps/results/0/tree-raw_pb1.nwk non-ha-10reps/results/0/tree-raw_na.nwk non-ha-10reps/results/0/tree-raw_np.nwk non-ha-10reps/results/0/tree-raw_pa.nwk non-ha-10reps/results/0/tree-raw_ns.nwk non-ha-10reps/results/0/tree-raw_mp.nwk             --nonha_alignments non-ha-10reps/results/alignments/aligned_pb2_dna.fasta non-ha-10reps/results/alignments/aligned_pb1_dna.fasta non-ha-10reps/results/alignments/aligned_na_dna.fasta non-ha-10reps/results/alignments/aligned_np_dna.fasta non-ha-10reps/results/alignments/aligned_pa_dna.fasta non-ha-10reps/results/alignments/aligned_ns_dna.fasta non-ha-10reps/results/alignments/aligned_mp_dna.fasta             --segments pb2 pb1 na np pa ns mp             --descriptor treesort/0/0/descriptor.csv
+        
+[Wed Sep 23 11:26:53 2026]
+Finished jobid: 55 (Rule: generate_initial_descriptor)
+8 of 18 steps (44%) done
+Select jobs to execute...
+Execute 1 jobs...
+[Wed Sep 23 11:26:53 2026]
+Job 54: performing first treesort run for each ha tree
+Reason: Input files updated by another job: treesort/1/0/descriptor.csv
+Shell command: 
+        cd treesort/1/0
+        treesort -i descriptor.csv -o ha_treesort.tre
+        
+[Wed Sep 23 11:26:53 2026]
+Finished jobid: 2 (Rule: generate_initial_descriptor)
+9 of 18 steps (50%) done
+Select jobs to execute...
+Execute 1 jobs...
+[Wed Sep 23 11:26:53 2026]
+Job 1: performing first treesort run for each ha tree
+Reason: Input files updated by another job: treesort/0/0/descriptor.csv
+Shell command: 
+        cd treesort/0/0
+        treesort -i descriptor.csv -o ha_treesort.tre
+        
+[Wed Sep 23 11:28:42 2026]
+Finished jobid: 54 (Rule: initial_treesort)
+10 of 18 steps (56%) done
+Select jobs to execute...
+Execute 1 jobs...
+[Wed Sep 23 11:28:42 2026]
+Job 61: converting bifurcated backbone trees from nexus to newick format
+Reason: Input files updated by another job: treesort/1/0/ha_treesort.tre
+Shell command: 
+        python scripts/to_nwk.py             --tree treesort/1/0/ha_treesort.tre             --output treesort/1/0/ha_treesort.nwk
+        
+[Wed Sep 23 11:28:42 2026]
+Finished jobid: 61 (Rule: convert_tree)
+11 of 18 steps (61%) done
+Select jobs to execute...
+Execute 1 jobs...
+[Wed Sep 23 11:28:42 2026]
+Job 60: generating descriptor file for treesort
+Reason: Input files updated by another job: non-ha-10reps/results/alignments/aligned_ns_dna.fasta, non-ha-10reps/results/alignments/aligned_pb2_dna.fasta, non-ha-10reps/results/alignments/aligned_na_dna.fasta, non-ha-10reps/results/alignments/aligned_np_dna.fasta, non-ha-10reps/results/alignments/aligned_mp_dna.fasta, non-ha-10reps/results/alignments/aligned_pa_dna.fasta, non-ha-10reps/results/alignments/aligned_pb1_dna.fasta, treesort/1/0/ha_treesort.nwk
+Shell command: 
+        python scripts/generate_descriptor.py             --ha_tree treesort/1/0/ha_treesort.nwk             --ha_alignment ha-100reps/results/alignments/aligned_ha_dna.fasta             --nonha_trees non-ha-10reps/results/1/tree-raw_pb2.nwk non-ha-10reps/results/1/tree-raw_pb1.nwk non-ha-10reps/results/1/tree-raw_na.nwk non-ha-10reps/results/1/tree-raw_np.nwk non-ha-10reps/results/1/tree-raw_pa.nwk non-ha-10reps/results/1/tree-raw_ns.nwk non-ha-10reps/results/1/tree-raw_mp.nwk             --nonha_alignments non-ha-10reps/results/alignments/aligned_pb2_dna.fasta non-ha-10reps/results/alignments/aligned_pb1_dna.fasta non-ha-10reps/results/alignments/aligned_na_dna.fasta non-ha-10reps/results/alignments/aligned_np_dna.fasta non-ha-10reps/results/alignments/aligned_pa_dna.fasta non-ha-10reps/results/alignments/aligned_ns_dna.fasta non-ha-10reps/results/alignments/aligned_mp_dna.fasta             --segments pb2 pb1 na np pa ns mp             --descriptor treesort/1/1/descriptor.csv
+        
+[Wed Sep 23 11:28:43 2026]
+Finished jobid: 60 (Rule: generate_descriptor)
+12 of 18 steps (67%) done
+Select jobs to execute...
+Execute 1 jobs...
+[Wed Sep 23 11:28:43 2026]
+Job 59: performing replicate treesort runs for each ha tree
+Reason: Input files updated by another job: treesort/1/1/descriptor.csv
+Shell command: 
+        cd treesort/1/1
+        treesort -i descriptor.csv -o ha_treesort.tre --no-collapse
+        
+[Wed Sep 23 11:28:43 2026]
+Finished jobid: 1 (Rule: initial_treesort)
+13 of 18 steps (72%) done
+Select jobs to execute...
+Execute 1 jobs...
+[Wed Sep 23 11:28:43 2026]
+Job 39: converting bifurcated backbone trees from nexus to newick format
+Reason: Input files updated by another job: treesort/0/0/ha_treesort.tre
+Shell command: 
+        python scripts/to_nwk.py             --tree treesort/0/0/ha_treesort.tre             --output treesort/0/0/ha_treesort.nwk
+        
+[Wed Sep 23 11:28:43 2026]
+Finished jobid: 39 (Rule: convert_tree)
+14 of 18 steps (78%) done
+Select jobs to execute...
+Execute 1 jobs...
+[Wed Sep 23 11:28:43 2026]
+Job 38: generating descriptor file for treesort
+Reason: Input files updated by another job: non-ha-10reps/results/alignments/aligned_ns_dna.fasta, non-ha-10reps/results/alignments/aligned_pb2_dna.fasta, non-ha-10reps/results/alignments/aligned_na_dna.fasta, non-ha-10reps/results/alignments/aligned_np_dna.fasta, non-ha-10reps/results/alignments/aligned_mp_dna.fasta, non-ha-10reps/results/alignments/aligned_pa_dna.fasta, non-ha-10reps/results/alignments/aligned_pb1_dna.fasta, treesort/0/0/ha_treesort.nwk
+Shell command: 
+        python scripts/generate_descriptor.py             --ha_tree treesort/0/0/ha_treesort.nwk             --ha_alignment ha-100reps/results/alignments/aligned_ha_dna.fasta             --nonha_trees non-ha-10reps/results/1/tree-raw_pb2.nwk non-ha-10reps/results/1/tree-raw_pb1.nwk non-ha-10reps/results/1/tree-raw_na.nwk non-ha-10reps/results/1/tree-raw_np.nwk non-ha-10reps/results/1/tree-raw_pa.nwk non-ha-10reps/results/1/tree-raw_ns.nwk non-ha-10reps/results/1/tree-raw_mp.nwk             --nonha_alignments non-ha-10reps/results/alignments/aligned_pb2_dna.fasta non-ha-10reps/results/alignments/aligned_pb1_dna.fasta non-ha-10reps/results/alignments/aligned_na_dna.fasta non-ha-10reps/results/alignments/aligned_np_dna.fasta non-ha-10reps/results/alignments/aligned_pa_dna.fasta non-ha-10reps/results/alignments/aligned_ns_dna.fasta non-ha-10reps/results/alignments/aligned_mp_dna.fasta             --segments pb2 pb1 na np pa ns mp             --descriptor treesort/0/1/descriptor.csv
+        
+[Wed Sep 23 11:28:43 2026]
+Finished jobid: 38 (Rule: generate_descriptor)
+15 of 18 steps (83%) done
+Select jobs to execute...
+Execute 1 jobs...
+[Wed Sep 23 11:28:43 2026]
+Job 37: performing replicate treesort runs for each ha tree
+Reason: Input files updated by another job: treesort/0/1/descriptor.csv
+Shell command: 
+        cd treesort/0/1
+        treesort -i descriptor.csv -o ha_treesort.tre --no-collapse
+        
+[Wed Sep 23 11:30:28 2026]
+Finished jobid: 59 (Rule: treesort)
+16 of 18 steps (89%) done
+[Wed Sep 23 11:30:30 2026]
+Finished jobid: 37 (Rule: treesort)
+17 of 18 steps (94%) done
+Select jobs to execute...
+Execute 1 jobs...
+[Wed Sep 23 11:30:30 2026]
+localrule all:
+    input: treesort/0/0/ha_treesort.tre, treesort/0/1/ha_treesort.tre, treesort/1/0/ha_treesort.tre, treesort/1/1/ha_treesort.tre
+    jobid: 0
+    reason: Input files updated by another job: treesort/1/1/ha_treesort.tre, treesort/1/0/ha_treesort.tre, treesort/0/1/ha_treesort.tre, treesort/0/0/ha_treesort.tre
+    resources: tmpdir=/var/folders/d_/56m2n50525gb3y_7mkr2t1880000gp/T
+Shell command: None
+[Wed Sep 23 11:30:30 2026]
+Finished jobid: 0 (Rule: all)
+18 of 18 steps (100%) done
+Complete log(s): /Users/jort/coding/h5nx-reassortment-and-risk-assessment/2321-replicates/20260922/20260902-2321/.snakemake/log/2026-09-23T112652.919246.snakemake.log

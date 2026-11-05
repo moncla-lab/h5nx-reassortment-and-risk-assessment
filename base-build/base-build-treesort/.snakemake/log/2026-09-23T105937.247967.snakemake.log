@@ -1,0 +1,267 @@
+Assuming unrestricted shared filesystem usage.
+host: BGS-STU22-136
+Building DAG of jobs...
+Using shell: /Users/jort/.nextstrain/runtimes/conda/env/bin/bash
+Provided cores: 10
+Rules claiming more threads will be scaled down.
+Job stats:
+job                            count
+---------------------------  -------
+root                               1
+generate_initial_descriptor        1
+initial_treesort                   1
+convert_tree                       1
+generate_descriptor                9
+treesort                           9
+all                                1
+total                             23
+
+Select jobs to execute...
+Execute 1 jobs...
+[Wed Sep 23 10:59:38 2026]
+Job 2560: inferring root of phylogeny
+Reason: Missing output files: ha-100reps/results/100/rerooted.newick
+Shell command: 
+		treetime clock 			--tree ha-100reps/results/100/tree-raw_ha.nwk 			--dates treesort/dates.csv 			--aln ha-100reps/results/alignments/aligned_ha.fasta 			--outdir "ha-100reps/results/100"
+		
+[Wed Sep 23 10:59:43 2026]
+Finished jobid: 2560 (Rule: root)
+1 of 23 steps (4%) done
+Select jobs to execute...
+Execute 1 jobs...
+[Wed Sep 23 10:59:43 2026]
+Job 2559: generating descriptor file for treesort
+Reason: Missing output files: treesort/100/0/descriptor.csv; Input files updated by another job: ha-100reps/results/100/rerooted.newick
+Shell command: 
+        python scripts/generate_descriptor.py             --ha_tree ha-100reps/results/100/rerooted.newick             --ha_alignment ha-100reps/results/alignments/aligned_ha_dna.fasta             --nonha_trees non-ha-10reps/results/0/tree-raw_pb2.nwk non-ha-10reps/results/0/tree-raw_pb1.nwk non-ha-10reps/results/0/tree-raw_na.nwk non-ha-10reps/results/0/tree-raw_np.nwk non-ha-10reps/results/0/tree-raw_pa.nwk non-ha-10reps/results/0/tree-raw_ns.nwk non-ha-10reps/results/0/tree-raw_mp.nwk             --nonha_alignments non-ha-10reps/results/alignments/aligned_pb2_dna.fasta non-ha-10reps/results/alignments/aligned_pb1_dna.fasta non-ha-10reps/results/alignments/aligned_na_dna.fasta non-ha-10reps/results/alignments/aligned_np_dna.fasta non-ha-10reps/results/alignments/aligned_pa_dna.fasta non-ha-10reps/results/alignments/aligned_ns_dna.fasta non-ha-10reps/results/alignments/aligned_mp_dna.fasta             --segments pb2 pb1 na np pa ns mp             --descriptor treesort/100/0/descriptor.csv
+        
+[Wed Sep 23 10:59:43 2026]
+Finished jobid: 2559 (Rule: generate_initial_descriptor)
+2 of 23 steps (9%) done
+Select jobs to execute...
+Execute 1 jobs...
+[Wed Sep 23 10:59:43 2026]
+Job 2558: performing first treesort run for each ha tree
+Reason: Missing output files: treesort/100/0/ha_treesort.tre; Input files updated by another job: treesort/100/0/descriptor.csv
+Shell command: 
+        cd treesort/100/0
+        treesort -i descriptor.csv -o ha_treesort.tre
+        
+[Wed Sep 23 11:02:04 2026]
+Finished jobid: 2558 (Rule: initial_treesort)
+3 of 23 steps (13%) done
+Select jobs to execute...
+Execute 1 jobs...
+[Wed Sep 23 11:02:05 2026]
+Job 2565: converting bifurcated backbone trees from nexus to newick format
+Reason: Missing output files: treesort/100/0/ha_treesort.nwk; Input files updated by another job: treesort/100/0/ha_treesort.tre
+Shell command: 
+        python scripts/to_nwk.py             --tree treesort/100/0/ha_treesort.tre             --output treesort/100/0/ha_treesort.nwk
+        
+[Wed Sep 23 11:02:05 2026]
+Finished jobid: 2565 (Rule: convert_tree)
+4 of 23 steps (17%) done
+Select jobs to execute...
+Execute 9 jobs...
+[Wed Sep 23 11:02:05 2026]
+Job 2564: generating descriptor file for treesort
+Reason: Missing output files: treesort/100/1/descriptor.csv; Input files updated by another job: treesort/100/0/ha_treesort.nwk
+Shell command: 
+        python scripts/generate_descriptor.py             --ha_tree treesort/100/0/ha_treesort.nwk             --ha_alignment ha-100reps/results/alignments/aligned_ha_dna.fasta             --nonha_trees non-ha-10reps/results/1/tree-raw_pb2.nwk non-ha-10reps/results/1/tree-raw_pb1.nwk non-ha-10reps/results/1/tree-raw_na.nwk non-ha-10reps/results/1/tree-raw_np.nwk non-ha-10reps/results/1/tree-raw_pa.nwk non-ha-10reps/results/1/tree-raw_ns.nwk non-ha-10reps/results/1/tree-raw_mp.nwk             --nonha_alignments non-ha-10reps/results/alignments/aligned_pb2_dna.fasta non-ha-10reps/results/alignments/aligned_pb1_dna.fasta non-ha-10reps/results/alignments/aligned_na_dna.fasta non-ha-10reps/results/alignments/aligned_np_dna.fasta non-ha-10reps/results/alignments/aligned_pa_dna.fasta non-ha-10reps/results/alignments/aligned_ns_dna.fasta non-ha-10reps/results/alignments/aligned_mp_dna.fasta             --segments pb2 pb1 na np pa ns mp             --descriptor treesort/100/1/descriptor.csv
+        
+[Wed Sep 23 11:02:05 2026]
+Job 2579: generating descriptor file for treesort
+Reason: Missing output files: treesort/100/8/descriptor.csv; Input files updated by another job: treesort/100/0/ha_treesort.nwk
+Shell command: 
+        python scripts/generate_descriptor.py             --ha_tree treesort/100/0/ha_treesort.nwk             --ha_alignment ha-100reps/results/alignments/aligned_ha_dna.fasta             --nonha_trees non-ha-10reps/results/8/tree-raw_pb2.nwk non-ha-10reps/results/8/tree-raw_pb1.nwk non-ha-10reps/results/8/tree-raw_na.nwk non-ha-10reps/results/8/tree-raw_np.nwk non-ha-10reps/results/8/tree-raw_pa.nwk non-ha-10reps/results/8/tree-raw_ns.nwk non-ha-10reps/results/8/tree-raw_mp.nwk             --nonha_alignments non-ha-10reps/results/alignments/aligned_pb2_dna.fasta non-ha-10reps/results/alignments/aligned_pb1_dna.fasta non-ha-10reps/results/alignments/aligned_na_dna.fasta non-ha-10reps/results/alignments/aligned_np_dna.fasta non-ha-10reps/results/alignments/aligned_pa_dna.fasta non-ha-10reps/results/alignments/aligned_ns_dna.fasta non-ha-10reps/results/alignments/aligned_mp_dna.fasta             --segments pb2 pb1 na np pa ns mp             --descriptor treesort/100/8/descriptor.csv
+        
+[Wed Sep 23 11:02:05 2026]
+Job 2567: generating descriptor file for treesort
+Reason: Missing output files: treesort/100/2/descriptor.csv; Input files updated by another job: treesort/100/0/ha_treesort.nwk
+Shell command: 
+        python scripts/generate_descriptor.py             --ha_tree treesort/100/0/ha_treesort.nwk             --ha_alignment ha-100reps/results/alignments/aligned_ha_dna.fasta             --nonha_trees non-ha-10reps/results/2/tree-raw_pb2.nwk non-ha-10reps/results/2/tree-raw_pb1.nwk non-ha-10reps/results/2/tree-raw_na.nwk non-ha-10reps/results/2/tree-raw_np.nwk non-ha-10reps/results/2/tree-raw_pa.nwk non-ha-10reps/results/2/tree-raw_ns.nwk non-ha-10reps/results/2/tree-raw_mp.nwk             --nonha_alignments non-ha-10reps/results/alignments/aligned_pb2_dna.fasta non-ha-10reps/results/alignments/aligned_pb1_dna.fasta non-ha-10reps/results/alignments/aligned_na_dna.fasta non-ha-10reps/results/alignments/aligned_np_dna.fasta non-ha-10reps/results/alignments/aligned_pa_dna.fasta non-ha-10reps/results/alignments/aligned_ns_dna.fasta non-ha-10reps/results/alignments/aligned_mp_dna.fasta             --segments pb2 pb1 na np pa ns mp             --descriptor treesort/100/2/descriptor.csv
+        
+[Wed Sep 23 11:02:05 2026]
+Job 2571: generating descriptor file for treesort
+Reason: Missing output files: treesort/100/4/descriptor.csv; Input files updated by another job: treesort/100/0/ha_treesort.nwk
+Shell command: 
+        python scripts/generate_descriptor.py             --ha_tree treesort/100/0/ha_treesort.nwk             --ha_alignment ha-100reps/results/alignments/aligned_ha_dna.fasta             --nonha_trees non-ha-10reps/results/4/tree-raw_pb2.nwk non-ha-10reps/results/4/tree-raw_pb1.nwk non-ha-10reps/results/4/tree-raw_na.nwk non-ha-10reps/results/4/tree-raw_np.nwk non-ha-10reps/results/4/tree-raw_pa.nwk non-ha-10reps/results/4/tree-raw_ns.nwk non-ha-10reps/results/4/tree-raw_mp.nwk             --nonha_alignments non-ha-10reps/results/alignments/aligned_pb2_dna.fasta non-ha-10reps/results/alignments/aligned_pb1_dna.fasta non-ha-10reps/results/alignments/aligned_na_dna.fasta non-ha-10reps/results/alignments/aligned_np_dna.fasta non-ha-10reps/results/alignments/aligned_pa_dna.fasta non-ha-10reps/results/alignments/aligned_ns_dna.fasta non-ha-10reps/results/alignments/aligned_mp_dna.fasta             --segments pb2 pb1 na np pa ns mp             --descriptor treesort/100/4/descriptor.csv
+        
+[Wed Sep 23 11:02:05 2026]
+Job 2575: generating descriptor file for treesort
+Reason: Missing output files: treesort/100/6/descriptor.csv; Input files updated by another job: treesort/100/0/ha_treesort.nwk
+Shell command: 
+        python scripts/generate_descriptor.py             --ha_tree treesort/100/0/ha_treesort.nwk             --ha_alignment ha-100reps/results/alignments/aligned_ha_dna.fasta             --nonha_trees non-ha-10reps/results/6/tree-raw_pb2.nwk non-ha-10reps/results/6/tree-raw_pb1.nwk non-ha-10reps/results/6/tree-raw_na.nwk non-ha-10reps/results/6/tree-raw_np.nwk non-ha-10reps/results/6/tree-raw_pa.nwk non-ha-10reps/results/6/tree-raw_ns.nwk non-ha-10reps/results/6/tree-raw_mp.nwk             --nonha_alignments non-ha-10reps/results/alignments/aligned_pb2_dna.fasta non-ha-10reps/results/alignments/aligned_pb1_dna.fasta non-ha-10reps/results/alignments/aligned_na_dna.fasta non-ha-10reps/results/alignments/aligned_np_dna.fasta non-ha-10reps/results/alignments/aligned_pa_dna.fasta non-ha-10reps/results/alignments/aligned_ns_dna.fasta non-ha-10reps/results/alignments/aligned_mp_dna.fasta             --segments pb2 pb1 na np pa ns mp             --descriptor treesort/100/6/descriptor.csv
+        
+[Wed Sep 23 11:02:05 2026]
+Job 2577: generating descriptor file for treesort
+Reason: Missing output files: treesort/100/7/descriptor.csv; Input files updated by another job: treesort/100/0/ha_treesort.nwk
+Shell command: 
+        python scripts/generate_descriptor.py             --ha_tree treesort/100/0/ha_treesort.nwk             --ha_alignment ha-100reps/results/alignments/aligned_ha_dna.fasta             --nonha_trees non-ha-10reps/results/7/tree-raw_pb2.nwk non-ha-10reps/results/7/tree-raw_pb1.nwk non-ha-10reps/results/7/tree-raw_na.nwk non-ha-10reps/results/7/tree-raw_np.nwk non-ha-10reps/results/7/tree-raw_pa.nwk non-ha-10reps/results/7/tree-raw_ns.nwk non-ha-10reps/results/7/tree-raw_mp.nwk             --nonha_alignments non-ha-10reps/results/alignments/aligned_pb2_dna.fasta non-ha-10reps/results/alignments/aligned_pb1_dna.fasta non-ha-10reps/results/alignments/aligned_na_dna.fasta non-ha-10reps/results/alignments/aligned_np_dna.fasta non-ha-10reps/results/alignments/aligned_pa_dna.fasta non-ha-10reps/results/alignments/aligned_ns_dna.fasta non-ha-10reps/results/alignments/aligned_mp_dna.fasta             --segments pb2 pb1 na np pa ns mp             --descriptor treesort/100/7/descriptor.csv
+        
+[Wed Sep 23 11:02:05 2026]
+Job 2581: generating descriptor file for treesort
+Reason: Missing output files: treesort/100/9/descriptor.csv; Input files updated by another job: treesort/100/0/ha_treesort.nwk
+Shell command: 
+        python scripts/generate_descriptor.py             --ha_tree treesort/100/0/ha_treesort.nwk             --ha_alignment ha-100reps/results/alignments/aligned_ha_dna.fasta             --nonha_trees non-ha-10reps/results/9/tree-raw_pb2.nwk non-ha-10reps/results/9/tree-raw_pb1.nwk non-ha-10reps/results/9/tree-raw_na.nwk non-ha-10reps/results/9/tree-raw_np.nwk non-ha-10reps/results/9/tree-raw_pa.nwk non-ha-10reps/results/9/tree-raw_ns.nwk non-ha-10reps/results/9/tree-raw_mp.nwk             --nonha_alignments non-ha-10reps/results/alignments/aligned_pb2_dna.fasta non-ha-10reps/results/alignments/aligned_pb1_dna.fasta non-ha-10reps/results/alignments/aligned_na_dna.fasta non-ha-10reps/results/alignments/aligned_np_dna.fasta non-ha-10reps/results/alignments/aligned_pa_dna.fasta non-ha-10reps/results/alignments/aligned_ns_dna.fasta non-ha-10reps/results/alignments/aligned_mp_dna.fasta             --segments pb2 pb1 na np pa ns mp             --descriptor treesort/100/9/descriptor.csv
+        
+[Wed Sep 23 11:02:05 2026]
+Job 2569: generating descriptor file for treesort
+Reason: Missing output files: treesort/100/3/descriptor.csv; Input files updated by another job: treesort/100/0/ha_treesort.nwk
+Shell command: 
+        python scripts/generate_descriptor.py             --ha_tree treesort/100/0/ha_treesort.nwk             --ha_alignment ha-100reps/results/alignments/aligned_ha_dna.fasta             --nonha_trees non-ha-10reps/results/3/tree-raw_pb2.nwk non-ha-10reps/results/3/tree-raw_pb1.nwk non-ha-10reps/results/3/tree-raw_na.nwk non-ha-10reps/results/3/tree-raw_np.nwk non-ha-10reps/results/3/tree-raw_pa.nwk non-ha-10reps/results/3/tree-raw_ns.nwk non-ha-10reps/results/3/tree-raw_mp.nwk             --nonha_alignments non-ha-10reps/results/alignments/aligned_pb2_dna.fasta non-ha-10reps/results/alignments/aligned_pb1_dna.fasta non-ha-10reps/results/alignments/aligned_na_dna.fasta non-ha-10reps/results/alignments/aligned_np_dna.fasta non-ha-10reps/results/alignments/aligned_pa_dna.fasta non-ha-10reps/results/alignments/aligned_ns_dna.fasta non-ha-10reps/results/alignments/aligned_mp_dna.fasta             --segments pb2 pb1 na np pa ns mp             --descriptor treesort/100/3/descriptor.csv
+        
+[Wed Sep 23 11:02:05 2026]
+Job 2573: generating descriptor file for treesort
+Reason: Missing output files: treesort/100/5/descriptor.csv; Input files updated by another job: treesort/100/0/ha_treesort.nwk
+Shell command: 
+        python scripts/generate_descriptor.py             --ha_tree treesort/100/0/ha_treesort.nwk             --ha_alignment ha-100reps/results/alignments/aligned_ha_dna.fasta             --nonha_trees non-ha-10reps/results/5/tree-raw_pb2.nwk non-ha-10reps/results/5/tree-raw_pb1.nwk non-ha-10reps/results/5/tree-raw_na.nwk non-ha-10reps/results/5/tree-raw_np.nwk non-ha-10reps/results/5/tree-raw_pa.nwk non-ha-10reps/results/5/tree-raw_ns.nwk non-ha-10reps/results/5/tree-raw_mp.nwk             --nonha_alignments non-ha-10reps/results/alignments/aligned_pb2_dna.fasta non-ha-10reps/results/alignments/aligned_pb1_dna.fasta non-ha-10reps/results/alignments/aligned_na_dna.fasta non-ha-10reps/results/alignments/aligned_np_dna.fasta non-ha-10reps/results/alignments/aligned_pa_dna.fasta non-ha-10reps/results/alignments/aligned_ns_dna.fasta non-ha-10reps/results/alignments/aligned_mp_dna.fasta             --segments pb2 pb1 na np pa ns mp             --descriptor treesort/100/5/descriptor.csv
+        
+[Wed Sep 23 11:02:05 2026]
+Finished jobid: 2564 (Rule: generate_descriptor)
+5 of 23 steps (22%) done
+Select jobs to execute...
+[Wed Sep 23 11:02:05 2026]
+Finished jobid: 2579 (Rule: generate_descriptor)
+6 of 23 steps (26%) done
+[Wed Sep 23 11:02:05 2026]
+Finished jobid: 2567 (Rule: generate_descriptor)
+7 of 23 steps (30%) done
+Execute 1 jobs...
+[Wed Sep 23 11:02:05 2026]
+Job 2578: performing replicate treesort runs for each ha tree
+Reason: Missing output files: treesort/100/8/ha_treesort.tre; Input files updated by another job: treesort/100/8/descriptor.csv
+Shell command: 
+        cd treesort/100/8
+        treesort -i descriptor.csv -o ha_treesort.tre --no-collapse
+        
+[Wed Sep 23 11:02:05 2026]
+Finished jobid: 2577 (Rule: generate_descriptor)
+8 of 23 steps (35%) done
+[Wed Sep 23 11:02:05 2026]
+Finished jobid: 2581 (Rule: generate_descriptor)
+9 of 23 steps (39%) done
+[Wed Sep 23 11:02:05 2026]
+Finished jobid: 2573 (Rule: generate_descriptor)
+10 of 23 steps (43%) done
+Select jobs to execute...
+[Wed Sep 23 11:02:05 2026]
+Finished jobid: 2569 (Rule: generate_descriptor)
+11 of 23 steps (48%) done
+[Wed Sep 23 11:02:05 2026]
+Finished jobid: 2575 (Rule: generate_descriptor)
+12 of 23 steps (52%) done
+[Wed Sep 23 11:02:05 2026]
+Finished jobid: 2571 (Rule: generate_descriptor)
+13 of 23 steps (57%) done
+Execute 1 jobs...
+[Wed Sep 23 11:02:05 2026]
+Job 2570: performing replicate treesort runs for each ha tree
+Reason: Missing output files: treesort/100/4/ha_treesort.tre; Input files updated by another job: treesort/100/4/descriptor.csv
+Shell command: 
+        cd treesort/100/4
+        treesort -i descriptor.csv -o ha_treesort.tre --no-collapse
+        
+Select jobs to execute...
+[Wed Sep 23 11:04:27 2026]
+Finished jobid: 2578 (Rule: treesort)
+14 of 23 steps (61%) done
+Execute 1 jobs...
+[Wed Sep 23 11:04:27 2026]
+Job 2574: performing replicate treesort runs for each ha tree
+Reason: Missing output files: treesort/100/6/ha_treesort.tre; Input files updated by another job: treesort/100/6/descriptor.csv
+Shell command: 
+        cd treesort/100/6
+        treesort -i descriptor.csv -o ha_treesort.tre --no-collapse
+        
+Select jobs to execute...
+[Wed Sep 23 11:04:28 2026]
+Finished jobid: 2570 (Rule: treesort)
+15 of 23 steps (65%) done
+Execute 1 jobs...
+[Wed Sep 23 11:04:28 2026]
+Job 2563: performing replicate treesort runs for each ha tree
+Reason: Missing output files: treesort/100/1/ha_treesort.tre; Input files updated by another job: treesort/100/1/descriptor.csv
+Shell command: 
+        cd treesort/100/1
+        treesort -i descriptor.csv -o ha_treesort.tre --no-collapse
+        
+Select jobs to execute...
+[Wed Sep 23 11:06:52 2026]
+Finished jobid: 2574 (Rule: treesort)
+16 of 23 steps (70%) done
+Execute 1 jobs...
+[Wed Sep 23 11:06:52 2026]
+Job 2568: performing replicate treesort runs for each ha tree
+Reason: Missing output files: treesort/100/3/ha_treesort.tre; Input files updated by another job: treesort/100/3/descriptor.csv
+Shell command: 
+        cd treesort/100/3
+        treesort -i descriptor.csv -o ha_treesort.tre --no-collapse
+        
+Select jobs to execute...
+[Wed Sep 23 11:06:53 2026]
+Finished jobid: 2563 (Rule: treesort)
+17 of 23 steps (74%) done
+Execute 1 jobs...
+[Wed Sep 23 11:06:53 2026]
+Job 2580: performing replicate treesort runs for each ha tree
+Reason: Missing output files: treesort/100/9/ha_treesort.tre; Input files updated by another job: treesort/100/9/descriptor.csv
+Shell command: 
+        cd treesort/100/9
+        treesort -i descriptor.csv -o ha_treesort.tre --no-collapse
+        
+Select jobs to execute...
+[Wed Sep 23 11:09:17 2026]
+Finished jobid: 2568 (Rule: treesort)
+18 of 23 steps (78%) done
+Execute 1 jobs...
+[Wed Sep 23 11:09:17 2026]
+Job 2572: performing replicate treesort runs for each ha tree
+Reason: Missing output files: treesort/100/5/ha_treesort.tre; Input files updated by another job: treesort/100/5/descriptor.csv
+Shell command: 
+        cd treesort/100/5
+        treesort -i descriptor.csv -o ha_treesort.tre --no-collapse
+        
+Select jobs to execute...
+[Wed Sep 23 11:09:18 2026]
+Finished jobid: 2580 (Rule: treesort)
+19 of 23 steps (83%) done
+Execute 1 jobs...
+[Wed Sep 23 11:09:18 2026]
+Job 2566: performing replicate treesort runs for each ha tree
+Reason: Missing output files: treesort/100/2/ha_treesort.tre; Input files updated by another job: treesort/100/2/descriptor.csv
+Shell command: 
+        cd treesort/100/2
+        treesort -i descriptor.csv -o ha_treesort.tre --no-collapse
+        
+Select jobs to execute...
+[Wed Sep 23 11:11:42 2026]
+Finished jobid: 2566 (Rule: treesort)
+20 of 23 steps (87%) done
+Execute 1 jobs...
+[Wed Sep 23 11:11:42 2026]
+Job 2576: performing replicate treesort runs for each ha tree
+Reason: Missing output files: treesort/100/7/ha_treesort.tre; Input files updated by another job: treesort/100/7/descriptor.csv
+Shell command: 
+        cd treesort/100/7
+        treesort -i descriptor.csv -o ha_treesort.tre --no-collapse
+        
+[Wed Sep 23 11:11:43 2026]
+Finished jobid: 2572 (Rule: treesort)
+21 of 23 steps (91%) done
+[Wed Sep 23 11:13:59 2026]
+Finished jobid: 2576 (Rule: treesort)
+22 of 23 steps (96%) done
+Select jobs to execute...
+Execute 1 jobs...
+[Wed Sep 23 11:13:59 2026]
+localrule all:
+    input: treesort/0/0/ha_treesort.tre, treesort/0/1/ha_treesort.tre, treesort/0/2/ha_treesort.tre, treesort/0/3/ha_treesort.tre, treesort/0/4/ha_treesort.tre, treesort/0/5/ha_treesort.tre, treesort/0/6/ha_treesort.tre, treesort/0/7/ha_treesort.tre, treesort/0/8/ha_treesort.tre, treesort/0/9/ha_treesort.tre, treesort/1/0/ha_treesort.tre, treesort/1/1/ha_treesort.tre, treesort/1/2/ha_treesort.tre, treesort/1/3/ha_treesort.tre, treesort/1/4/ha_treesort.tre, treesort/1/5/ha_treesort.tre, treesort/1/6/ha_treesort.tre, treesort/1/7/ha_treesort.tre, treesort/1/8/ha_treesort.tre, treesort/1/9/ha_treesort.tre, treesort/2/0/ha_treesort.tre, treesort/2/1/ha_treesort.tre, treesort/2/2/ha_treesort.tre, treesort/2/3/ha_treesort.tre, treesort/2/4/ha_treesort.tre, treesort/2/5/ha_treesort.tre, treesort/2/6/ha_treesort.tre, treesort/2/7/ha_treesort.tre, treesort/2/8/ha_treesort.tre, treesort/2/9/ha_treesort.tre, treesort/3/0/ha_treesort.tre, treesort/3/1/ha_treesort.tre, treesort/3/2/ha_treesort.tre, treesort/3/3/ha_treesort.tre, treesort/3/4/ha_treesort.tre, treesort/3/5/ha_treesort.tre, treesort/3/6/ha_treesort.tre, treesort/3/7/ha_treesort.tre, treesort/3/8/ha_treesort.tre, treesort/3/9/ha_treesort.tre, treesort/4/0/ha_treesort.tre, treesort/4/1/ha_treesort.tre, treesort/4/2/ha_treesort.tre, treesort/4/3/ha_treesort.tre, treesort/4/4/ha_treesort.tre, treesort/4/5/ha_treesort.tre, treesort/4/6/ha_treesort.tre, treesort/4/7/ha_treesort.tre, treesort/4/8/ha_treesort.tre, treesort/4/9/ha_treesort.tre, treesort/5/0/ha_treesort.tre, treesort/5/1/ha_treesort.tre, treesort/5/2/ha_treesort.tre, treesort/5/3/ha_treesort.tre, treesort/5/4/ha_treesort.tre, treesort/5/5/ha_treesort.tre, treesort/5/6/ha_treesort.tre, treesort/5/7/ha_treesort.tre, treesort/5/8/ha_treesort.tre, treesort/5/9/ha_treesort.tre, treesort/6/0/ha_treesort.tre, treesort/6/1/ha_treesort.tre, treesort/6/2/ha_treesort.tre, treesort/6/3/ha_treesort.tre, treesort/6/4/ha_treesort.tre, treesort/6/5/ha_treesort.tre, treesort/6/6/ha_treesort.tre, treesort/6/7/ha_treesort.tre, treesort/6/8/ha_treesort.tre, treesort/6/9/ha_treesort.tre, treesort/7/0/ha_treesort.tre, treesort/7/1/ha_treesort.tre, treesort/7/2/ha_treesort.tre, treesort/7/3/ha_treesort.tre, treesort/7/4/ha_treesort.tre, treesort/7/5/ha_treesort.tre, treesort/7/6/ha_treesort.tre, treesort/7/7/ha_treesort.tre, treesort/7/8/ha_treesort.tre, treesort/7/9/ha_treesort.tre, treesort/8/0/ha_treesort.tre, treesort/8/1/ha_treesort.tre, treesort/8/2/ha_treesort.tre, treesort/8/3/ha_treesort.tre, treesort/8/4/ha_treesort.tre, treesort/8/5/ha_treesort.tre, treesort/8/6/ha_treesort.tre, treesort/8/7/ha_treesort.tre, treesort/8/8/ha_treesort.tre, treesort/8/9/ha_treesort.tre, treesort/9/0/ha_treesort.tre, treesort/9/1/ha_treesort.tre, treesort/9/2/ha_treesort.tre, treesort/9/3/ha_treesort.tre, treesort/9/4/ha_treesort.tre, treesort/9/5/ha_treesort.tre, treesort/9/6/ha_treesort.tre, treesort/9/7/ha_treesort.tre, treesort/9/8/ha_treesort.tre, treesort/9/9/ha_treesort.tre, treesort/10/0/ha_treesort.tre, treesort/10/1/ha_treesort.tre, treesort/10/2/ha_treesort.tre, treesort/10/3/ha_treesort.tre, treesort/10/4/ha_treesort.tre, treesort/10/5/ha_treesort.tre, treesort/10/6/ha_treesort.tre, treesort/10/7/ha_treesort.tre, treesort/10/8/ha_treesort.tre, treesort/10/9/ha_treesort.tre, treesort/11/0/ha_treesort.tre, treesort/11/1/ha_treesort.tre, treesort/11/2/ha_treesort.tre, treesort/11/3/ha_treesort.tre, treesort/11/4/ha_treesort.tre, treesort/11/5/ha_treesort.tre, treesort/11/6/ha_treesort.tre, treesort/11/7/ha_treesort.tre, treesort/11/8/ha_treesort.tre, treesort/11/9/ha_treesort.tre, treesort/12/0/ha_treesort.tre, treesort/12/1/ha_treesort.tre, treesort/12/2/ha_treesort.tre, treesort/12/3/ha_treesort.tre, treesort/12/4/ha_treesort.tre, treesort/12/5/ha_treesort.tre, treesort/12/6/ha_treesort.tre, treesort/12/7/ha_treesort.tre, treesort/12/8/ha_treesort.tre, treesort/12/9/ha_treesort.tre, treesort/13/0/ha_treesort.tre, treesort/13/1/ha_treesort.tre, treesort/13/2/ha_treesort.tre, treesort/13/3/ha_treesort.tre, treesort/13/4/ha_treesort.tre, treesort/13/5/ha_treesort.tre, treesort/13/6/ha_treesort.tre, treesort/13/7/ha_treesort.tre, treesort/13/8/ha_treesort.tre, treesort/13/9/ha_treesort.tre, treesort/14/0/ha_treesort.tre, treesort/14/1/ha_treesort.tre, treesort/14/2/ha_treesort.tre, treesort/14/3/ha_treesort.tre, treesort/14/4/ha_treesort.tre, treesort/14/5/ha_treesort.tre, treesort/14/6/ha_treesort.tre, treesort/14/7/ha_treesort.tre, treesort/14/8/ha_treesort.tre, treesort/14/9/ha_treesort.tre, treesort/15/0/ha_treesort.tre, treesort/15/1/ha_treesort.tre, treesort/15/2/ha_treesort.tre, treesort/15/3/ha_treesort.tre, treesort/15/4/ha_treesort.tre, treesort/15/5/ha_treesort.tre, treesort/15/6/ha_treesort.tre, treesort/15/7/ha_treesort.tre, treesort/15/8/ha_treesort.tre, treesort/15/9/ha_treesort.tre, treesort/16/0/ha_treesort.tre, treesort/16/1/ha_treesort.tre, treesort/16/2/ha_treesort.tre, treesort/16/3/ha_treesort.tre, treesort/16/4/ha_treesort.tre, treesort/16/5/ha_treesort.tre, treesort/16/6/ha_treesort.tre, treesort/16/7/ha_treesort.tre, treesort/16/8/ha_treesort.tre, treesort/16/9/ha_treesort.tre, treesort/17/0/ha_treesort.tre, treesort/17/1/ha_treesort.tre, treesort/17/2/ha_treesort.tre, treesort/17/3/ha_treesort.tre, treesort/17/4/ha_treesort.tre, treesort/17/5/ha_treesort.tre, treesort/17/6/ha_treesort.tre, treesort/17/7/ha_treesort.tre, treesort/17/8/ha_treesort.tre, treesort/17/9/ha_treesort.tre, treesort/18/0/ha_treesort.tre, treesort/18/1/ha_treesort.tre, treesort/18/2/ha_treesort.tre, treesort/18/3/ha_treesort.tre, treesort/18/4/ha_treesort.tre, treesort/18/5/ha_treesort.tre, treesort/18/6/ha_treesort.tre, treesort/18/7/ha_treesort.tre, treesort/18/8/ha_treesort.tre, treesort/18/9/ha_treesort.tre, treesort/19/0/ha_treesort.tre, treesort/19/1/ha_treesort.tre, treesort/19/2/ha_treesort.tre, treesort/19/3/ha_treesort.tre, treesort/19/4/ha_treesort.tre, treesort/19/5/ha_treesort.tre, treesort/19/6/ha_treesort.tre, treesort/19/7/ha_treesort.tre, treesort/19/8/ha_treesort.tre, treesort/19/9/ha_treesort.tre, treesort/20/0/ha_treesort.tre, treesort/20/1/ha_treesort.tre, treesort/20/2/ha_treesort.tre, treesort/20/3/ha_treesort.tre, treesort/20/4/ha_treesort.tre, treesort/20/5/ha_treesort.tre, treesort/20/6/ha_treesort.tre, treesort/20/7/ha_treesort.tre, treesort/20/8/ha_treesort.tre, treesort/20/9/ha_treesort.tre, treesort/21/0/ha_treesort.tre, treesort/21/1/ha_treesort.tre, treesort/21/2/ha_treesort.tre, treesort/21/3/ha_treesort.tre, treesort/21/4/ha_treesort.tre, treesort/21/5/ha_treesort.tre, treesort/21/6/ha_treesort.tre, treesort/21/7/ha_treesort.tre, treesort/21/8/ha_treesort.tre, treesort/21/9/ha_treesort.tre, treesort/22/0/ha_treesort.tre, treesort/22/1/ha_treesort.tre, treesort/22/2/ha_treesort.tre, treesort/22/3/ha_treesort.tre, treesort/22/4/ha_treesort.tre, treesort/22/5/ha_treesort.tre, treesort/22/6/ha_treesort.tre, treesort/22/7/ha_treesort.tre, treesort/22/8/ha_treesort.tre, treesort/22/9/ha_treesort.tre, treesort/23/0/ha_treesort.tre, treesort/23/1/ha_treesort.tre, treesort/23/2/ha_treesort.tre, treesort/23/3/ha_treesort.tre, treesort/23/4/ha_treesort.tre, treesort/23/5/ha_treesort.tre, treesort/23/6/ha_treesort.tre, treesort/23/7/ha_treesort.tre, treesort/23/8/ha_treesort.tre, treesort/23/9/ha_treesort.tre, treesort/24/0/ha_treesort.tre, treesort/24/1/ha_treesort.tre, treesort/24/2/ha_treesort.tre, treesort/24/3/ha_treesort.tre, treesort/24/4/ha_treesort.tre, treesort/24/5/ha_treesort.tre, treesort/24/6/ha_treesort.tre, treesort/24/7/ha_treesort.tre, treesort/24/8/ha_treesort.tre, treesort/24/9/ha_treesort.tre, treesort/25/0/ha_treesort.tre, treesort/25/1/ha_treesort.tre, treesort/25/2/ha_treesort.tre, treesort/25/3/ha_treesort.tre, treesort/25/4/ha_treesort.tre, treesort/25/5/ha_treesort.tre, treesort/25/6/ha_treesort.tre, treesort/25/7/ha_treesort.tre, treesort/25/8/ha_treesort.tre, treesort/25/9/ha_treesort.tre, treesort/26/0/ha_treesort.tre, treesort/26/1/ha_treesort.tre, treesort/26/2/ha_treesort.tre, treesort/26/3/ha_treesort.tre, treesort/26/4/ha_treesort.tre, treesort/26/5/ha_treesort.tre, treesort/26/6/ha_treesort.tre, treesort/26/7/ha_treesort.tre, treesort/26/8/ha_treesort.tre, treesort/26/9/ha_treesort.tre, treesort/27/0/ha_treesort.tre, treesort/27/1/ha_treesort.tre, treesort/27/2/ha_treesort.tre, treesort/27/3/ha_treesort.tre, treesort/27/4/ha_treesort.tre, treesort/27/5/ha_treesort.tre, treesort/27/6/ha_treesort.tre, treesort/27/7/ha_treesort.tre, treesort/27/8/ha_treesort.tre, treesort/27/9/ha_treesort.tre, treesort/28/0/ha_treesort.tre, treesort/28/1/ha_treesort.tre, treesort/28/2/ha_treesort.tre, treesort/28/3/ha_treesort.tre, treesort/28/4/ha_treesort.tre, treesort/28/5/ha_treesort.tre, treesort/28/6/ha_treesort.tre, treesort/28/7/ha_treesort.tre, treesort/28/8/ha_treesort.tre, treesort/28/9/ha_treesort.tre, treesort/29/0/ha_treesort.tre, treesort/29/1/ha_treesort.tre, treesort/29/2/ha_treesort.tre, treesort/29/3/ha_treesort.tre, treesort/29/4/ha_treesort.tre, treesort/29/5/ha_treesort.tre, treesort/29/6/ha_treesort.tre, treesort/29/7/ha_treesort.tre, treesort/29/8/ha_treesort.tre, treesort/29/9/ha_treesort.tre, treesort/30/0/ha_treesort.tre, treesort/30/1/ha_treesort.tre, treesort/30/2/ha_treesort.tre, treesort/30/3/ha_treesort.tre, treesort/30/4/ha_treesort.tre, treesort/30/5/ha_treesort.tre, treesort/30/6/ha_treesort.tre, treesort/30/7/ha_treesort.tre, treesort/30/8/ha_treesort.tre, treesort/30/9/ha_treesort.tre, treesort/31/0/ha_treesort.tre, treesort/31/1/ha_treesort.tre, treesort/31/2/ha_treesort.tre, treesort/31/3/ha_treesort.tre, treesort/31/4/ha_treesort.tre, treesort/31/5/ha_treesort.tre, treesort/31/6/ha_treesort.tre, treesort/31/7/ha_treesort.tre, treesort/31/8/ha_treesort.tre, treesort/31/9/ha_treesort.tre, treesort/32/0/ha_treesort.tre, treesort/32/1/ha_treesort.tre, treesort/32/2/ha_treesort.tre, treesort/32/3/ha_treesort.tre, treesort/32/4/ha_treesort.tre, treesort/32/5/ha_treesort.tre, treesort/32/6/ha_treesort.tre, treesort/32/7/ha_treesort.tre, treesort/32/8/ha_treesort.tre, treesort/32/9/ha_treesort.tre, treesort/33/0/ha_treesort.tre, treesort/33/1/ha_treesort.tre, treesort/33/2/ha_treesort.tre, treesort/33/3/ha_treesort.tre, treesort/33/4/ha_treesort.tre, treesort/33/5/ha_treesort.tre, treesort/33/6/ha_treesort.tre, treesort/33/7/ha_treesort.tre, treesort/33/8/ha_treesort.tre, treesort/33/9/ha_treesort.tre, treesort/34/0/ha_treesort.tre, treesort/34/1/ha_treesort.tre, treesort/34/2/ha_treesort.tre, treesort/34/3/ha_treesort.tre, treesort/34/4/ha_treesort.tre, treesort/34/5/ha_treesort.tre, treesort/34/6/ha_treesort.tre, treesort/34/7/ha_treesort.tre, treesort/34/8/ha_treesort.tre, treesort/34/9/ha_treesort.tre, treesort/35/0/ha_treesort.tre, treesort/35/1/ha_treesort.tre, treesort/35/2/ha_treesort.tre, treesort/35/3/ha_treesort.tre, treesort/35/4/ha_treesort.tre, treesort/35/5/ha_treesort.tre, treesort/35/6/ha_treesort.tre, treesort/35/7/ha_treesort.tre, treesort/35/8/ha_treesort.tre, treesort/35/9/ha_treesort.tre, treesort/36/0/ha_treesort.tre, treesort/36/1/ha_treesort.tre, treesort/36/2/ha_treesort.tre, treesort/36/3/ha_treesort.tre, treesort/36/4/ha_treesort.tre, treesort/36/5/ha_treesort.tre, treesort/36/6/ha_treesort.tre, treesort/36/7/ha_treesort.tre, treesort/36/8/ha_treesort.tre, treesort/36/9/ha_treesort.tre, treesort/37/0/ha_treesort.tre, treesort/37/1/ha_treesort.tre, treesort/37/2/ha_treesort.tre, treesort/37/3/ha_treesort.tre, treesort/37/4/ha_treesort.tre, treesort/37/5/ha_treesort.tre, treesort/37/6/ha_treesort.tre, treesort/37/7/ha_treesort.tre, treesort/37/8/ha_treesort.tre, treesort/37/9/ha_treesort.tre, treesort/38/0/ha_treesort.tre, treesort/38/1/ha_treesort.tre, treesort/38/2/ha_treesort.tre, treesort/38/3/ha_treesort.tre, treesort/38/4/ha_treesort.tre, treesort/38/5/ha_treesort.tre, treesort/38/6/ha_treesort.tre, treesort/38/7/ha_treesort.tre, treesort/38/8/ha_treesort.tre, treesort/38/9/ha_treesort.tre, treesort/39/0/ha_treesort.tre, treesort/39/1/ha_treesort.tre, treesort/39/2/ha_treesort.tre, treesort/39/3/ha_treesort.tre, treesort/39/4/ha_treesort.tre, treesort/39/5/ha_treesort.tre, treesort/39/6/ha_treesort.tre, treesort/39/7/ha_treesort.tre, treesort/39/8/ha_treesort.tre, treesort/39/9/ha_treesort.tre, treesort/40/0/ha_treesort.tre, treesort/40/1/ha_treesort.tre, treesort/40/2/ha_treesort.tre, treesort/40/3/ha_treesort.tre, treesort/40/4/ha_treesort.tre, treesort/40/5/ha_treesort.tre, treesort/40/6/ha_treesort.tre, treesort/40/7/ha_treesort.tre, treesort/40/8/ha_treesort.tre, treesort/40/9/ha_treesort.tre, treesort/41/0/ha_treesort.tre, treesort/41/1/ha_treesort.tre, treesort/41/2/ha_treesort.tre, treesort/41/3/ha_treesort.tre, treesort/41/4/ha_treesort.tre, treesort/41/5/ha_treesort.tre, treesort/41/6/ha_treesort.tre, treesort/41/7/ha_treesort.tre, treesort/41/8/ha_treesort.tre, treesort/41/9/ha_treesort.tre, treesort/42/0/ha_treesort.tre, treesort/42/1/ha_treesort.tre, treesort/42/2/ha_treesort.tre, treesort/42/3/ha_treesort.tre, treesort/42/4/ha_treesort.tre, treesort/42/5/ha_treesort.tre, treesort/42/6/ha_treesort.tre, treesort/42/7/ha_treesort.tre, treesort/42/8/ha_treesort.tre, treesort/42/9/ha_treesort.tre, treesort/43/0/ha_treesort.tre, treesort/43/1/ha_treesort.tre, treesort/43/2/ha_treesort.tre, treesort/43/3/ha_treesort.tre, treesort/43/4/ha_treesort.tre, treesort/43/5/ha_treesort.tre, treesort/43/6/ha_treesort.tre, treesort/43/7/ha_treesort.tre, treesort/43/8/ha_treesort.tre, treesort/43/9/ha_treesort.tre, treesort/44/0/ha_treesort.tre, treesort/44/1/ha_treesort.tre, treesort/44/2/ha_treesort.tre, treesort/44/3/ha_treesort.tre, treesort/44/4/ha_treesort.tre, treesort/44/5/ha_treesort.tre, treesort/44/6/ha_treesort.tre, treesort/44/7/ha_treesort.tre, treesort/44/8/ha_treesort.tre, treesort/44/9/ha_treesort.tre, treesort/45/0/ha_treesort.tre, treesort/45/1/ha_treesort.tre, treesort/45/2/ha_treesort.tre, treesort/45/3/ha_treesort.tre, treesort/45/4/ha_treesort.tre, treesort/45/5/ha_treesort.tre, treesort/45/6/ha_treesort.tre, treesort/45/7/ha_treesort.tre, treesort/45/8/ha_treesort.tre, treesort/45/9/ha_treesort.tre, treesort/46/0/ha_treesort.tre, treesort/46/1/ha_treesort.tre, treesort/46/2/ha_treesort.tre, treesort/46/3/ha_treesort.tre, treesort/46/4/ha_treesort.tre, treesort/46/5/ha_treesort.tre, treesort/46/6/ha_treesort.tre, treesort/46/7/ha_treesort.tre, treesort/46/8/ha_treesort.tre, treesort/46/9/ha_treesort.tre, treesort/47/0/ha_treesort.tre, treesort/47/1/ha_treesort.tre, treesort/47/2/ha_treesort.tre, treesort/47/3/ha_treesort.tre, treesort/47/4/ha_treesort.tre, treesort/47/5/ha_treesort.tre, treesort/47/6/ha_treesort.tre, treesort/47/7/ha_treesort.tre, treesort/47/8/ha_treesort.tre, treesort/47/9/ha_treesort.tre, treesort/48/0/ha_treesort.tre, treesort/48/1/ha_treesort.tre, treesort/48/2/ha_treesort.tre, treesort/48/3/ha_treesort.tre, treesort/48/4/ha_treesort.tre, treesort/48/5/ha_treesort.tre, treesort/48/6/ha_treesort.tre, treesort/48/7/ha_treesort.tre, treesort/48/8/ha_treesort.tre, treesort/48/9/ha_treesort.tre, treesort/49/0/ha_treesort.tre, treesort/49/1/ha_treesort.tre, treesort/49/2/ha_treesort.tre, treesort/49/3/ha_treesort.tre, treesort/49/4/ha_treesort.tre, treesort/49/5/ha_treesort.tre, treesort/49/6/ha_treesort.tre, treesort/49/7/ha_treesort.tre, treesort/49/8/ha_treesort.tre, treesort/49/9/ha_treesort.tre, treesort/50/0/ha_treesort.tre, treesort/50/1/ha_treesort.tre, treesort/50/2/ha_treesort.tre, treesort/50/3/ha_treesort.tre, treesort/50/4/ha_treesort.tre, treesort/50/5/ha_treesort.tre, treesort/50/6/ha_treesort.tre, treesort/50/7/ha_treesort.tre, treesort/50/8/ha_treesort.tre, treesort/50/9/ha_treesort.tre, treesort/51/0/ha_treesort.tre, treesort/51/1/ha_treesort.tre, treesort/51/2/ha_treesort.tre, treesort/51/3/ha_treesort.tre, treesort/51/4/ha_treesort.tre, treesort/51/5/ha_treesort.tre, treesort/51/6/ha_treesort.tre, treesort/51/7/ha_treesort.tre, treesort/51/8/ha_treesort.tre, treesort/51/9/ha_treesort.tre, treesort/52/0/ha_treesort.tre, treesort/52/1/ha_treesort.tre, treesort/52/2/ha_treesort.tre, treesort/52/3/ha_treesort.tre, treesort/52/4/ha_treesort.tre, treesort/52/5/ha_treesort.tre, treesort/52/6/ha_treesort.tre, treesort/52/7/ha_treesort.tre, treesort/52/8/ha_treesort.tre, treesort/52/9/ha_treesort.tre, treesort/53/0/ha_treesort.tre, treesort/53/1/ha_treesort.tre, treesort/53/2/ha_treesort.tre, treesort/53/3/ha_treesort.tre, treesort/53/4/ha_treesort.tre, treesort/53/5/ha_treesort.tre, treesort/53/6/ha_treesort.tre, treesort/53/7/ha_treesort.tre, treesort/53/8/ha_treesort.tre, treesort/53/9/ha_treesort.tre, treesort/54/0/ha_treesort.tre, treesort/54/1/ha_treesort.tre, treesort/54/2/ha_treesort.tre, treesort/54/3/ha_treesort.tre, treesort/54/4/ha_treesort.tre, treesort/54/5/ha_treesort.tre, treesort/54/6/ha_treesort.tre, treesort/54/7/ha_treesort.tre, treesort/54/8/ha_treesort.tre, treesort/54/9/ha_treesort.tre, treesort/55/0/ha_treesort.tre, treesort/55/1/ha_treesort.tre, treesort/55/2/ha_treesort.tre, treesort/55/3/ha_treesort.tre, treesort/55/4/ha_treesort.tre, treesort/55/5/ha_treesort.tre, treesort/55/6/ha_treesort.tre, treesort/55/7/ha_treesort.tre, treesort/55/8/ha_treesort.tre, treesort/55/9/ha_treesort.tre, treesort/56/0/ha_treesort.tre, treesort/56/1/ha_treesort.tre, treesort/56/2/ha_treesort.tre, treesort/56/3/ha_treesort.tre, treesort/56/4/ha_treesort.tre, treesort/56/5/ha_treesort.tre, treesort/56/6/ha_treesort.tre, treesort/56/7/ha_treesort.tre, treesort/56/8/ha_treesort.tre, treesort/56/9/ha_treesort.tre, treesort/57/0/ha_treesort.tre, treesort/57/1/ha_treesort.tre, treesort/57/2/ha_treesort.tre, treesort/57/3/ha_treesort.tre, treesort/57/4/ha_treesort.tre, treesort/57/5/ha_treesort.tre, treesort/57/6/ha_treesort.tre, treesort/57/7/ha_treesort.tre, treesort/57/8/ha_treesort.tre, treesort/57/9/ha_treesort.tre, treesort/58/0/ha_treesort.tre, treesort/58/1/ha_treesort.tre, treesort/58/2/ha_treesort.tre, treesort/58/3/ha_treesort.tre, treesort/58/4/ha_treesort.tre, treesort/58/5/ha_treesort.tre, treesort/58/6/ha_treesort.tre, treesort/58/7/ha_treesort.tre, treesort/58/8/ha_treesort.tre, treesort/58/9/ha_treesort.tre, treesort/59/0/ha_treesort.tre, treesort/59/1/ha_treesort.tre, treesort/59/2/ha_treesort.tre, treesort/59/3/ha_treesort.tre, treesort/59/4/ha_treesort.tre, treesort/59/5/ha_treesort.tre, treesort/59/6/ha_treesort.tre, treesort/59/7/ha_treesort.tre, treesort/59/8/ha_treesort.tre, treesort/59/9/ha_treesort.tre, treesort/60/0/ha_treesort.tre, treesort/60/1/ha_treesort.tre, treesort/60/2/ha_treesort.tre, treesort/60/3/ha_treesort.tre, treesort/60/4/ha_treesort.tre, treesort/60/5/ha_treesort.tre, treesort/60/6/ha_treesort.tre, treesort/60/7/ha_treesort.tre, treesort/60/8/ha_treesort.tre, treesort/60/9/ha_treesort.tre, treesort/61/0/ha_treesort.tre, treesort/61/1/ha_treesort.tre, treesort/61/2/ha_treesort.tre, treesort/61/3/ha_treesort.tre, treesort/61/4/ha_treesort.tre, treesort/61/5/ha_treesort.tre, treesort/61/6/ha_treesort.tre, treesort/61/7/ha_treesort.tre, treesort/61/8/ha_treesort.tre, treesort/61/9/ha_treesort.tre, treesort/62/0/ha_treesort.tre, treesort/62/1/ha_treesort.tre, treesort/62/2/ha_treesort.tre, treesort/62/3/ha_treesort.tre, treesort/62/4/ha_treesort.tre, treesort/62/5/ha_treesort.tre, treesort/62/6/ha_treesort.tre, treesort/62/7/ha_treesort.tre, treesort/62/8/ha_treesort.tre, treesort/62/9/ha_treesort.tre, treesort/63/0/ha_treesort.tre, treesort/63/1/ha_treesort.tre, treesort/63/2/ha_treesort.tre, treesort/63/3/ha_treesort.tre, treesort/63/4/ha_treesort.tre, treesort/63/5/ha_treesort.tre, treesort/63/6/ha_treesort.tre, treesort/63/7/ha_treesort.tre, treesort/63/8/ha_treesort.tre, treesort/63/9/ha_treesort.tre, treesort/64/0/ha_treesort.tre, treesort/64/1/ha_treesort.tre, treesort/64/2/ha_treesort.tre, treesort/64/3/ha_treesort.tre, treesort/64/4/ha_treesort.tre, treesort/64/5/ha_treesort.tre, treesort/64/6/ha_treesort.tre, treesort/64/7/ha_treesort.tre, treesort/64/8/ha_treesort.tre, treesort/64/9/ha_treesort.tre, treesort/65/0/ha_treesort.tre, treesort/65/1/ha_treesort.tre, treesort/65/2/ha_treesort.tre, treesort/65/3/ha_treesort.tre, treesort/65/4/ha_treesort.tre, treesort/65/5/ha_treesort.tre, treesort/65/6/ha_treesort.tre, treesort/65/7/ha_treesort.tre, treesort/65/8/ha_treesort.tre, treesort/65/9/ha_treesort.tre, treesort/66/0/ha_treesort.tre, treesort/66/1/ha_treesort.tre, treesort/66/2/ha_treesort.tre, treesort/66/3/ha_treesort.tre, treesort/66/4/ha_treesort.tre, treesort/66/5/ha_treesort.tre, treesort/66/6/ha_treesort.tre, treesort/66/7/ha_treesort.tre, treesort/66/8/ha_treesort.tre, treesort/66/9/ha_treesort.tre, treesort/67/0/ha_treesort.tre, treesort/67/1/ha_treesort.tre, treesort/67/2/ha_treesort.tre, treesort/67/3/ha_treesort.tre, treesort/67/4/ha_treesort.tre, treesort/67/5/ha_treesort.tre, treesort/67/6/ha_treesort.tre, treesort/67/7/ha_treesort.tre, treesort/67/8/ha_treesort.tre, treesort/67/9/ha_treesort.tre, treesort/68/0/ha_treesort.tre, treesort/68/1/ha_treesort.tre, treesort/68/2/ha_treesort.tre, treesort/68/3/ha_treesort.tre, treesort/68/4/ha_treesort.tre, treesort/68/5/ha_treesort.tre, treesort/68/6/ha_treesort.tre, treesort/68/7/ha_treesort.tre, treesort/68/8/ha_treesort.tre, treesort/68/9/ha_treesort.tre, treesort/69/0/ha_treesort.tre, treesort/69/1/ha_treesort.tre, treesort/69/2/ha_treesort.tre, treesort/69/3/ha_treesort.tre, treesort/69/4/ha_treesort.tre, treesort/69/5/ha_treesort.tre, treesort/69/6/ha_treesort.tre, treesort/69/7/ha_treesort.tre, treesort/69/8/ha_treesort.tre, treesort/69/9/ha_treesort.tre, treesort/70/0/ha_treesort.tre, treesort/70/1/ha_treesort.tre, treesort/70/2/ha_treesort.tre, treesort/70/3/ha_treesort.tre, treesort/70/4/ha_treesort.tre, treesort/70/5/ha_treesort.tre, treesort/70/6/ha_treesort.tre, treesort/70/7/ha_treesort.tre, treesort/70/8/ha_treesort.tre, treesort/70/9/ha_treesort.tre, treesort/71/0/ha_treesort.tre, treesort/71/1/ha_treesort.tre, treesort/71/2/ha_treesort.tre, treesort/71/3/ha_treesort.tre, treesort/71/4/ha_treesort.tre, treesort/71/5/ha_treesort.tre, treesort/71/6/ha_treesort.tre, treesort/71/7/ha_treesort.tre, treesort/71/8/ha_treesort.tre, treesort/71/9/ha_treesort.tre, treesort/72/0/ha_treesort.tre, treesort/72/1/ha_treesort.tre, treesort/72/2/ha_treesort.tre, treesort/72/3/ha_treesort.tre, treesort/72/4/ha_treesort.tre, treesort/72/5/ha_treesort.tre, treesort/72/6/ha_treesort.tre, treesort/72/7/ha_treesort.tre, treesort/72/8/ha_treesort.tre, treesort/72/9/ha_treesort.tre, treesort/73/0/ha_treesort.tre, treesort/73/1/ha_treesort.tre, treesort/73/2/ha_treesort.tre, treesort/73/3/ha_treesort.tre, treesort/73/4/ha_treesort.tre, treesort/73/5/ha_treesort.tre, treesort/73/6/ha_treesort.tre, treesort/73/7/ha_treesort.tre, treesort/73/8/ha_treesort.tre, treesort/73/9/ha_treesort.tre, treesort/74/0/ha_treesort.tre, treesort/74/1/ha_treesort.tre, treesort/74/2/ha_treesort.tre, treesort/74/3/ha_treesort.tre, treesort/74/4/ha_treesort.tre, treesort/74/5/ha_treesort.tre, treesort/74/6/ha_treesort.tre, treesort/74/7/ha_treesort.tre, treesort/74/8/ha_treesort.tre, treesort/74/9/ha_treesort.tre, treesort/75/0/ha_treesort.tre, treesort/75/1/ha_treesort.tre, treesort/75/2/ha_treesort.tre, treesort/75/3/ha_treesort.tre, treesort/75/4/ha_treesort.tre, treesort/75/5/ha_treesort.tre, treesort/75/6/ha_treesort.tre, treesort/75/7/ha_treesort.tre, treesort/75/8/ha_treesort.tre, treesort/75/9/ha_treesort.tre, treesort/76/0/ha_treesort.tre, treesort/76/1/ha_treesort.tre, treesort/76/2/ha_treesort.tre, treesort/76/3/ha_treesort.tre, treesort/76/4/ha_treesort.tre, treesort/76/5/ha_treesort.tre, treesort/76/6/ha_treesort.tre, treesort/76/7/ha_treesort.tre, treesort/76/8/ha_treesort.tre, treesort/76/9/ha_treesort.tre, treesort/77/0/ha_treesort.tre, treesort/77/1/ha_treesort.tre, treesort/77/2/ha_treesort.tre, treesort/77/3/ha_treesort.tre, treesort/77/4/ha_treesort.tre, treesort/77/5/ha_treesort.tre, treesort/77/6/ha_treesort.tre, treesort/77/7/ha_treesort.tre, treesort/77/8/ha_treesort.tre, treesort/77/9/ha_treesort.tre, treesort/78/0/ha_treesort.tre, treesort/78/1/ha_treesort.tre, treesort/78/2/ha_treesort.tre, treesort/78/3/ha_treesort.tre, treesort/78/4/ha_treesort.tre, treesort/78/5/ha_treesort.tre, treesort/78/6/ha_treesort.tre, treesort/78/7/ha_treesort.tre, treesort/78/8/ha_treesort.tre, treesort/78/9/ha_treesort.tre, treesort/79/0/ha_treesort.tre, treesort/79/1/ha_treesort.tre, treesort/79/2/ha_treesort.tre, treesort/79/3/ha_treesort.tre, treesort/79/4/ha_treesort.tre, treesort/79/5/ha_treesort.tre, treesort/79/6/ha_treesort.tre, treesort/79/7/ha_treesort.tre, treesort/79/8/ha_treesort.tre, treesort/79/9/ha_treesort.tre, treesort/80/0/ha_treesort.tre, treesort/80/1/ha_treesort.tre, treesort/80/2/ha_treesort.tre, treesort/80/3/ha_treesort.tre, treesort/80/4/ha_treesort.tre, treesort/80/5/ha_treesort.tre, treesort/80/6/ha_treesort.tre, treesort/80/7/ha_treesort.tre, treesort/80/8/ha_treesort.tre, treesort/80/9/ha_treesort.tre, treesort/81/0/ha_treesort.tre, treesort/81/1/ha_treesort.tre, treesort/81/2/ha_treesort.tre, treesort/81/3/ha_treesort.tre, treesort/81/4/ha_treesort.tre, treesort/81/5/ha_treesort.tre, treesort/81/6/ha_treesort.tre, treesort/81/7/ha_treesort.tre, treesort/81/8/ha_treesort.tre, treesort/81/9/ha_treesort.tre, treesort/82/0/ha_treesort.tre, treesort/82/1/ha_treesort.tre, treesort/82/2/ha_treesort.tre, treesort/82/3/ha_treesort.tre, treesort/82/4/ha_treesort.tre, treesort/82/5/ha_treesort.tre, treesort/82/6/ha_treesort.tre, treesort/82/7/ha_treesort.tre, treesort/82/8/ha_treesort.tre, treesort/82/9/ha_treesort.tre, treesort/83/0/ha_treesort.tre, treesort/83/1/ha_treesort.tre, treesort/83/2/ha_treesort.tre, treesort/83/3/ha_treesort.tre, treesort/83/4/ha_treesort.tre, treesort/83/5/ha_treesort.tre, treesort/83/6/ha_treesort.tre, treesort/83/7/ha_treesort.tre, treesort/83/8/ha_treesort.tre, treesort/83/9/ha_treesort.tre, treesort/84/0/ha_treesort.tre, treesort/84/1/ha_treesort.tre, treesort/84/2/ha_treesort.tre, treesort/84/3/ha_treesort.tre, treesort/84/4/ha_treesort.tre, treesort/84/5/ha_treesort.tre, treesort/84/6/ha_treesort.tre, treesort/84/7/ha_treesort.tre, treesort/84/8/ha_treesort.tre, treesort/84/9/ha_treesort.tre, treesort/85/0/ha_treesort.tre, treesort/85/1/ha_treesort.tre, treesort/85/2/ha_treesort.tre, treesort/85/3/ha_treesort.tre, treesort/85/4/ha_treesort.tre, treesort/85/5/ha_treesort.tre, treesort/85/6/ha_treesort.tre, treesort/85/7/ha_treesort.tre, treesort/85/8/ha_treesort.tre, treesort/85/9/ha_treesort.tre, treesort/86/0/ha_treesort.tre, treesort/86/1/ha_treesort.tre, treesort/86/2/ha_treesort.tre, treesort/86/3/ha_treesort.tre, treesort/86/4/ha_treesort.tre, treesort/86/5/ha_treesort.tre, treesort/86/6/ha_treesort.tre, treesort/86/7/ha_treesort.tre, treesort/86/8/ha_treesort.tre, treesort/86/9/ha_treesort.tre, treesort/87/0/ha_treesort.tre, treesort/87/1/ha_treesort.tre, treesort/87/2/ha_treesort.tre, treesort/87/3/ha_treesort.tre, treesort/87/4/ha_treesort.tre, treesort/87/5/ha_treesort.tre, treesort/87/6/ha_treesort.tre, treesort/87/7/ha_treesort.tre, treesort/87/8/ha_treesort.tre, treesort/87/9/ha_treesort.tre, treesort/88/0/ha_treesort.tre, treesort/88/1/ha_treesort.tre, treesort/88/2/ha_treesort.tre, treesort/88/3/ha_treesort.tre, treesort/88/4/ha_treesort.tre, treesort/88/5/ha_treesort.tre, treesort/88/6/ha_treesort.tre, treesort/88/7/ha_treesort.tre, treesort/88/8/ha_treesort.tre, treesort/88/9/ha_treesort.tre, treesort/89/0/ha_treesort.tre, treesort/89/1/ha_treesort.tre, treesort/89/2/ha_treesort.tre, treesort/89/3/ha_treesort.tre, treesort/89/4/ha_treesort.tre, treesort/89/5/ha_treesort.tre, treesort/89/6/ha_treesort.tre, treesort/89/7/ha_treesort.tre, treesort/89/8/ha_treesort.tre, treesort/89/9/ha_treesort.tre, treesort/90/0/ha_treesort.tre, treesort/90/1/ha_treesort.tre, treesort/90/2/ha_treesort.tre, treesort/90/3/ha_treesort.tre, treesort/90/4/ha_treesort.tre, treesort/90/5/ha_treesort.tre, treesort/90/6/ha_treesort.tre, treesort/90/7/ha_treesort.tre, treesort/90/8/ha_treesort.tre, treesort/90/9/ha_treesort.tre, treesort/91/0/ha_treesort.tre, treesort/91/1/ha_treesort.tre, treesort/91/2/ha_treesort.tre, treesort/91/3/ha_treesort.tre, treesort/91/4/ha_treesort.tre, treesort/91/5/ha_treesort.tre, treesort/91/6/ha_treesort.tre, treesort/91/7/ha_treesort.tre, treesort/91/8/ha_treesort.tre, treesort/91/9/ha_treesort.tre, treesort/92/0/ha_treesort.tre, treesort/92/1/ha_treesort.tre, treesort/92/2/ha_treesort.tre, treesort/92/3/ha_treesort.tre, treesort/92/4/ha_treesort.tre, treesort/92/5/ha_treesort.tre, treesort/92/6/ha_treesort.tre, treesort/92/7/ha_treesort.tre, treesort/92/8/ha_treesort.tre, treesort/92/9/ha_treesort.tre, treesort/93/0/ha_treesort.tre, treesort/93/1/ha_treesort.tre, treesort/93/2/ha_treesort.tre, treesort/93/3/ha_treesort.tre, treesort/93/4/ha_treesort.tre, treesort/93/5/ha_treesort.tre, treesort/93/6/ha_treesort.tre, treesort/93/7/ha_treesort.tre, treesort/93/8/ha_treesort.tre, treesort/93/9/ha_treesort.tre, treesort/94/0/ha_treesort.tre, treesort/94/1/ha_treesort.tre, treesort/94/2/ha_treesort.tre, treesort/94/3/ha_treesort.tre, treesort/94/4/ha_treesort.tre, treesort/94/5/ha_treesort.tre, treesort/94/6/ha_treesort.tre, treesort/94/7/ha_treesort.tre, treesort/94/8/ha_treesort.tre, treesort/94/9/ha_treesort.tre, treesort/95/0/ha_treesort.tre, treesort/95/1/ha_treesort.tre, treesort/95/2/ha_treesort.tre, treesort/95/3/ha_treesort.tre, treesort/95/4/ha_treesort.tre, treesort/95/5/ha_treesort.tre, treesort/95/6/ha_treesort.tre, treesort/95/7/ha_treesort.tre, treesort/95/8/ha_treesort.tre, treesort/95/9/ha_treesort.tre, treesort/96/0/ha_treesort.tre, treesort/96/1/ha_treesort.tre, treesort/96/2/ha_treesort.tre, treesort/96/3/ha_treesort.tre, treesort/96/4/ha_treesort.tre, treesort/96/5/ha_treesort.tre, treesort/96/6/ha_treesort.tre, treesort/96/7/ha_treesort.tre, treesort/96/8/ha_treesort.tre, treesort/96/9/ha_treesort.tre, treesort/97/0/ha_treesort.tre, treesort/97/1/ha_treesort.tre, treesort/97/2/ha_treesort.tre, treesort/97/3/ha_treesort.tre, treesort/97/4/ha_treesort.tre, treesort/97/5/ha_treesort.tre, treesort/97/6/ha_treesort.tre, treesort/97/7/ha_treesort.tre, treesort/97/8/ha_treesort.tre, treesort/97/9/ha_treesort.tre, treesort/98/0/ha_treesort.tre, treesort/98/1/ha_treesort.tre, treesort/98/2/ha_treesort.tre, treesort/98/3/ha_treesort.tre, treesort/98/4/ha_treesort.tre, treesort/98/5/ha_treesort.tre, treesort/98/6/ha_treesort.tre, treesort/98/7/ha_treesort.tre, treesort/98/8/ha_treesort.tre, treesort/98/9/ha_treesort.tre, treesort/99/0/ha_treesort.tre, treesort/99/1/ha_treesort.tre, treesort/99/2/ha_treesort.tre, treesort/99/3/ha_treesort.tre, treesort/99/4/ha_treesort.tre, treesort/99/5/ha_treesort.tre, treesort/99/6/ha_treesort.tre, treesort/99/7/ha_treesort.tre, treesort/99/8/ha_treesort.tre, treesort/99/9/ha_treesort.tre, treesort/100/0/ha_treesort.tre, treesort/100/1/ha_treesort.tre, treesort/100/2/ha_treesort.tre, treesort/100/3/ha_treesort.tre, treesort/100/4/ha_treesort.tre, treesort/100/5/ha_treesort.tre, treesort/100/6/ha_treesort.tre, treesort/100/7/ha_treesort.tre, treesort/100/8/ha_treesort.tre, treesort/100/9/ha_treesort.tre
+    jobid: 0
+    reason: Input files updated by another job: treesort/100/5/ha_treesort.tre, treesort/100/1/ha_treesort.tre, treesort/100/6/ha_treesort.tre, treesort/100/8/ha_treesort.tre, treesort/100/0/ha_treesort.tre, treesort/100/3/ha_treesort.tre, treesort/100/2/ha_treesort.tre, treesort/100/9/ha_treesort.tre, treesort/100/7/ha_treesort.tre, treesort/100/4/ha_treesort.tre
+    resources: tmpdir=/var/folders/d_/56m2n50525gb3y_7mkr2t1880000gp/T
+Shell command: None
+[Wed Sep 23 11:14:00 2026]
+Finished jobid: 0 (Rule: all)
+23 of 23 steps (100%) done
+Complete log(s): /Users/jort/coding/h5nx-reassortment-and-risk-assessment/2321-replicates/20260922/20260902-2321/.snakemake/log/2026-09-23T105937.247967.snakemake.log

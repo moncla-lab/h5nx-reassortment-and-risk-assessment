@@ -1,0 +1,172 @@
+Assuming unrestricted shared filesystem usage.
+None
+host: BGS-STU22-136
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 8
+Rules claiming more threads will be scaled down.
+Job stats:
+job                            count
+---------------------------  -------
+all                                1
+convert_tree                       2
+generate_descriptor                2
+generate_initial_descriptor        2
+ha_tree                            1
+initial_treesort                   2
+nonha_tree                         8
+root                               1
+treesort                           2
+total                             21
+
+Select jobs to execute...
+Execute 8 jobs...
+[Tue Aug 25 14:32:05 2026]
+Job 9: Building tree
+Reason: Missing output files: non-ha-10reps/results/0/tree-raw_pb2.nwk; Set of input files has changed since last execution; Code has changed since last execution; Params have changed since last execution: Union of exclusive params before and now across all output: before: <nothing exclusive> now: 'iqtree' 
+[Tue Aug 25 14:32:05 2026]
+Job 21: Building tree
+Reason: Missing output files: non-ha-10reps/results/0/tree-raw_np.nwk; Set of input files has changed since last execution; Code has changed since last execution; Params have changed since last execution: Union of exclusive params before and now across all output: before: <nothing exclusive> now: 'iqtree' 
+[Tue Aug 25 14:32:05 2026]
+Job 35: Building tree
+Reason: Missing output files: non-ha-10reps/results/1/tree-raw_ns.nwk; Set of input files has changed since last execution; Code has changed since last execution; Params have changed since last execution: Union of exclusive params before and now across all output: before: <nothing exclusive> now: 'iqtree' 
+[Tue Aug 25 14:32:05 2026]
+Job 33: Building tree
+Reason: Missing output files: non-ha-10reps/results/0/tree-raw_ns.nwk; Set of input files has changed since last execution; Code has changed since last execution; Params have changed since last execution: Union of exclusive params before and now across all output: before: <nothing exclusive> now: 'iqtree' 
+[Tue Aug 25 14:32:05 2026]
+Job 4: Building tree
+Reason: Missing output files: ha-100reps/results/0/tree-raw_ha.nwk; Set of input files has changed since last execution; Code has changed since last execution; Params have changed since last execution: Union of exclusive params before and now across all output: before: <nothing exclusive> now: 'iqtree' 
+[Tue Aug 25 14:32:05 2026]
+Job 11: Building tree
+Reason: Missing output files: non-ha-10reps/results/1/tree-raw_pb2.nwk; Set of input files has changed since last execution; Code has changed since last execution; Params have changed since last execution: Union of exclusive params before and now across all output: before: <nothing exclusive> now: 'iqtree' 
+[Tue Aug 25 14:32:05 2026]
+Job 27: Building tree
+Reason: Missing output files: non-ha-10reps/results/1/tree-raw_na.nwk; Set of input files has changed since last execution; Code has changed since last execution; Params have changed since last execution: Union of exclusive params before and now across all output: before: <nothing exclusive> now: 'iqtree' 
+[Tue Aug 25 14:32:05 2026]
+Job 31: Building tree
+Reason: Missing output files: non-ha-10reps/results/1/tree-raw_mp.nwk; Set of input files has changed since last execution; Code has changed since last execution; Params have changed since last execution: Union of exclusive params before and now across all output: before: <nothing exclusive> now: 'iqtree' 
+Select jobs to execute...
+Terminating processes on user request, this might take some time.
+RuleException:
+CalledProcessError in file "/Users/jort/coding/h5nx-reassortment-and-risk-assessment/treesort-sameStrains-replicates/20260302-newReplicates/for-parcc/base-build-mini/Snakefile-nonha", line 111:
+Command 'set -euo pipefail;  
+        augur tree             --alignment non-ha-10reps/results/1/aligned_na.fasta             --output non-ha-10reps/results/1/tree-raw_na.nwk             --method iqtree             --nthreads auto' died with <Signals.SIGINT: 2>.
+[Tue Aug 25 14:32:11 2026]
+Error in rule nonha_tree:
+    message: None
+    jobid: 27
+    input: non-ha-10reps/results/1/aligned_na.fasta
+    output: non-ha-10reps/results/1/tree-raw_na.nwk
+    shell:
+        
+        augur tree             --alignment non-ha-10reps/results/1/aligned_na.fasta             --output non-ha-10reps/results/1/tree-raw_na.nwk             --method iqtree             --nthreads auto
+        
+        (command exited with non-zero exit code)
+RuleException:
+CalledProcessError in file "/Users/jort/coding/h5nx-reassortment-and-risk-assessment/treesort-sameStrains-replicates/20260302-newReplicates/for-parcc/base-build-mini/Snakefile-nonha", line 111:
+Command 'set -euo pipefail;  
+        augur tree             --alignment non-ha-10reps/results/1/aligned_mp.fasta             --output non-ha-10reps/results/1/tree-raw_mp.nwk             --method iqtree             --nthreads auto' died with <Signals.SIGINT: 2>.
+[Tue Aug 25 14:32:11 2026]
+Error in rule nonha_tree:
+    message: None
+    jobid: 31
+    input: non-ha-10reps/results/1/aligned_mp.fasta
+    output: non-ha-10reps/results/1/tree-raw_mp.nwk
+    shell:
+        
+        augur tree             --alignment non-ha-10reps/results/1/aligned_mp.fasta             --output non-ha-10reps/results/1/tree-raw_mp.nwk             --method iqtree             --nthreads auto
+        
+        (command exited with non-zero exit code)
+RuleException:
+CalledProcessError in file "/Users/jort/coding/h5nx-reassortment-and-risk-assessment/treesort-sameStrains-replicates/20260302-newReplicates/for-parcc/base-build-mini/Snakefile-nonha", line 111:
+Command 'set -euo pipefail;  
+        augur tree             --alignment non-ha-10reps/results/1/aligned_pb2.fasta             --output non-ha-10reps/results/1/tree-raw_pb2.nwk             --method iqtree             --nthreads auto' died with <Signals.SIGINT: 2>.
+[Tue Aug 25 14:32:11 2026]
+Error in rule nonha_tree:
+    message: None
+    jobid: 11
+    input: non-ha-10reps/results/1/aligned_pb2.fasta
+    output: non-ha-10reps/results/1/tree-raw_pb2.nwk
+    shell:
+        
+        augur tree             --alignment non-ha-10reps/results/1/aligned_pb2.fasta             --output non-ha-10reps/results/1/tree-raw_pb2.nwk             --method iqtree             --nthreads auto
+        
+        (command exited with non-zero exit code)
+RuleException:
+CalledProcessError in file "/Users/jort/coding/h5nx-reassortment-and-risk-assessment/treesort-sameStrains-replicates/20260302-newReplicates/for-parcc/base-build-mini/Snakefile-nonha", line 111:
+Command 'set -euo pipefail;  
+        augur tree             --alignment non-ha-10reps/results/1/aligned_ns.fasta             --output non-ha-10reps/results/1/tree-raw_ns.nwk             --method iqtree             --nthreads auto' died with <Signals.SIGINT: 2>.
+[Tue Aug 25 14:32:11 2026]
+Error in rule nonha_tree:
+    message: None
+    jobid: 35
+    input: non-ha-10reps/results/1/aligned_ns.fasta
+    output: non-ha-10reps/results/1/tree-raw_ns.nwk
+    shell:
+        
+        augur tree             --alignment non-ha-10reps/results/1/aligned_ns.fasta             --output non-ha-10reps/results/1/tree-raw_ns.nwk             --method iqtree             --nthreads auto
+        
+        (command exited with non-zero exit code)
+RuleException:
+CalledProcessError in file "/Users/jort/coding/h5nx-reassortment-and-risk-assessment/treesort-sameStrains-replicates/20260302-newReplicates/for-parcc/base-build-mini/Snakefile-ha", line 111:
+Command 'set -euo pipefail;  
+        augur tree             --alignment ha-100reps/results/0/aligned_ha.fasta             --output ha-100reps/results/0/tree-raw_ha.nwk             --method iqtree             --nthreads auto' died with <Signals.SIGINT: 2>.
+[Tue Aug 25 14:32:11 2026]
+Error in rule ha_tree:
+    message: None
+    jobid: 4
+    input: ha-100reps/results/0/aligned_ha.fasta
+    output: ha-100reps/results/0/tree-raw_ha.nwk
+    shell:
+        
+        augur tree             --alignment ha-100reps/results/0/aligned_ha.fasta             --output ha-100reps/results/0/tree-raw_ha.nwk             --method iqtree             --nthreads auto
+        
+        (command exited with non-zero exit code)
+RuleException:
+CalledProcessError in file "/Users/jort/coding/h5nx-reassortment-and-risk-assessment/treesort-sameStrains-replicates/20260302-newReplicates/for-parcc/base-build-mini/Snakefile-nonha", line 111:
+Command 'set -euo pipefail;  
+        augur tree             --alignment non-ha-10reps/results/0/aligned_np.fasta             --output non-ha-10reps/results/0/tree-raw_np.nwk             --method iqtree             --nthreads auto' died with <Signals.SIGINT: 2>.
+[Tue Aug 25 14:32:11 2026]
+Error in rule nonha_tree:
+    message: None
+    jobid: 21
+    input: non-ha-10reps/results/0/aligned_np.fasta
+    output: non-ha-10reps/results/0/tree-raw_np.nwk
+    shell:
+        
+        augur tree             --alignment non-ha-10reps/results/0/aligned_np.fasta             --output non-ha-10reps/results/0/tree-raw_np.nwk             --method iqtree             --nthreads auto
+        
+        (command exited with non-zero exit code)
+RuleException:
+CalledProcessError in file "/Users/jort/coding/h5nx-reassortment-and-risk-assessment/treesort-sameStrains-replicates/20260302-newReplicates/for-parcc/base-build-mini/Snakefile-nonha", line 111:
+Command 'set -euo pipefail;  
+        augur tree             --alignment non-ha-10reps/results/0/aligned_ns.fasta             --output non-ha-10reps/results/0/tree-raw_ns.nwk             --method iqtree             --nthreads auto' died with <Signals.SIGINT: 2>.
+[Tue Aug 25 14:32:11 2026]
+Error in rule nonha_tree:
+    message: None
+    jobid: 33
+    input: non-ha-10reps/results/0/aligned_ns.fasta
+    output: non-ha-10reps/results/0/tree-raw_ns.nwk
+    shell:
+        
+        augur tree             --alignment non-ha-10reps/results/0/aligned_ns.fasta             --output non-ha-10reps/results/0/tree-raw_ns.nwk             --method iqtree             --nthreads auto
+        
+        (command exited with non-zero exit code)
+RuleException:
+CalledProcessError in file "/Users/jort/coding/h5nx-reassortment-and-risk-assessment/treesort-sameStrains-replicates/20260302-newReplicates/for-parcc/base-build-mini/Snakefile-nonha", line 111:
+Command 'set -euo pipefail;  
+        augur tree             --alignment non-ha-10reps/results/0/aligned_pb2.fasta             --output non-ha-10reps/results/0/tree-raw_pb2.nwk             --method iqtree             --nthreads auto' died with <Signals.SIGINT: 2>.
+[Tue Aug 25 14:32:11 2026]
+Error in rule nonha_tree:
+    message: None
+    jobid: 9
+    input: non-ha-10reps/results/0/aligned_pb2.fasta
+    output: non-ha-10reps/results/0/tree-raw_pb2.nwk
+    shell:
+        
+        augur tree             --alignment non-ha-10reps/results/0/aligned_pb2.fasta             --output non-ha-10reps/results/0/tree-raw_pb2.nwk             --method iqtree             --nthreads auto
+        
+        (command exited with non-zero exit code)
+Complete log(s): /Users/jort/coding/h5nx-reassortment-and-risk-assessment/treesort-sameStrains-replicates/20260302-newReplicates/for-parcc/base-build-mini/.snakemake/log/2026-08-25T143205.641919.snakemake.log
+WorkflowError:
+At least one job did not complete successfully.
