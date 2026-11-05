@@ -1,0 +1,734 @@
+Assuming unrestricted shared filesystem usage.
+None
+host: BGS-STU22-136
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 10
+Rules claiming more threads will be scaled down.
+Job stats:
+job                  count
+-----------------  -------
+align                    7
+all                      1
+ancestral                7
+annotate_treesort        1
+dna                      1
+export                   8
+filter                   7
+refine                   7
+traits                   7
+translate                7
+tree                     7
+treesort                 1
+total                   61
+
+Select jobs to execute...
+Execute 7 jobs...
+[Tue Aug 25 13:00:29 2026]
+localrule filter:
+    input: data/ns_dates.fasta, data/metadata_dates.tsv, config/dropped_strains.txt, config/include_strains.txt, results/filtered_ha_filtered.txt
+    output: results/filtered_ns.fasta, results/filtered_ns_filtered.txt
+    jobid: 44
+    reason: Missing output files: results/filtered_ns.fasta
+    wildcards: segment=ns
+    resources: tmpdir=/var/folders/d_/56m2n50525gb3y_7mkr2t1880000gp/T
+Shell command: 
+        augur filter             --sequences data/ns_dates.fasta             --metadata data/metadata_dates.tsv             --exclude config/dropped_strains.txt             --min-length 800             --output-sequences results/filtered_ns.fasta             --output-strains results/filtered_ns_filtered.txt             --exclude-all --include results/filtered_ha_filtered.txt config/include_strains.txt
+        
+[Tue Aug 25 13:00:29 2026]
+localrule filter:
+    input: data/pb2_dates.fasta, data/metadata_dates.tsv, config/dropped_strains.txt, config/include_strains.txt, results/filtered_ha_filtered.txt
+    output: results/filtered_pb2.fasta, results/filtered_pb2_filtered.txt
+    jobid: 5
+    reason: Missing output files: results/filtered_pb2.fasta
+    wildcards: segment=pb2
+    resources: tmpdir=/var/folders/d_/56m2n50525gb3y_7mkr2t1880000gp/T
+Shell command: 
+        augur filter             --sequences data/pb2_dates.fasta             --metadata data/metadata_dates.tsv             --exclude config/dropped_strains.txt             --min-length 2100             --output-sequences results/filtered_pb2.fasta             --output-strains results/filtered_pb2_filtered.txt             --exclude-all --include results/filtered_ha_filtered.txt config/include_strains.txt
+        
+[Tue Aug 25 13:00:29 2026]
+localrule filter:
+    input: data/np_dates.fasta, data/metadata_dates.tsv, config/dropped_strains.txt, config/include_strains.txt, results/filtered_ha_filtered.txt
+    output: results/filtered_np.fasta, results/filtered_np_filtered.txt
+    jobid: 38
+    reason: Missing output files: results/filtered_np.fasta
+    wildcards: segment=np
+    resources: tmpdir=/var/folders/d_/56m2n50525gb3y_7mkr2t1880000gp/T
+Shell command: 
+        augur filter             --sequences data/np_dates.fasta             --metadata data/metadata_dates.tsv             --exclude config/dropped_strains.txt             --min-length 1400             --output-sequences results/filtered_np.fasta             --output-strains results/filtered_np_filtered.txt             --exclude-all --include results/filtered_ha_filtered.txt config/include_strains.txt
+        
+[Tue Aug 25 13:00:29 2026]
+localrule filter:
+    input: data/pb1_dates.fasta, data/metadata_dates.tsv, config/dropped_strains.txt, config/include_strains.txt, results/filtered_ha_filtered.txt
+    output: results/filtered_pb1.fasta, results/filtered_pb1_filtered.txt
+    jobid: 14
+    reason: Missing output files: results/filtered_pb1.fasta
+    wildcards: segment=pb1
+    resources: tmpdir=/var/folders/d_/56m2n50525gb3y_7mkr2t1880000gp/T
+Shell command: 
+        augur filter             --sequences data/pb1_dates.fasta             --metadata data/metadata_dates.tsv             --exclude config/dropped_strains.txt             --min-length 2100             --output-sequences results/filtered_pb1.fasta             --output-strains results/filtered_pb1_filtered.txt             --exclude-all --include results/filtered_ha_filtered.txt config/include_strains.txt
+        
+[Tue Aug 25 13:00:29 2026]
+localrule filter:
+    input: data/pa_dates.fasta, data/metadata_dates.tsv, config/dropped_strains.txt, config/include_strains.txt, results/filtered_ha_filtered.txt
+    output: results/filtered_pa.fasta, results/filtered_pa_filtered.txt
+    jobid: 22
+    reason: Missing output files: results/filtered_pa.fasta
+    wildcards: segment=pa
+    resources: tmpdir=/var/folders/d_/56m2n50525gb3y_7mkr2t1880000gp/T
+Shell command: 
+        augur filter             --sequences data/pa_dates.fasta             --metadata data/metadata_dates.tsv             --exclude config/dropped_strains.txt             --min-length 2000             --output-sequences results/filtered_pa.fasta             --output-strains results/filtered_pa_filtered.txt             --exclude-all --include results/filtered_ha_filtered.txt config/include_strains.txt
+        
+[Tue Aug 25 13:00:29 2026]
+localrule filter:
+    input: data/mp_dates.fasta, data/metadata_dates.tsv, config/dropped_strains.txt, config/include_strains.txt, results/filtered_ha_filtered.txt
+    output: results/filtered_mp.fasta, results/filtered_mp_filtered.txt
+    jobid: 42
+    reason: Missing output files: results/filtered_mp.fasta
+    wildcards: segment=mp
+    resources: tmpdir=/var/folders/d_/56m2n50525gb3y_7mkr2t1880000gp/T
+Shell command: 
+        augur filter             --sequences data/mp_dates.fasta             --metadata data/metadata_dates.tsv             --exclude config/dropped_strains.txt             --min-length 900             --output-sequences results/filtered_mp.fasta             --output-strains results/filtered_mp_filtered.txt             --exclude-all --include results/filtered_ha_filtered.txt config/include_strains.txt
+        
+[Tue Aug 25 13:00:29 2026]
+localrule filter:
+    input: data/na_dates.fasta, data/metadata_dates.tsv, config/dropped_strains.txt, config/include_strains.txt, results/filtered_ha_filtered.txt
+    output: results/filtered_na.fasta, results/filtered_na_filtered.txt
+    jobid: 40
+    reason: Missing output files: results/filtered_na.fasta
+    wildcards: segment=na
+    resources: tmpdir=/var/folders/d_/56m2n50525gb3y_7mkr2t1880000gp/T
+Shell command: 
+        augur filter             --sequences data/na_dates.fasta             --metadata data/metadata_dates.tsv             --exclude config/dropped_strains.txt             --min-length 1270             --output-sequences results/filtered_na.fasta             --output-strains results/filtered_na_filtered.txt             --exclude-all --include results/filtered_ha_filtered.txt config/include_strains.txt
+        
+[Tue Aug 25 13:00:37 2026]
+Finished jobid: 38 (Rule: filter)
+1 of 61 steps (2%) done
+Select jobs to execute...
+Execute 1 jobs...
+[Tue Aug 25 13:00:37 2026]
+Job 37: 
+        Aligning sequences to config/reference_np.gb
+          - filling gaps with N
+        
+Reason: Missing output files: results/aligned_np.fasta; Input files updated by another job: results/filtered_np.fasta
+Shell command: 
+        augur align             --sequences results/filtered_np.fasta             --reference-sequence config/reference_np.gb             --output results/aligned_np.fasta             --remove-reference             --nthreads 1
+        
+[Tue Aug 25 13:00:38 2026]
+Finished jobid: 44 (Rule: filter)
+2 of 61 steps (3%) done
+Select jobs to execute...
+Execute 1 jobs...
+[Tue Aug 25 13:00:38 2026]
+Job 43: 
+        Aligning sequences to config/reference_ns.gb
+          - filling gaps with N
+        
+Reason: Missing output files: results/aligned_ns.fasta; Input files updated by another job: results/filtered_ns.fasta
+Shell command: 
+        augur align             --sequences results/filtered_ns.fasta             --reference-sequence config/reference_ns.gb             --output results/aligned_ns.fasta             --remove-reference             --nthreads 1
+        
+[Tue Aug 25 13:00:38 2026]
+Finished jobid: 40 (Rule: filter)
+3 of 61 steps (5%) done
+Select jobs to execute...
+Execute 1 jobs...
+[Tue Aug 25 13:00:38 2026]
+Job 39: 
+        Aligning sequences to config/reference_na.gb
+          - filling gaps with N
+        
+Reason: Missing output files: results/aligned_na.fasta; Input files updated by another job: results/filtered_na.fasta
+Shell command: 
+        augur align             --sequences results/filtered_na.fasta             --reference-sequence config/reference_na.gb             --output results/aligned_na.fasta             --remove-reference             --nthreads 1
+        
+[Tue Aug 25 13:00:39 2026]
+Finished jobid: 14 (Rule: filter)
+4 of 61 steps (7%) done
+Select jobs to execute...
+Execute 1 jobs...
+[Tue Aug 25 13:00:39 2026]
+Job 13: 
+        Aligning sequences to config/reference_pb1.gb
+          - filling gaps with N
+        
+Reason: Missing output files: results/aligned_pb1.fasta; Input files updated by another job: results/filtered_pb1.fasta
+Shell command: 
+        augur align             --sequences results/filtered_pb1.fasta             --reference-sequence config/reference_pb1.gb             --output results/aligned_pb1.fasta             --remove-reference             --nthreads 1
+        
+[Tue Aug 25 13:00:39 2026]
+Finished jobid: 5 (Rule: filter)
+5 of 61 steps (8%) done
+Select jobs to execute...
+Execute 1 jobs...
+[Tue Aug 25 13:00:39 2026]
+Job 4: 
+        Aligning sequences to config/reference_pb2.gb
+          - filling gaps with N
+        
+Reason: Missing output files: results/aligned_pb2.fasta; Input files updated by another job: results/filtered_pb2.fasta
+Shell command: 
+        augur align             --sequences results/filtered_pb2.fasta             --reference-sequence config/reference_pb2.gb             --output results/aligned_pb2.fasta             --remove-reference             --nthreads 1
+        
+[Tue Aug 25 13:00:39 2026]
+Finished jobid: 42 (Rule: filter)
+6 of 61 steps (10%) done
+Select jobs to execute...
+Execute 1 jobs...
+[Tue Aug 25 13:00:39 2026]
+Job 41: 
+        Aligning sequences to config/reference_mp.gb
+          - filling gaps with N
+        
+Reason: Missing output files: results/aligned_mp.fasta; Input files updated by another job: results/filtered_mp.fasta
+Shell command: 
+        augur align             --sequences results/filtered_mp.fasta             --reference-sequence config/reference_mp.gb             --output results/aligned_mp.fasta             --remove-reference             --nthreads 1
+        
+[Tue Aug 25 13:00:39 2026]
+Finished jobid: 22 (Rule: filter)
+7 of 61 steps (11%) done
+Select jobs to execute...
+Execute 1 jobs...
+[Tue Aug 25 13:00:39 2026]
+Job 21: 
+        Aligning sequences to config/reference_pa.gb
+          - filling gaps with N
+        
+Reason: Missing output files: results/aligned_pa.fasta; Input files updated by another job: results/filtered_pa.fasta
+Shell command: 
+        augur align             --sequences results/filtered_pa.fasta             --reference-sequence config/reference_pa.gb             --output results/aligned_pa.fasta             --remove-reference             --nthreads 1
+        
+[Tue Aug 25 13:28:03 2026]
+Finished jobid: 43 (Rule: align)
+8 of 61 steps (13%) done
+Select jobs to execute...
+Execute 1 jobs...
+[Tue Aug 25 13:28:03 2026]
+Job 52: Building tree
+Reason: Missing output files: results/tree-raw_ns.nwk; Input files updated by another job: results/aligned_ns.fasta
+Shell command: 
+        augur tree             --alignment results/aligned_ns.fasta             --output results/tree-raw_ns.nwk             --method iqtree             --nthreads 1
+        
+[Tue Aug 25 13:29:55 2026]
+Finished jobid: 41 (Rule: align)
+9 of 61 steps (15%) done
+Select jobs to execute...
+Execute 1 jobs...
+[Tue Aug 25 13:29:55 2026]
+Job 50: Building tree
+Reason: Missing output files: results/tree-raw_mp.nwk; Input files updated by another job: results/aligned_mp.fasta
+Shell command: 
+        augur tree             --alignment results/aligned_mp.fasta             --output results/tree-raw_mp.nwk             --method iqtree             --nthreads 1
+        
+[Tue Aug 25 13:31:25 2026]
+Finished jobid: 52 (Rule: tree)
+10 of 61 steps (16%) done
+Select jobs to execute...
+Execute 1 jobs...
+[Tue Aug 25 13:31:25 2026]
+Job 51: 
+        Refining tree
+          - estimate timetree
+          - use const coalescent timescale
+          - estimate marginal node dates
+        
+Reason: Missing output files: results/tree_ns.nwk, results/branch-lengths_ns.json; Input files updated by another job: results/aligned_ns.fasta, results/tree-raw_ns.nwk
+Shell command: 
+        augur refine             --tree results/tree-raw_ns.nwk             --alignment results/aligned_ns.fasta             --metadata data/metadata_dates.tsv             --output-tree results/tree_ns.nwk             --output-node-data results/branch-lengths_ns.json             --timetree             --coalescent const             --date-confidence             --date-inference marginal         
+[Tue Aug 25 13:34:14 2026]
+Finished jobid: 50 (Rule: tree)
+11 of 61 steps (18%) done
+Select jobs to execute...
+Execute 1 jobs...
+[Tue Aug 25 13:34:14 2026]
+Job 49: 
+        Refining tree
+          - estimate timetree
+          - use const coalescent timescale
+          - estimate marginal node dates
+        
+Reason: Missing output files: results/tree_mp.nwk, results/branch-lengths_mp.json; Input files updated by another job: results/tree-raw_mp.nwk, results/aligned_mp.fasta
+Shell command: 
+        augur refine             --tree results/tree-raw_mp.nwk             --alignment results/aligned_mp.fasta             --metadata data/metadata_dates.tsv             --output-tree results/tree_mp.nwk             --output-node-data results/branch-lengths_mp.json             --timetree             --coalescent const             --date-confidence             --date-inference marginal         
+[Tue Aug 25 13:37:06 2026]
+Finished jobid: 39 (Rule: align)
+12 of 61 steps (20%) done
+Select jobs to execute...
+Execute 1 jobs...
+[Tue Aug 25 13:37:06 2026]
+Job 48: Building tree
+Reason: Missing output files: results/tree-raw_na.nwk; Input files updated by another job: results/aligned_na.fasta
+Shell command: 
+        augur tree             --alignment results/aligned_na.fasta             --output results/tree-raw_na.nwk             --method iqtree             --nthreads 1
+        
+[Tue Aug 25 13:38:32 2026]
+Finished jobid: 37 (Rule: align)
+13 of 61 steps (21%) done
+Select jobs to execute...
+Execute 1 jobs...
+[Tue Aug 25 13:38:32 2026]
+Job 46: Building tree
+Reason: Missing output files: results/tree-raw_np.nwk; Input files updated by another job: results/aligned_np.fasta
+Shell command: 
+        augur tree             --alignment results/aligned_np.fasta             --output results/tree-raw_np.nwk             --method iqtree             --nthreads 1
+        
+[Tue Aug 25 13:46:54 2026]
+Finished jobid: 46 (Rule: tree)
+14 of 61 steps (23%) done
+Select jobs to execute...
+Execute 1 jobs...
+[Tue Aug 25 13:46:54 2026]
+Job 45: 
+        Refining tree
+          - estimate timetree
+          - use const coalescent timescale
+          - estimate marginal node dates
+        
+Reason: Missing output files: results/tree_np.nwk, results/branch-lengths_np.json; Input files updated by another job: results/tree-raw_np.nwk, results/aligned_np.fasta
+Shell command: 
+        augur refine             --tree results/tree-raw_np.nwk             --alignment results/aligned_np.fasta             --metadata data/metadata_dates.tsv             --output-tree results/tree_np.nwk             --output-node-data results/branch-lengths_np.json             --timetree             --coalescent const             --date-confidence             --date-inference marginal         
+[Tue Aug 25 13:47:17 2026]
+Finished jobid: 48 (Rule: tree)
+15 of 61 steps (25%) done
+Select jobs to execute...
+Execute 1 jobs...
+[Tue Aug 25 13:47:17 2026]
+Job 47: 
+        Refining tree
+          - estimate timetree
+          - use const coalescent timescale
+          - estimate marginal node dates
+        
+Reason: Missing output files: results/branch-lengths_na.json, results/tree_na.nwk; Input files updated by another job: results/aligned_na.fasta, results/tree-raw_na.nwk
+Shell command: 
+        augur refine             --tree results/tree-raw_na.nwk             --alignment results/aligned_na.fasta             --metadata data/metadata_dates.tsv             --output-tree results/tree_na.nwk             --output-node-data results/branch-lengths_na.json             --timetree             --coalescent const             --date-confidence             --date-inference marginal         
+[Tue Aug 25 13:50:51 2026]
+Finished jobid: 21 (Rule: align)
+16 of 61 steps (26%) done
+Select jobs to execute...
+Execute 1 jobs...
+[Tue Aug 25 13:50:51 2026]
+Job 20: Building tree
+Reason: Missing output files: results/tree-raw_pa.nwk; Input files updated by another job: results/aligned_pa.fasta
+Shell command: 
+        augur tree             --alignment results/aligned_pa.fasta             --output results/tree-raw_pa.nwk             --method iqtree             --nthreads 1
+        
+[Tue Aug 25 13:52:20 2026]
+Finished jobid: 13 (Rule: align)
+17 of 61 steps (28%) done
+Select jobs to execute...
+Execute 1 jobs...
+[Tue Aug 25 13:52:20 2026]
+Job 12: Building tree
+Reason: Missing output files: results/tree-raw_pb1.nwk; Input files updated by another job: results/aligned_pb1.fasta
+Shell command: 
+        augur tree             --alignment results/aligned_pb1.fasta             --output results/tree-raw_pb1.nwk             --method iqtree             --nthreads 1
+        
+[Tue Aug 25 13:53:18 2026]
+Finished jobid: 4 (Rule: align)
+18 of 61 steps (30%) done
+Select jobs to execute...
+Execute 2 jobs...
+[Tue Aug 25 13:53:18 2026]
+Job 36: converting rna sequences in alignments to dna
+Reason: Missing output files: results/aligned_ns_dna.fasta, results/aligned_ha_dna.fasta, results/aligned_pb1_dna.fasta, results/aligned_na_dna.fasta, results/aligned_np_dna.fasta, results/aligned_pb2_dna.fasta, results/aligned_mp_dna.fasta, results/aligned_pa_dna.fasta; Input files updated by another job: results/aligned_pb2.fasta, results/aligned_np.fasta, results/aligned_pb1.fasta, results/aligned_na.fasta, results/aligned_ns.fasta, results/aligned_pa.fasta, results/aligned_mp.fasta
+Shell command: 
+        python scripts/rna-to-dna.py             --alignments results/aligned_pb2.fasta results/aligned_pb1.fasta results/aligned_pa.fasta results/aligned_ha.fasta results/aligned_np.fasta results/aligned_na.fasta results/aligned_mp.fasta results/aligned_ns.fasta             --dna_alignments results/aligned_pb2_dna.fasta results/aligned_pb1_dna.fasta results/aligned_pa_dna.fasta results/aligned_ha_dna.fasta results/aligned_np_dna.fasta results/aligned_na_dna.fasta results/aligned_mp_dna.fasta results/aligned_ns_dna.fasta
+        
+[Tue Aug 25 13:53:18 2026]
+Job 3: Building tree
+Reason: Missing output files: results/tree-raw_pb2.nwk; Input files updated by another job: results/aligned_pb2.fasta
+Shell command: 
+        augur tree             --alignment results/aligned_pb2.fasta             --output results/tree-raw_pb2.nwk             --method iqtree             --nthreads 1
+        
+[Tue Aug 25 13:53:19 2026]
+Finished jobid: 36 (Rule: dna)
+19 of 61 steps (31%) done
+[Tue Aug 25 14:00:47 2026]
+Finished jobid: 51 (Rule: refine)
+20 of 61 steps (33%) done
+Select jobs to execute...
+Execute 2 jobs...
+[Tue Aug 25 14:00:47 2026]
+Job 66: Inferring ancestral traits for region
+Reason: Missing output files: results/traits_ns.json; Input files updated by another job: results/tree_ns.nwk
+Shell command: 
+        augur traits             --tree results/tree_ns.nwk             --metadata data/metadata_dates.tsv             --output results/traits_ns.json             --columns region             --confidence
+        
+[Tue Aug 25 14:00:47 2026]
+Job 67: Reconstructing ancestral sequences and mutations
+Reason: Missing output files: results/nt-muts_ns.json; Input files updated by another job: results/aligned_ns.fasta, results/tree_ns.nwk
+Shell command: 
+        augur ancestral             --tree results/tree_ns.nwk             --alignment results/aligned_ns.fasta             --output-node-data results/nt-muts_ns.json             --inference joint            --keep-ambiguous
+        
+[Tue Aug 25 14:01:16 2026]
+Finished jobid: 67 (Rule: ancestral)
+21 of 61 steps (34%) done
+Select jobs to execute...
+Execute 1 jobs...
+[Tue Aug 25 14:01:16 2026]
+Job 68: Translating amino acid sequences
+Reason: Missing output files: results/aa-muts_ns.json; Input files updated by another job: results/nt-muts_ns.json, results/tree_ns.nwk
+Shell command: 
+        augur translate             --tree results/tree_ns.nwk             --ancestral-sequences results/nt-muts_ns.json             --reference-sequence config/reference_ns.gb             --output results/aa-muts_ns.json
+        
+[Tue Aug 25 14:01:20 2026]
+Finished jobid: 68 (Rule: translate)
+22 of 61 steps (36%) done
+[Tue Aug 25 14:01:39 2026]
+Finished jobid: 66 (Rule: traits)
+23 of 61 steps (38%) done
+Select jobs to execute...
+Execute 1 jobs...
+[Tue Aug 25 14:01:39 2026]
+Job 65: Exporting data files for for auspice
+Reason: Missing output files: auspice/flu_avian_ns.json; Input files updated by another job: results/nt-muts_ns.json, results/traits_ns.json, results/tree_ns.nwk, results/aa-muts_ns.json, results/branch-lengths_ns.json
+Shell command: 
+        augur export v2             --tree results/tree_ns.nwk             --metadata data/metadata_dates.tsv             --node-data results/branch-lengths_ns.json results/traits_ns.json results/nt-muts_ns.json results/aa-muts_ns.json            --colors config/colors.tsv             --lat-longs config/lat_longs.tsv             --auspice-config config/auspice_config.json             --include-root-sequence             --output auspice/flu_avian_ns.json
+        
+[Tue Aug 25 14:01:56 2026]
+Finished jobid: 65 (Rule: export)
+24 of 61 steps (39%) done
+[Tue Aug 25 14:04:49 2026]
+Finished jobid: 20 (Rule: tree)
+25 of 61 steps (41%) done
+Select jobs to execute...
+Execute 1 jobs...
+[Tue Aug 25 14:04:49 2026]
+Job 19: 
+        Refining tree
+          - estimate timetree
+          - use const coalescent timescale
+          - estimate marginal node dates
+        
+Reason: Missing output files: results/tree_pa.nwk, results/branch-lengths_pa.json; Input files updated by another job: results/aligned_pa.fasta, results/tree-raw_pa.nwk
+Shell command: 
+        augur refine             --tree results/tree-raw_pa.nwk             --alignment results/aligned_pa.fasta             --metadata data/metadata_dates.tsv             --output-tree results/tree_pa.nwk             --output-node-data results/branch-lengths_pa.json             --timetree             --coalescent const             --date-confidence             --date-inference marginal         
+[Tue Aug 25 14:07:26 2026]
+Finished jobid: 3 (Rule: tree)
+26 of 61 steps (43%) done
+Select jobs to execute...
+Execute 1 jobs...
+[Tue Aug 25 14:07:26 2026]
+Job 2: 
+        Refining tree
+          - estimate timetree
+          - use const coalescent timescale
+          - estimate marginal node dates
+        
+Reason: Missing output files: results/tree_pb2.nwk, results/branch-lengths_pb2.json; Input files updated by another job: results/tree-raw_pb2.nwk, results/aligned_pb2.fasta
+Shell command: 
+        augur refine             --tree results/tree-raw_pb2.nwk             --alignment results/aligned_pb2.fasta             --metadata data/metadata_dates.tsv             --output-tree results/tree_pb2.nwk             --output-node-data results/branch-lengths_pb2.json             --timetree             --coalescent const             --date-confidence             --date-inference marginal         
+[Tue Aug 25 14:09:36 2026]
+Finished jobid: 12 (Rule: tree)
+27 of 61 steps (44%) done
+Select jobs to execute...
+Execute 1 jobs...
+[Tue Aug 25 14:09:36 2026]
+Job 11: 
+        Refining tree
+          - estimate timetree
+          - use const coalescent timescale
+          - estimate marginal node dates
+        
+Reason: Missing output files: results/tree_pb1.nwk, results/branch-lengths_pb1.json; Input files updated by another job: results/tree-raw_pb1.nwk, results/aligned_pb1.fasta
+Shell command: 
+        augur refine             --tree results/tree-raw_pb1.nwk             --alignment results/aligned_pb1.fasta             --metadata data/metadata_dates.tsv             --output-tree results/tree_pb1.nwk             --output-node-data results/branch-lengths_pb1.json             --timetree             --coalescent const             --date-confidence             --date-inference marginal         
+[Tue Aug 25 14:11:45 2026]
+Finished jobid: 49 (Rule: refine)
+28 of 61 steps (46%) done
+Select jobs to execute...
+Execute 2 jobs...
+[Tue Aug 25 14:11:46 2026]
+Job 63: Reconstructing ancestral sequences and mutations
+Reason: Missing output files: results/nt-muts_mp.json; Input files updated by another job: results/tree_mp.nwk, results/aligned_mp.fasta
+Shell command: 
+        augur ancestral             --tree results/tree_mp.nwk             --alignment results/aligned_mp.fasta             --output-node-data results/nt-muts_mp.json             --inference joint            --keep-ambiguous
+        
+[Tue Aug 25 14:11:46 2026]
+Job 62: Inferring ancestral traits for region
+Reason: Missing output files: results/traits_mp.json; Input files updated by another job: results/tree_mp.nwk
+Shell command: 
+        augur traits             --tree results/tree_mp.nwk             --metadata data/metadata_dates.tsv             --output results/traits_mp.json             --columns region             --confidence
+        
+[Tue Aug 25 14:11:47 2026]
+Finished jobid: 47 (Rule: refine)
+29 of 61 steps (48%) done
+Select jobs to execute...
+Execute 2 jobs...
+[Tue Aug 25 14:11:47 2026]
+Job 59: Reconstructing ancestral sequences and mutations
+Reason: Missing output files: results/nt-muts_na.json; Input files updated by another job: results/aligned_na.fasta, results/tree_na.nwk
+Shell command: 
+        augur ancestral             --tree results/tree_na.nwk             --alignment results/aligned_na.fasta             --output-node-data results/nt-muts_na.json             --inference joint            --keep-ambiguous
+        
+[Tue Aug 25 14:11:47 2026]
+Job 58: Inferring ancestral traits for region
+Reason: Missing output files: results/traits_na.json; Input files updated by another job: results/tree_na.nwk
+Shell command: 
+        augur traits             --tree results/tree_na.nwk             --metadata data/metadata_dates.tsv             --output results/traits_na.json             --columns region             --confidence
+        
+[Tue Aug 25 14:12:16 2026]
+Finished jobid: 63 (Rule: ancestral)
+30 of 61 steps (49%) done
+Select jobs to execute...
+Execute 1 jobs...
+[Tue Aug 25 14:12:16 2026]
+Job 64: Translating amino acid sequences
+Reason: Missing output files: results/aa-muts_mp.json; Input files updated by another job: results/tree_mp.nwk, results/nt-muts_mp.json
+Shell command: 
+        augur translate             --tree results/tree_mp.nwk             --ancestral-sequences results/nt-muts_mp.json             --reference-sequence config/reference_mp.gb             --output results/aa-muts_mp.json
+        
+[Tue Aug 25 14:12:20 2026]
+Finished jobid: 64 (Rule: translate)
+31 of 61 steps (51%) done
+[Tue Aug 25 14:12:28 2026]
+Finished jobid: 59 (Rule: ancestral)
+32 of 61 steps (52%) done
+Select jobs to execute...
+Execute 1 jobs...
+[Tue Aug 25 14:12:28 2026]
+Job 60: Translating amino acid sequences
+Reason: Missing output files: results/aa-muts_na.json; Input files updated by another job: results/nt-muts_na.json, results/tree_na.nwk
+Shell command: 
+        augur translate             --tree results/tree_na.nwk             --ancestral-sequences results/nt-muts_na.json             --reference-sequence config/reference_na.gb             --output results/aa-muts_na.json
+        
+[Tue Aug 25 14:12:32 2026]
+Finished jobid: 60 (Rule: translate)
+33 of 61 steps (54%) done
+[Tue Aug 25 14:12:37 2026]
+Finished jobid: 62 (Rule: traits)
+34 of 61 steps (56%) done
+Select jobs to execute...
+Execute 1 jobs...
+[Tue Aug 25 14:12:37 2026]
+Job 61: Exporting data files for for auspice
+Reason: Missing output files: auspice/flu_avian_mp.json; Input files updated by another job: results/branch-lengths_mp.json, results/nt-muts_mp.json, results/aa-muts_mp.json, results/tree_mp.nwk, results/traits_mp.json
+Shell command: 
+        augur export v2             --tree results/tree_mp.nwk             --metadata data/metadata_dates.tsv             --node-data results/branch-lengths_mp.json results/traits_mp.json results/nt-muts_mp.json results/aa-muts_mp.json            --colors config/colors.tsv             --lat-longs config/lat_longs.tsv             --auspice-config config/auspice_config.json             --include-root-sequence             --output auspice/flu_avian_mp.json
+        
+[Tue Aug 25 14:12:39 2026]
+Finished jobid: 58 (Rule: traits)
+35 of 61 steps (57%) done
+Select jobs to execute...
+Execute 1 jobs...
+[Tue Aug 25 14:12:39 2026]
+Job 57: Exporting data files for for auspice
+Reason: Missing output files: auspice/flu_avian_na.json; Input files updated by another job: results/aa-muts_na.json, results/nt-muts_na.json, results/branch-lengths_na.json, results/traits_na.json, results/tree_na.nwk
+Shell command: 
+        augur export v2             --tree results/tree_na.nwk             --metadata data/metadata_dates.tsv             --node-data results/branch-lengths_na.json results/traits_na.json results/nt-muts_na.json results/aa-muts_na.json            --colors config/colors.tsv             --lat-longs config/lat_longs.tsv             --auspice-config config/auspice_config.json             --include-root-sequence             --output auspice/flu_avian_na.json
+        
+[Tue Aug 25 14:12:57 2026]
+Finished jobid: 57 (Rule: export)
+36 of 61 steps (59%) done
+[Tue Aug 25 14:12:57 2026]
+Finished jobid: 61 (Rule: export)
+37 of 61 steps (61%) done
+[Tue Aug 25 14:16:46 2026]
+Finished jobid: 45 (Rule: refine)
+38 of 61 steps (62%) done
+Select jobs to execute...
+Execute 2 jobs...
+[Tue Aug 25 14:16:46 2026]
+Job 54: Inferring ancestral traits for region
+Reason: Missing output files: results/traits_np.json; Input files updated by another job: results/tree_np.nwk
+Shell command: 
+        augur traits             --tree results/tree_np.nwk             --metadata data/metadata_dates.tsv             --output results/traits_np.json             --columns region             --confidence
+        
+[Tue Aug 25 14:16:46 2026]
+Job 55: Reconstructing ancestral sequences and mutations
+Reason: Missing output files: results/nt-muts_np.json; Input files updated by another job: results/tree_np.nwk, results/aligned_np.fasta
+Shell command: 
+        augur ancestral             --tree results/tree_np.nwk             --alignment results/aligned_np.fasta             --output-node-data results/nt-muts_np.json             --inference joint            --keep-ambiguous
+        
+[Tue Aug 25 14:17:25 2026]
+Finished jobid: 55 (Rule: ancestral)
+39 of 61 steps (64%) done
+Select jobs to execute...
+Execute 1 jobs...
+[Tue Aug 25 14:17:25 2026]
+Job 56: Translating amino acid sequences
+Reason: Missing output files: results/aa-muts_np.json; Input files updated by another job: results/tree_np.nwk, results/nt-muts_np.json
+Shell command: 
+        augur translate             --tree results/tree_np.nwk             --ancestral-sequences results/nt-muts_np.json             --reference-sequence config/reference_np.gb             --output results/aa-muts_np.json
+        
+[Tue Aug 25 14:17:33 2026]
+Finished jobid: 56 (Rule: translate)
+40 of 61 steps (66%) done
+[Tue Aug 25 14:17:39 2026]
+Finished jobid: 54 (Rule: traits)
+41 of 61 steps (67%) done
+Select jobs to execute...
+Execute 1 jobs...
+[Tue Aug 25 14:17:39 2026]
+Job 53: Exporting data files for for auspice
+Reason: Missing output files: auspice/flu_avian_np.json; Input files updated by another job: results/traits_np.json, results/tree_np.nwk, results/aa-muts_np.json, results/branch-lengths_np.json, results/nt-muts_np.json
+Shell command: 
+        augur export v2             --tree results/tree_np.nwk             --metadata data/metadata_dates.tsv             --node-data results/branch-lengths_np.json results/traits_np.json results/nt-muts_np.json results/aa-muts_np.json            --colors config/colors.tsv             --lat-longs config/lat_longs.tsv             --auspice-config config/auspice_config.json             --include-root-sequence             --output auspice/flu_avian_np.json
+        
+[Tue Aug 25 14:17:57 2026]
+Finished jobid: 53 (Rule: export)
+42 of 61 steps (69%) done
+[Tue Aug 25 14:35:44 2026]
+Finished jobid: 19 (Rule: refine)
+43 of 61 steps (70%) done
+Select jobs to execute...
+Execute 2 jobs...
+[Tue Aug 25 14:35:44 2026]
+Job 23: Inferring ancestral traits for region
+Reason: Missing output files: results/traits_pa.json; Input files updated by another job: results/tree_pa.nwk
+Shell command: 
+        augur traits             --tree results/tree_pa.nwk             --metadata data/metadata_dates.tsv             --output results/traits_pa.json             --columns region             --confidence
+        
+[Tue Aug 25 14:35:44 2026]
+Job 24: Reconstructing ancestral sequences and mutations
+Reason: Missing output files: results/nt-muts_pa.json; Input files updated by another job: results/tree_pa.nwk, results/aligned_pa.fasta
+Shell command: 
+        augur ancestral             --tree results/tree_pa.nwk             --alignment results/aligned_pa.fasta             --output-node-data results/nt-muts_pa.json             --inference joint            --keep-ambiguous
+        
+[Tue Aug 25 14:36:32 2026]
+Finished jobid: 23 (Rule: traits)
+44 of 61 steps (72%) done
+[Tue Aug 25 14:36:41 2026]
+Finished jobid: 24 (Rule: ancestral)
+45 of 61 steps (74%) done
+Select jobs to execute...
+Execute 1 jobs...
+[Tue Aug 25 14:36:41 2026]
+Job 25: Translating amino acid sequences
+Reason: Missing output files: results/aa-muts_pa.json; Input files updated by another job: results/tree_pa.nwk, results/nt-muts_pa.json
+Shell command: 
+        augur translate             --tree results/tree_pa.nwk             --ancestral-sequences results/nt-muts_pa.json             --reference-sequence config/reference_pa.gb             --output results/aa-muts_pa.json
+        
+[Tue Aug 25 14:36:47 2026]
+Finished jobid: 25 (Rule: translate)
+46 of 61 steps (75%) done
+Select jobs to execute...
+Execute 1 jobs...
+[Tue Aug 25 14:36:47 2026]
+Job 18: Exporting data files for for auspice
+Reason: Missing output files: auspice/flu_avian_pa.json; Input files updated by another job: results/traits_pa.json, results/branch-lengths_pa.json, results/aa-muts_pa.json, results/tree_pa.nwk, results/nt-muts_pa.json
+Shell command: 
+        augur export v2             --tree results/tree_pa.nwk             --metadata data/metadata_dates.tsv             --node-data results/branch-lengths_pa.json results/traits_pa.json results/nt-muts_pa.json results/aa-muts_pa.json            --colors config/colors.tsv             --lat-longs config/lat_longs.tsv             --auspice-config config/auspice_config.json             --include-root-sequence             --output auspice/flu_avian_pa.json
+        
+[Tue Aug 25 14:37:08 2026]
+Finished jobid: 18 (Rule: export)
+47 of 61 steps (77%) done
+[Tue Aug 25 14:38:12 2026]
+Finished jobid: 2 (Rule: refine)
+48 of 61 steps (79%) done
+Select jobs to execute...
+Execute 2 jobs...
+[Tue Aug 25 14:38:12 2026]
+Job 7: Inferring ancestral traits for region
+Reason: Missing output files: results/traits_pb2.json; Input files updated by another job: results/tree_pb2.nwk
+Shell command: 
+        augur traits             --tree results/tree_pb2.nwk             --metadata data/metadata_dates.tsv             --output results/traits_pb2.json             --columns region             --confidence
+        
+[Tue Aug 25 14:38:12 2026]
+Job 8: Reconstructing ancestral sequences and mutations
+Reason: Missing output files: results/nt-muts_pb2.json; Input files updated by another job: results/tree_pb2.nwk, results/aligned_pb2.fasta
+Shell command: 
+        augur ancestral             --tree results/tree_pb2.nwk             --alignment results/aligned_pb2.fasta             --output-node-data results/nt-muts_pb2.json             --inference joint            --keep-ambiguous
+        
+[Tue Aug 25 14:39:08 2026]
+Finished jobid: 7 (Rule: traits)
+49 of 61 steps (80%) done
+[Tue Aug 25 14:39:18 2026]
+Finished jobid: 8 (Rule: ancestral)
+50 of 61 steps (82%) done
+Select jobs to execute...
+Execute 1 jobs...
+[Tue Aug 25 14:39:18 2026]
+Job 9: Translating amino acid sequences
+Reason: Missing output files: results/aa-muts_pb2.json; Input files updated by another job: results/tree_pb2.nwk, results/nt-muts_pb2.json
+Shell command: 
+        augur translate             --tree results/tree_pb2.nwk             --ancestral-sequences results/nt-muts_pb2.json             --reference-sequence config/reference_pb2.gb             --output results/aa-muts_pb2.json
+        
+[Tue Aug 25 14:39:24 2026]
+Finished jobid: 9 (Rule: translate)
+51 of 61 steps (84%) done
+Select jobs to execute...
+Execute 1 jobs...
+[Tue Aug 25 14:39:24 2026]
+Job 1: Exporting data files for for auspice
+Reason: Missing output files: auspice/flu_avian_pb2.json; Input files updated by another job: results/tree_pb2.nwk, results/branch-lengths_pb2.json, results/nt-muts_pb2.json, results/aa-muts_pb2.json, results/traits_pb2.json
+Shell command: 
+        augur export v2             --tree results/tree_pb2.nwk             --metadata data/metadata_dates.tsv             --node-data results/branch-lengths_pb2.json results/traits_pb2.json results/nt-muts_pb2.json results/aa-muts_pb2.json            --colors config/colors.tsv             --lat-longs config/lat_longs.tsv             --auspice-config config/auspice_config.json             --include-root-sequence             --output auspice/flu_avian_pb2.json
+        
+[Tue Aug 25 14:39:44 2026]
+Finished jobid: 1 (Rule: export)
+52 of 61 steps (85%) done
+[Tue Aug 25 14:42:31 2026]
+Finished jobid: 11 (Rule: refine)
+53 of 61 steps (87%) done
+Select jobs to execute...
+Execute 3 jobs...
+[Tue Aug 25 14:42:31 2026]
+Job 16: Reconstructing ancestral sequences and mutations
+Reason: Missing output files: results/nt-muts_pb1.json; Input files updated by another job: results/tree_pb1.nwk, results/aligned_pb1.fasta
+Shell command: 
+        augur ancestral             --tree results/tree_pb1.nwk             --alignment results/aligned_pb1.fasta             --output-node-data results/nt-muts_pb1.json             --inference joint            --keep-ambiguous
+        
+[Tue Aug 25 14:42:31 2026]
+Job 35: running treesort to infer reassortment events
+Reason: Missing output files: treesort/ha_treesort.tre; Input files updated by another job: results/aligned_ns_dna.fasta, results/tree_mp.nwk, results/aligned_ha_dna.fasta, results/aligned_mp_dna.fasta, results/aligned_na_dna.fasta, results/tree_pa.nwk, results/aligned_np_dna.fasta, results/aligned_pb2_dna.fasta, results/tree_na.nwk, results/tree_pb1.nwk, results/tree_pb2.nwk, results/tree_np.nwk, results/tree_ns.nwk, results/aligned_pb1_dna.fasta, results/aligned_pa_dna.fasta; Set of input files has changed since last execution
+Shell command: None
+[Tue Aug 25 14:42:31 2026]
+Job 15: Inferring ancestral traits for region
+Reason: Missing output files: results/traits_pb1.json; Input files updated by another job: results/tree_pb1.nwk
+Shell command: 
+        augur traits             --tree results/tree_pb1.nwk             --metadata data/metadata_dates.tsv             --output results/traits_pb1.json             --columns region             --confidence
+        
+Traceback (most recent call last):
+
+  File "/Users/jort/anaconda3/envs/treesort-pipeline/lib/python3.12/site-packages/snakemake/executors/local.py", line 232, in spawn_job
+    subprocess.check_call(cmd, shell=True)
+
+  File "/Users/jort/anaconda3/envs/treesort-pipeline/lib/python3.12/subprocess.py", line 413, in check_call
+    raise CalledProcessError(retcode, cmd)
+
+subprocess.CalledProcessError: Command 'cd /Users/jort/coding/h5nx-reassortment-and-risk-assessment/treesort-sameStrains-replicates/20260302-newReplicates/for-parcc/20260824-filter-testing/full-build/60perGroup-0 && /Users/jort/anaconda3/envs/treesort-pipeline/bin/python3.12 -m snakemake --snakefile '/Users/jort/coding/h5nx-reassortment-and-risk-assessment/treesort-sameStrains-replicates/20260302-newReplicates/for-parcc/20260824-filter-testing/full-build/60perGroup-0/Snakefile' --target-jobs 'treesort:' --allowed-rules treesort --cores 10 --attempt 1 --force-use-threads  --force --target-files-omit-workdir-adjustment --max-inventory-time 0 --nocolor --notemp --no-hooks --nolock --ignore-incomplete --rerun-triggers software-env input params mtime code --conda-frontend 'conda' --shared-fs-usage storage-local-copies source-cache persistence input-output software-deployment sources --wrapper-prefix 'https://github.com/snakemake/snakemake-wrappers/raw/' --printshellcmds  --latency-wait 5 --scheduler 'ilp' --local-storage-prefix base64//LnNuYWtlbWFrZS9zdG9yYWdl --scheduler-solver-path '/Users/jort/anaconda3/envs/treesort-pipeline/bin' --default-resources base64//dG1wZGlyPXN5c3RlbV90bXBkaXI= --quiet progress rules host --mode 'subprocess' --local-groupid 'local'' returned non-zero exit status 1.
+
+
+During handling of the above exception, another exception occurred:
+
+
+Traceback (most recent call last):
+
+  File "/Users/jort/anaconda3/envs/treesort-pipeline/lib/python3.12/concurrent/futures/thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+  File "/Users/jort/anaconda3/envs/treesort-pipeline/lib/python3.12/site-packages/snakemake/executors/local.py", line 247, in cached_or_run
+    run_func(*args)
+
+  File "/Users/jort/anaconda3/envs/treesort-pipeline/lib/python3.12/site-packages/snakemake/executors/local.py", line 234, in spawn_job
+    raise SpawnedJobError()
+
+snakemake.exceptions.SpawnedJobError
+
+[Tue Aug 25 14:42:41 2026]
+Error in rule treesort:
+    message: None
+    jobid: 35
+    input: descriptor.csv, results/aligned_pb2_dna.fasta, results/aligned_pb1_dna.fasta, results/aligned_pa_dna.fasta, results/aligned_ha_dna.fasta, results/aligned_np_dna.fasta, results/aligned_na_dna.fasta, results/aligned_mp_dna.fasta, results/aligned_ns_dna.fasta, results/tree_pb2.nwk, results/tree_pb1.nwk, results/tree_pa.nwk, results/tree_ha.nwk, results/tree_np.nwk, results/tree_na.nwk, results/tree_mp.nwk, results/tree_ns.nwk
+    output: treesort/ha_treesort.tre
+[Tue Aug 25 14:43:25 2026]
+Finished jobid: 15 (Rule: traits)
+54 of 61 steps (89%) done
+[Tue Aug 25 14:43:32 2026]
+Finished jobid: 16 (Rule: ancestral)
+55 of 61 steps (90%) done
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look below for error messages
+[Tue Aug 25 14:43:32 2026]
+Error in rule treesort:
+    message: None
+    jobid: 35
+    input: descriptor.csv, results/aligned_pb2_dna.fasta, results/aligned_pb1_dna.fasta, results/aligned_pa_dna.fasta, results/aligned_ha_dna.fasta, results/aligned_np_dna.fasta, results/aligned_na_dna.fasta, results/aligned_mp_dna.fasta, results/aligned_ns_dna.fasta, results/tree_pb2.nwk, results/tree_pb1.nwk, results/tree_pa.nwk, results/tree_ha.nwk, results/tree_np.nwk, results/tree_na.nwk, results/tree_mp.nwk, results/tree_ns.nwk
+    output: treesort/ha_treesort.tre
+Complete log(s): /Users/jort/coding/h5nx-reassortment-and-risk-assessment/treesort-sameStrains-replicates/20260302-newReplicates/for-parcc/20260824-filter-testing/full-build/60perGroup-0/.snakemake/log/2026-08-25T130029.094179.snakemake.log
+WorkflowError:
+At least one job did not complete successfully.

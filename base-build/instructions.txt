@@ -1,0 +1,34 @@
+1. Determine which sequences to include in your build.
+
+I previously did this in a 2-step approach by first building an HA tree and checking topology, then building other segment trees and performing a test Treesort run. Now, I have a build to do all of the steps at once and generating a `filtered` folder to slot into the Treesort replicate pipeline.
+
+To use this build, copy the `base-build-filtering` directory and replace the `data` with updated sequences and metadata (ensure these have been properly set up for Treesort, i.e., with dates appended to strain names [see Note 1 at bottom]) and update the `config` as necessary (i.e., to add new dropped strains). Update the Snakefile to change filtering parameters, if needed.
+
+Using the treesort-pipeline conda environment, cd into the directory and run this build with either `snakemake -s Snakefile --cores` or `nextstrain build --ambient .` If the build runs successfully, you should have a single Treesort-annotated tree. Confirm that this tree is parseable with your analysis pipeline (I keep finding new issues...) and, if so, you can move on to the actual pipeline!
+
+Examples for the old, 2-step approach:
+Example HA-only build: /Users/jort/coding/h5nx-reassortment-and-risk-assessment/treesort-sameStrains-replicates/20260302-newReplicates/for-parcc/20260824-filter-testing/ha-only/60perGroup-0
+
+Example full build: /Users/jort/coding/h5nx-reassortment-and-risk-assessment/treesort-sameStrains-replicates/20260302-newReplicates/for-parcc/20260824-filter-testing/full-build/60perGroup-0
+
+
+2. Copy the `base-build-treesort` directory, then copy the generated `filtered` folder from the `base-build-filtering` (containing `filtered_*_filtered.txt`, `filtered_*.fasta`, and `metadata_dates.tsv`) there. Confirm that the `config.yaml` is set up for the correct number of HA and non-HA replicates.
+
+
+3. Locally with the treesort-pipeline conda environment, run a dry-run with `snakemake -s Snakefile -n` to ensure that the build can run successfully.
+
+
+4. Transfer the full directory to PARCC with `rsync`.
+
+
+5. On PARCC using the treesort-pipeline conda environment, run the pipeline!
+
+
+
+Note 1. To generate data that is ready to be read by TreeSort, replace <LAST_UPLOAD_DATE> and run the following command. This will update the data within the /Users/jort/coding/h5nx-reassortment-and-risk-assessment/data/ folder, which can then be copied into the `base-build-filtering` directory.
+
+python /Users/jort/coding/h5nx-reassortment-and-risk-assessment/scripts/append-dates.py \
+--metadata /Users/jort/coding/h5-data/<LAST_UPLOAD_DATE>/data/h5nx_metadata.tsv
+--fastas /Users/jort/coding/h5-data/<LAST_UPLOAD_DATE>/data/h5nx_\*.fasta
+--output_metadata /Users/jort/coding/h5nx-reassortment-and-risk-assessment/data/metadata_dates.tsv \
+--output_fastas /Users/jort/coding/h5nx-reassortment-and-risk-assessment/data/\*_dates.fasta

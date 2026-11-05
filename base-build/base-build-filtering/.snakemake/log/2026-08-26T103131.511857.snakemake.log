@@ -1,0 +1,38 @@
+Assuming unrestricted shared filesystem usage.
+None
+host: BGS-STU22-136
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 10
+Rules claiming more threads will be scaled down.
+Job stats:
+job              count
+-------------  -------
+all                  1
+copy_metadata        1
+total                2
+
+Select jobs to execute...
+Execute 1 jobs...
+[Wed Aug 26 10:31:31 2026]
+Job 74: Copying metadata to filtered folder
+Reason: Missing output files: filtered/metadata_dates.tsv
+Shell command: 
+        mkdir -p filtered &&             cp data/metadata_dates.tsv filtered/metadata_dates.tsv
+        
+[Wed Aug 26 10:31:31 2026]
+Finished jobid: 74 (Rule: copy_metadata)
+1 of 2 steps (50%) done
+Select jobs to execute...
+Execute 1 jobs...
+[Wed Aug 26 10:31:31 2026]
+localrule all:
+    input: auspice/flu_avian_pb2.json, auspice/flu_avian_pb1.json, auspice/flu_avian_pa.json, auspice/flu_avian_ha.json, auspice/flu_avian_np.json, auspice/flu_avian_na.json, auspice/flu_avian_mp.json, auspice/flu_avian_ns.json, filtered/filtered_pb2.fasta, filtered/filtered_pb1.fasta, filtered/filtered_pa.fasta, filtered/filtered_ha.fasta, filtered/filtered_np.fasta, filtered/filtered_na.fasta, filtered/filtered_mp.fasta, filtered/filtered_ns.fasta, filtered/filtered_pb2_filtered.txt, filtered/filtered_pb1_filtered.txt, filtered/filtered_pa_filtered.txt, filtered/filtered_ha_filtered.txt, filtered/filtered_np_filtered.txt, filtered/filtered_na_filtered.txt, filtered/filtered_mp_filtered.txt, filtered/filtered_ns_filtered.txt, filtered/metadata_dates.tsv
+    jobid: 0
+    reason: Input files updated by another job: filtered/metadata_dates.tsv
+    resources: tmpdir=/var/folders/d_/56m2n50525gb3y_7mkr2t1880000gp/T
+Shell command: None
+[Wed Aug 26 10:31:31 2026]
+Finished jobid: 0 (Rule: all)
+2 of 2 steps (100%) done
+Complete log(s): /Users/jort/coding/h5nx-reassortment-and-risk-assessment/treesort-sameStrains-replicates/20260302-newReplicates/for-parcc/20260824-filter-testing/full-build/60perGroup-0/.snakemake/log/2026-08-26T103131.511857.snakemake.log

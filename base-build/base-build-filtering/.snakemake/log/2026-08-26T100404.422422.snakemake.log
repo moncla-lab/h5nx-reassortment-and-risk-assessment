@@ -1,0 +1,287 @@
+Assuming unrestricted shared filesystem usage.
+None
+host: BGS-STU22-136
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 10
+Rules claiming more threads will be scaled down.
+Job stats:
+job                count
+---------------  -------
+all                    1
+export                 1
+filtered_folder        8
+total                 10
+
+Select jobs to execute...
+Execute 9 jobs...
+[Wed Aug 26 10:04:04 2026]
+Job 69: Generating filtered folder
+Reason: Missing output files: filtered/filtered_ha.fasta, filtered/filtered_ha_filtered.txt
+Shell command: 
+        mkdir -p filtered && cp input.sequences output.sequences && cp input.strains output.strains
+        
+[Wed Aug 26 10:04:04 2026]
+Job 72: Generating filtered folder
+Reason: Missing output files: filtered/filtered_mp.fasta, filtered/filtered_mp_filtered.txt
+Shell command: 
+        mkdir -p filtered && cp input.sequences output.sequences && cp input.strains output.strains
+        
+[Wed Aug 26 10:04:04 2026]
+Job 68: Generating filtered folder
+Reason: Missing output files: filtered/filtered_pa.fasta, filtered/filtered_pa_filtered.txt
+Shell command: 
+        mkdir -p filtered && cp input.sequences output.sequences && cp input.strains output.strains
+        
+[Wed Aug 26 10:04:04 2026]
+Job 66: Generating filtered folder
+Reason: Missing output files: filtered/filtered_pb2_filtered.txt, filtered/filtered_pb2.fasta
+Shell command: 
+        mkdir -p filtered && cp input.sequences output.sequences && cp input.strains output.strains
+        
+[Wed Aug 26 10:04:04 2026]
+Job 71: Generating filtered folder
+Reason: Missing output files: filtered/filtered_na.fasta, filtered/filtered_na_filtered.txt
+Shell command: 
+        mkdir -p filtered && cp input.sequences output.sequences && cp input.strains output.strains
+        
+[Wed Aug 26 10:04:04 2026]
+Job 73: Generating filtered folder
+Reason: Missing output files: filtered/filtered_ns.fasta, filtered/filtered_ns_filtered.txt
+Shell command: 
+        mkdir -p filtered && cp input.sequences output.sequences && cp input.strains output.strains
+        
+[Wed Aug 26 10:04:04 2026]
+Job 26: Exporting data files for for auspice
+Reason: Missing output files: auspice/flu_avian_ha.json
+Shell command: 
+        augur export v2             --tree results/tree_ha.nwk             --metadata data/metadata_dates.tsv             --node-data results/branch-lengths_ha.json results/traits_ha.json results/nt-muts_ha.json results/aa-muts_ha.json results/cleavage-site_ha.json results/cleavage-site-sequences_ha.json            --colors config/colors.tsv             --lat-longs config/lat_longs.tsv             --auspice-config config/auspice_config.json             --include-root-sequence             --output auspice/flu_avian_ha.json
+        
+[Wed Aug 26 10:04:04 2026]
+Job 67: Generating filtered folder
+Reason: Missing output files: filtered/filtered_pb1.fasta, filtered/filtered_pb1_filtered.txt
+Shell command: 
+        mkdir -p filtered && cp input.sequences output.sequences && cp input.strains output.strains
+        
+[Wed Aug 26 10:04:04 2026]
+Job 70: Generating filtered folder
+Reason: Missing output files: filtered/filtered_np_filtered.txt, filtered/filtered_np.fasta
+Shell command: 
+        mkdir -p filtered && cp input.sequences output.sequences && cp input.strains output.strains
+        
+RuleException:
+CalledProcessError in file "/Users/jort/coding/h5nx-reassortment-and-risk-assessment/treesort-sameStrains-replicates/20260302-newReplicates/for-parcc/20260824-filter-testing/full-build/60perGroup-0/Snakefile", line 413:
+Command 'set -euo pipefail;  
+        mkdir -p filtered && cp input.sequences output.sequences && cp input.strains output.strains' returned non-zero exit status 1.
+[Wed Aug 26 10:04:04 2026]
+Error in rule filtered_folder:
+    message: None
+    jobid: 68
+    input: results/filtered_pa.fasta, results/filtered_pa_filtered.txt
+    output: filtered/filtered_pa.fasta, filtered/filtered_pa_filtered.txt
+    shell:
+        
+        mkdir -p filtered && cp input.sequences output.sequences && cp input.strains output.strains
+        
+        (command exited with non-zero exit code)
+RuleException:
+CalledProcessError in file "/Users/jort/coding/h5nx-reassortment-and-risk-assessment/treesort-sameStrains-replicates/20260302-newReplicates/for-parcc/20260824-filter-testing/full-build/60perGroup-0/Snakefile", line 413:
+Command 'set -euo pipefail;  
+        mkdir -p filtered && cp input.sequences output.sequences && cp input.strains output.strains' returned non-zero exit status 1.
+[Wed Aug 26 10:04:04 2026]
+Error in rule filtered_folder:
+    message: None
+    jobid: 72
+    input: results/filtered_mp.fasta, results/filtered_mp_filtered.txt
+    output: filtered/filtered_mp.fasta, filtered/filtered_mp_filtered.txt
+    shell:
+        
+        mkdir -p filtered && cp input.sequences output.sequences && cp input.strains output.strains
+        
+        (command exited with non-zero exit code)
+RuleException:
+CalledProcessError in file "/Users/jort/coding/h5nx-reassortment-and-risk-assessment/treesort-sameStrains-replicates/20260302-newReplicates/for-parcc/20260824-filter-testing/full-build/60perGroup-0/Snakefile", line 413:
+Command 'set -euo pipefail;  
+        mkdir -p filtered && cp input.sequences output.sequences && cp input.strains output.strains' returned non-zero exit status 1.
+[Wed Aug 26 10:04:04 2026]
+Error in rule filtered_folder:
+    message: None
+    jobid: 66
+    input: results/filtered_pb2.fasta, results/filtered_pb2_filtered.txt
+    output: filtered/filtered_pb2.fasta, filtered/filtered_pb2_filtered.txt
+    shell:
+        
+        mkdir -p filtered && cp input.sequences output.sequences && cp input.strains output.strains
+        
+        (command exited with non-zero exit code)
+RuleException:
+CalledProcessError in file "/Users/jort/coding/h5nx-reassortment-and-risk-assessment/treesort-sameStrains-replicates/20260302-newReplicates/for-parcc/20260824-filter-testing/full-build/60perGroup-0/Snakefile", line 413:
+Command 'set -euo pipefail;  
+        mkdir -p filtered && cp input.sequences output.sequences && cp input.strains output.strains' returned non-zero exit status 1.
+[Wed Aug 26 10:04:04 2026]
+Error in rule filtered_folder:
+    message: None
+    jobid: 71
+    input: results/filtered_na.fasta, results/filtered_na_filtered.txt
+    output: filtered/filtered_na.fasta, filtered/filtered_na_filtered.txt
+    shell:
+        
+        mkdir -p filtered && cp input.sequences output.sequences && cp input.strains output.strains
+        
+        (command exited with non-zero exit code)
+RuleException:
+CalledProcessError in file "/Users/jort/coding/h5nx-reassortment-and-risk-assessment/treesort-sameStrains-replicates/20260302-newReplicates/for-parcc/20260824-filter-testing/full-build/60perGroup-0/Snakefile", line 413:
+Command 'set -euo pipefail;  
+        mkdir -p filtered && cp input.sequences output.sequences && cp input.strains output.strains' returned non-zero exit status 1.
+[Wed Aug 26 10:04:04 2026]
+Error in rule filtered_folder:
+    message: None
+    jobid: 69
+    input: results/filtered_ha.fasta, results/filtered_ha_filtered.txt
+    output: filtered/filtered_ha.fasta, filtered/filtered_ha_filtered.txt
+    shell:
+        
+        mkdir -p filtered && cp input.sequences output.sequences && cp input.strains output.strains
+        
+        (command exited with non-zero exit code)
+RuleException:
+CalledProcessError in file "/Users/jort/coding/h5nx-reassortment-and-risk-assessment/treesort-sameStrains-replicates/20260302-newReplicates/for-parcc/20260824-filter-testing/full-build/60perGroup-0/Snakefile", line 413:
+Command 'set -euo pipefail;  
+        mkdir -p filtered && cp input.sequences output.sequences && cp input.strains output.strains' returned non-zero exit status 1.
+[Wed Aug 26 10:04:04 2026]
+Error in rule filtered_folder:
+    message: None
+    jobid: 73
+    input: results/filtered_ns.fasta, results/filtered_ns_filtered.txt
+    output: filtered/filtered_ns.fasta, filtered/filtered_ns_filtered.txt
+    shell:
+        
+        mkdir -p filtered && cp input.sequences output.sequences && cp input.strains output.strains
+        
+        (command exited with non-zero exit code)
+RuleException:
+CalledProcessError in file "/Users/jort/coding/h5nx-reassortment-and-risk-assessment/treesort-sameStrains-replicates/20260302-newReplicates/for-parcc/20260824-filter-testing/full-build/60perGroup-0/Snakefile", line 413:
+Command 'set -euo pipefail;  
+        mkdir -p filtered && cp input.sequences output.sequences && cp input.strains output.strains' returned non-zero exit status 1.
+[Wed Aug 26 10:04:04 2026]
+Error in rule filtered_folder:
+    message: None
+    jobid: 67
+    input: results/filtered_pb1.fasta, results/filtered_pb1_filtered.txt
+    output: filtered/filtered_pb1.fasta, filtered/filtered_pb1_filtered.txt
+    shell:
+        
+        mkdir -p filtered && cp input.sequences output.sequences && cp input.strains output.strains
+        
+        (command exited with non-zero exit code)
+RuleException:
+CalledProcessError in file "/Users/jort/coding/h5nx-reassortment-and-risk-assessment/treesort-sameStrains-replicates/20260302-newReplicates/for-parcc/20260824-filter-testing/full-build/60perGroup-0/Snakefile", line 413:
+Command 'set -euo pipefail;  
+        mkdir -p filtered && cp input.sequences output.sequences && cp input.strains output.strains' returned non-zero exit status 1.
+[Wed Aug 26 10:04:04 2026]
+Error in rule filtered_folder:
+    message: None
+    jobid: 70
+    input: results/filtered_np.fasta, results/filtered_np_filtered.txt
+    output: filtered/filtered_np.fasta, filtered/filtered_np_filtered.txt
+    shell:
+        
+        mkdir -p filtered && cp input.sequences output.sequences && cp input.strains output.strains
+        
+        (command exited with non-zero exit code)
+[Wed Aug 26 10:04:22 2026]
+Finished jobid: 26 (Rule: export)
+1 of 10 steps (10%) done
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look below for error messages
+[Wed Aug 26 10:04:22 2026]
+Error in rule filtered_folder:
+    message: None
+    jobid: 69
+    input: results/filtered_ha.fasta, results/filtered_ha_filtered.txt
+    output: filtered/filtered_ha.fasta, filtered/filtered_ha_filtered.txt
+    shell:
+        
+        mkdir -p filtered && cp input.sequences output.sequences && cp input.strains output.strains
+        
+        (command exited with non-zero exit code)
+[Wed Aug 26 10:04:22 2026]
+Error in rule filtered_folder:
+    message: None
+    jobid: 72
+    input: results/filtered_mp.fasta, results/filtered_mp_filtered.txt
+    output: filtered/filtered_mp.fasta, filtered/filtered_mp_filtered.txt
+    shell:
+        
+        mkdir -p filtered && cp input.sequences output.sequences && cp input.strains output.strains
+        
+        (command exited with non-zero exit code)
+[Wed Aug 26 10:04:22 2026]
+Error in rule filtered_folder:
+    message: None
+    jobid: 68
+    input: results/filtered_pa.fasta, results/filtered_pa_filtered.txt
+    output: filtered/filtered_pa.fasta, filtered/filtered_pa_filtered.txt
+    shell:
+        
+        mkdir -p filtered && cp input.sequences output.sequences && cp input.strains output.strains
+        
+        (command exited with non-zero exit code)
+[Wed Aug 26 10:04:22 2026]
+Error in rule filtered_folder:
+    message: None
+    jobid: 66
+    input: results/filtered_pb2.fasta, results/filtered_pb2_filtered.txt
+    output: filtered/filtered_pb2.fasta, filtered/filtered_pb2_filtered.txt
+    shell:
+        
+        mkdir -p filtered && cp input.sequences output.sequences && cp input.strains output.strains
+        
+        (command exited with non-zero exit code)
+[Wed Aug 26 10:04:22 2026]
+Error in rule filtered_folder:
+    message: None
+    jobid: 71
+    input: results/filtered_na.fasta, results/filtered_na_filtered.txt
+    output: filtered/filtered_na.fasta, filtered/filtered_na_filtered.txt
+    shell:
+        
+        mkdir -p filtered && cp input.sequences output.sequences && cp input.strains output.strains
+        
+        (command exited with non-zero exit code)
+[Wed Aug 26 10:04:22 2026]
+Error in rule filtered_folder:
+    message: None
+    jobid: 73
+    input: results/filtered_ns.fasta, results/filtered_ns_filtered.txt
+    output: filtered/filtered_ns.fasta, filtered/filtered_ns_filtered.txt
+    shell:
+        
+        mkdir -p filtered && cp input.sequences output.sequences && cp input.strains output.strains
+        
+        (command exited with non-zero exit code)
+[Wed Aug 26 10:04:22 2026]
+Error in rule filtered_folder:
+    message: None
+    jobid: 67
+    input: results/filtered_pb1.fasta, results/filtered_pb1_filtered.txt
+    output: filtered/filtered_pb1.fasta, filtered/filtered_pb1_filtered.txt
+    shell:
+        
+        mkdir -p filtered && cp input.sequences output.sequences && cp input.strains output.strains
+        
+        (command exited with non-zero exit code)
+[Wed Aug 26 10:04:22 2026]
+Error in rule filtered_folder:
+    message: None
+    jobid: 70
+    input: results/filtered_np.fasta, results/filtered_np_filtered.txt
+    output: filtered/filtered_np.fasta, filtered/filtered_np_filtered.txt
+    shell:
+        
+        mkdir -p filtered && cp input.sequences output.sequences && cp input.strains output.strains
+        
+        (command exited with non-zero exit code)
+Complete log(s): /Users/jort/coding/h5nx-reassortment-and-risk-assessment/treesort-sameStrains-replicates/20260302-newReplicates/for-parcc/20260824-filter-testing/full-build/60perGroup-0/.snakemake/log/2026-08-26T100404.422422.snakemake.log
+WorkflowError:
+At least one job did not complete successfully.

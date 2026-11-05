@@ -1,0 +1,351 @@
+Assuming unrestricted shared filesystem usage.
+None
+host: BGS-STU22-136
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 10
+Rules claiming more threads will be scaled down.
+Job stats:
+job                  count
+-----------------  -------
+align                    8
+all                      1
+ancestral                8
+annotate_treesort        1
+cleavage_site            1
+dna                      1
+export                   8
+filter                   8
+refine                   8
+traits                   8
+translate                8
+tree                     8
+treesort                 1
+total                   69
+
+Select jobs to execute...
+Execute 1 jobs...
+[Mon Aug 24 14:23:01 2026]
+localrule filter:
+    input: data/ha_dates.fasta, data/metadata_dates.tsv, config/dropped_strains.txt, config/include_strains.txt
+    output: results/filtered_ha.fasta, results/filtered_ha_filtered.txt
+    jobid: 6
+    reason: Missing output files: results/filtered_ha.fasta, results/filtered_ha_filtered.txt
+    wildcards: segment=ha
+    resources: tmpdir=/var/folders/d_/56m2n50525gb3y_7mkr2t1880000gp/T
+Shell command: 
+        augur filter             --sequences data/ha_dates.fasta             --metadata data/metadata_dates.tsv             --exclude config/dropped_strains.txt             --min-length 1600             --output-sequences results/filtered_ha.fasta             --output-strains results/filtered_ha_filtered.txt              --group-by gisaid_clade region host year month --sequences-per-group 60 --min-date 2020 --exclude-where host=laboratoryderived host=ferret host=unknown host=other label_clade!=2.3.4.4b n_segments!=8 --non-nucleotide
+        
+[Mon Aug 24 14:23:40 2026]
+Finished jobid: 6 (Rule: filter)
+1 of 69 steps (1%) done
+Select jobs to execute...
+Execute 8 jobs...
+[Mon Aug 24 14:23:41 2026]
+Job 29: 
+        Aligning sequences to config/reference_ha.gb
+          - filling gaps with N
+        
+Reason: Missing output files: results/aligned_ha.fasta; Input files updated by another job: results/filtered_ha.fasta
+Shell command: 
+        augur align             --sequences results/filtered_ha.fasta             --reference-sequence config/reference_ha.gb             --output results/aligned_ha.fasta             --remove-reference             --nthreads 1
+        
+[Mon Aug 24 14:23:41 2026]
+localrule filter:
+    input: data/pb2_dates.fasta, data/metadata_dates.tsv, config/dropped_strains.txt, config/include_strains.txt, results/filtered_ha_filtered.txt
+    output: results/filtered_pb2.fasta, results/filtered_pb2_filtered.txt
+    jobid: 5
+    reason: Missing output files: results/filtered_pb2.fasta; Input files updated by another job: results/filtered_ha_filtered.txt
+    wildcards: segment=pb2
+    resources: tmpdir=/var/folders/d_/56m2n50525gb3y_7mkr2t1880000gp/T
+Shell command: 
+        augur filter             --sequences data/pb2_dates.fasta             --metadata data/metadata_dates.tsv             --exclude config/dropped_strains.txt             --min-length 2100             --output-sequences results/filtered_pb2.fasta             --output-strains results/filtered_pb2_filtered.txt             --exclude-all --include results/filtered_ha_filtered.txt config/include_strains.txt
+        
+[Mon Aug 24 14:23:41 2026]
+localrule filter:
+    input: data/ns_dates.fasta, data/metadata_dates.tsv, config/dropped_strains.txt, config/include_strains.txt, results/filtered_ha_filtered.txt
+    output: results/filtered_ns.fasta, results/filtered_ns_filtered.txt
+    jobid: 44
+    reason: Missing output files: results/filtered_ns.fasta; Input files updated by another job: results/filtered_ha_filtered.txt
+    wildcards: segment=ns
+    resources: tmpdir=/var/folders/d_/56m2n50525gb3y_7mkr2t1880000gp/T
+Shell command: 
+        augur filter             --sequences data/ns_dates.fasta             --metadata data/metadata_dates.tsv             --exclude config/dropped_strains.txt             --min-length 800             --output-sequences results/filtered_ns.fasta             --output-strains results/filtered_ns_filtered.txt             --exclude-all --include results/filtered_ha_filtered.txt config/include_strains.txt
+        
+[Mon Aug 24 14:23:42 2026]
+localrule filter:
+    input: data/pb1_dates.fasta, data/metadata_dates.tsv, config/dropped_strains.txt, config/include_strains.txt, results/filtered_ha_filtered.txt
+    output: results/filtered_pb1.fasta, results/filtered_pb1_filtered.txt
+    jobid: 14
+    reason: Missing output files: results/filtered_pb1.fasta; Input files updated by another job: results/filtered_ha_filtered.txt
+    wildcards: segment=pb1
+    resources: tmpdir=/var/folders/d_/56m2n50525gb3y_7mkr2t1880000gp/T
+Shell command: 
+        augur filter             --sequences data/pb1_dates.fasta             --metadata data/metadata_dates.tsv             --exclude config/dropped_strains.txt             --min-length 2100             --output-sequences results/filtered_pb1.fasta             --output-strains results/filtered_pb1_filtered.txt             --exclude-all --include results/filtered_ha_filtered.txt config/include_strains.txt
+        
+[Mon Aug 24 14:23:42 2026]
+localrule filter:
+    input: data/np_dates.fasta, data/metadata_dates.tsv, config/dropped_strains.txt, config/include_strains.txt, results/filtered_ha_filtered.txt
+    output: results/filtered_np.fasta, results/filtered_np_filtered.txt
+    jobid: 38
+    reason: Missing output files: results/filtered_np.fasta; Input files updated by another job: results/filtered_ha_filtered.txt
+    wildcards: segment=np
+    resources: tmpdir=/var/folders/d_/56m2n50525gb3y_7mkr2t1880000gp/T
+Shell command: 
+        augur filter             --sequences data/np_dates.fasta             --metadata data/metadata_dates.tsv             --exclude config/dropped_strains.txt             --min-length 1400             --output-sequences results/filtered_np.fasta             --output-strains results/filtered_np_filtered.txt             --exclude-all --include results/filtered_ha_filtered.txt config/include_strains.txt
+        
+[Mon Aug 24 14:23:42 2026]
+localrule filter:
+    input: data/pa_dates.fasta, data/metadata_dates.tsv, config/dropped_strains.txt, config/include_strains.txt, results/filtered_ha_filtered.txt
+    output: results/filtered_pa.fasta, results/filtered_pa_filtered.txt
+    jobid: 22
+    reason: Missing output files: results/filtered_pa.fasta; Input files updated by another job: results/filtered_ha_filtered.txt
+    wildcards: segment=pa
+    resources: tmpdir=/var/folders/d_/56m2n50525gb3y_7mkr2t1880000gp/T
+Shell command: 
+        augur filter             --sequences data/pa_dates.fasta             --metadata data/metadata_dates.tsv             --exclude config/dropped_strains.txt             --min-length 2000             --output-sequences results/filtered_pa.fasta             --output-strains results/filtered_pa_filtered.txt             --exclude-all --include results/filtered_ha_filtered.txt config/include_strains.txt
+        
+[Mon Aug 24 14:23:42 2026]
+localrule filter:
+    input: data/mp_dates.fasta, data/metadata_dates.tsv, config/dropped_strains.txt, config/include_strains.txt, results/filtered_ha_filtered.txt
+    output: results/filtered_mp.fasta, results/filtered_mp_filtered.txt
+    jobid: 42
+    reason: Missing output files: results/filtered_mp.fasta; Input files updated by another job: results/filtered_ha_filtered.txt
+    wildcards: segment=mp
+    resources: tmpdir=/var/folders/d_/56m2n50525gb3y_7mkr2t1880000gp/T
+Shell command: 
+        augur filter             --sequences data/mp_dates.fasta             --metadata data/metadata_dates.tsv             --exclude config/dropped_strains.txt             --min-length 900             --output-sequences results/filtered_mp.fasta             --output-strains results/filtered_mp_filtered.txt             --exclude-all --include results/filtered_ha_filtered.txt config/include_strains.txt
+        
+[Mon Aug 24 14:23:42 2026]
+localrule filter:
+    input: data/na_dates.fasta, data/metadata_dates.tsv, config/dropped_strains.txt, config/include_strains.txt, results/filtered_ha_filtered.txt
+    output: results/filtered_na.fasta, results/filtered_na_filtered.txt
+    jobid: 40
+    reason: Missing output files: results/filtered_na.fasta; Input files updated by another job: results/filtered_ha_filtered.txt
+    wildcards: segment=na
+    resources: tmpdir=/var/folders/d_/56m2n50525gb3y_7mkr2t1880000gp/T
+Shell command: 
+        augur filter             --sequences data/na_dates.fasta             --metadata data/metadata_dates.tsv             --exclude config/dropped_strains.txt             --min-length 1270             --output-sequences results/filtered_na.fasta             --output-strains results/filtered_na_filtered.txt             --exclude-all --include results/filtered_ha_filtered.txt config/include_strains.txt
+        
+[Mon Aug 24 14:23:58 2026]
+Finished jobid: 44 (Rule: filter)
+2 of 69 steps (3%) done
+Select jobs to execute...
+Execute 1 jobs...
+[Mon Aug 24 14:23:58 2026]
+Job 43: 
+        Aligning sequences to config/reference_ns.gb
+          - filling gaps with N
+        
+Reason: Missing output files: results/aligned_ns.fasta; Input files updated by another job: results/filtered_ns.fasta
+Shell command: 
+        augur align             --sequences results/filtered_ns.fasta             --reference-sequence config/reference_ns.gb             --output results/aligned_ns.fasta             --remove-reference             --nthreads 1
+        
+[Mon Aug 24 14:24:00 2026]
+Finished jobid: 14 (Rule: filter)
+3 of 69 steps (4%) done
+Select jobs to execute...
+Execute 1 jobs...
+[Mon Aug 24 14:24:00 2026]
+Job 13: 
+        Aligning sequences to config/reference_pb1.gb
+          - filling gaps with N
+        
+Reason: Missing output files: results/aligned_pb1.fasta; Input files updated by another job: results/filtered_pb1.fasta
+Shell command: 
+        augur align             --sequences results/filtered_pb1.fasta             --reference-sequence config/reference_pb1.gb             --output results/aligned_pb1.fasta             --remove-reference             --nthreads 1
+        
+[Mon Aug 24 14:24:00 2026]
+Finished jobid: 40 (Rule: filter)
+4 of 69 steps (6%) done
+Select jobs to execute...
+Execute 1 jobs...
+[Mon Aug 24 14:24:00 2026]
+Job 39: 
+        Aligning sequences to config/reference_na.gb
+          - filling gaps with N
+        
+Reason: Missing output files: results/aligned_na.fasta; Input files updated by another job: results/filtered_na.fasta
+Shell command: 
+        augur align             --sequences results/filtered_na.fasta             --reference-sequence config/reference_na.gb             --output results/aligned_na.fasta             --remove-reference             --nthreads 1
+        
+[Mon Aug 24 14:24:00 2026]
+Finished jobid: 5 (Rule: filter)
+5 of 69 steps (7%) done
+Select jobs to execute...
+Execute 1 jobs...
+[Mon Aug 24 14:24:00 2026]
+Job 4: 
+        Aligning sequences to config/reference_pb2.gb
+          - filling gaps with N
+        
+Reason: Missing output files: results/aligned_pb2.fasta; Input files updated by another job: results/filtered_pb2.fasta
+Shell command: 
+        augur align             --sequences results/filtered_pb2.fasta             --reference-sequence config/reference_pb2.gb             --output results/aligned_pb2.fasta             --remove-reference             --nthreads 1
+        
+[Mon Aug 24 14:24:00 2026]
+Finished jobid: 42 (Rule: filter)
+6 of 69 steps (9%) done
+Select jobs to execute...
+Execute 1 jobs...
+[Mon Aug 24 14:24:01 2026]
+Job 41: 
+        Aligning sequences to config/reference_mp.gb
+          - filling gaps with N
+        
+Reason: Missing output files: results/aligned_mp.fasta; Input files updated by another job: results/filtered_mp.fasta
+Shell command: 
+        augur align             --sequences results/filtered_mp.fasta             --reference-sequence config/reference_mp.gb             --output results/aligned_mp.fasta             --remove-reference             --nthreads 1
+        
+[Mon Aug 24 14:24:01 2026]
+Finished jobid: 22 (Rule: filter)
+7 of 69 steps (10%) done
+Select jobs to execute...
+Execute 1 jobs...
+[Mon Aug 24 14:24:01 2026]
+Job 21: 
+        Aligning sequences to config/reference_pa.gb
+          - filling gaps with N
+        
+Reason: Missing output files: results/aligned_pa.fasta; Input files updated by another job: results/filtered_pa.fasta
+Shell command: 
+        augur align             --sequences results/filtered_pa.fasta             --reference-sequence config/reference_pa.gb             --output results/aligned_pa.fasta             --remove-reference             --nthreads 1
+        
+[Mon Aug 24 14:24:01 2026]
+Finished jobid: 38 (Rule: filter)
+8 of 69 steps (12%) done
+Select jobs to execute...
+Execute 1 jobs...
+[Mon Aug 24 14:24:01 2026]
+Job 37: 
+        Aligning sequences to config/reference_np.gb
+          - filling gaps with N
+        
+Reason: Missing output files: results/aligned_np.fasta; Input files updated by another job: results/filtered_np.fasta
+Shell command: 
+        augur align             --sequences results/filtered_np.fasta             --reference-sequence config/reference_np.gb             --output results/aligned_np.fasta             --remove-reference             --nthreads 1
+        
+Terminating processes on user request, this might take some time.
+RuleException:
+CalledProcessError in file "/Users/jort/coding/h5nx-reassortment-and-risk-assessment/treesort-sameStrains-replicates/20260302-newReplicates/for-parcc/20260824-filter-testing/60perGroup-0/Snakefile", line 184:
+Command 'set -euo pipefail;  
+        augur align             --sequences results/filtered_ha.fasta             --reference-sequence config/reference_ha.gb             --output results/aligned_ha.fasta             --remove-reference             --nthreads 1' died with <Signals.SIGINT: 2>.
+[Mon Aug 24 14:37:49 2026]
+Error in rule align:
+    message: None
+    jobid: 29
+    input: results/filtered_ha.fasta, config/reference_ha.gb
+    output: results/aligned_ha.fasta
+    shell:
+        
+        augur align             --sequences results/filtered_ha.fasta             --reference-sequence config/reference_ha.gb             --output results/aligned_ha.fasta             --remove-reference             --nthreads 1
+        
+        (command exited with non-zero exit code)
+RuleException:
+CalledProcessError in file "/Users/jort/coding/h5nx-reassortment-and-risk-assessment/treesort-sameStrains-replicates/20260302-newReplicates/for-parcc/20260824-filter-testing/60perGroup-0/Snakefile", line 184:
+Command 'set -euo pipefail;  
+        augur align             --sequences results/filtered_ns.fasta             --reference-sequence config/reference_ns.gb             --output results/aligned_ns.fasta             --remove-reference             --nthreads 1' died with <Signals.SIGINT: 2>.
+[Mon Aug 24 14:37:49 2026]
+Error in rule align:
+    message: None
+    jobid: 43
+    input: results/filtered_ns.fasta, config/reference_ns.gb
+    output: results/aligned_ns.fasta
+    shell:
+        
+        augur align             --sequences results/filtered_ns.fasta             --reference-sequence config/reference_ns.gb             --output results/aligned_ns.fasta             --remove-reference             --nthreads 1
+        
+        (command exited with non-zero exit code)
+RuleException:
+CalledProcessError in file "/Users/jort/coding/h5nx-reassortment-and-risk-assessment/treesort-sameStrains-replicates/20260302-newReplicates/for-parcc/20260824-filter-testing/60perGroup-0/Snakefile", line 184:
+Command 'set -euo pipefail;  
+        augur align             --sequences results/filtered_pa.fasta             --reference-sequence config/reference_pa.gb             --output results/aligned_pa.fasta             --remove-reference             --nthreads 1' died with <Signals.SIGINT: 2>.
+[Mon Aug 24 14:37:49 2026]
+Error in rule align:
+    message: None
+    jobid: 21
+    input: results/filtered_pa.fasta, config/reference_pa.gb
+    output: results/aligned_pa.fasta
+    shell:
+        
+        augur align             --sequences results/filtered_pa.fasta             --reference-sequence config/reference_pa.gb             --output results/aligned_pa.fasta             --remove-reference             --nthreads 1
+        
+        (command exited with non-zero exit code)
+RuleException:
+CalledProcessError in file "/Users/jort/coding/h5nx-reassortment-and-risk-assessment/treesort-sameStrains-replicates/20260302-newReplicates/for-parcc/20260824-filter-testing/60perGroup-0/Snakefile", line 184:
+Command 'set -euo pipefail;  
+        augur align             --sequences results/filtered_pb1.fasta             --reference-sequence config/reference_pb1.gb             --output results/aligned_pb1.fasta             --remove-reference             --nthreads 1' died with <Signals.SIGINT: 2>.
+[Mon Aug 24 14:37:49 2026]
+Error in rule align:
+    message: None
+    jobid: 13
+    input: results/filtered_pb1.fasta, config/reference_pb1.gb
+    output: results/aligned_pb1.fasta
+    shell:
+        
+        augur align             --sequences results/filtered_pb1.fasta             --reference-sequence config/reference_pb1.gb             --output results/aligned_pb1.fasta             --remove-reference             --nthreads 1
+        
+        (command exited with non-zero exit code)
+RuleException:
+CalledProcessError in file "/Users/jort/coding/h5nx-reassortment-and-risk-assessment/treesort-sameStrains-replicates/20260302-newReplicates/for-parcc/20260824-filter-testing/60perGroup-0/Snakefile", line 184:
+Command 'set -euo pipefail;  
+        augur align             --sequences results/filtered_np.fasta             --reference-sequence config/reference_np.gb             --output results/aligned_np.fasta             --remove-reference             --nthreads 1' died with <Signals.SIGINT: 2>.
+[Mon Aug 24 14:37:49 2026]
+Error in rule align:
+    message: None
+    jobid: 37
+    input: results/filtered_np.fasta, config/reference_np.gb
+    output: results/aligned_np.fasta
+    shell:
+        
+        augur align             --sequences results/filtered_np.fasta             --reference-sequence config/reference_np.gb             --output results/aligned_np.fasta             --remove-reference             --nthreads 1
+        
+        (command exited with non-zero exit code)
+RuleException:
+CalledProcessError in file "/Users/jort/coding/h5nx-reassortment-and-risk-assessment/treesort-sameStrains-replicates/20260302-newReplicates/for-parcc/20260824-filter-testing/60perGroup-0/Snakefile", line 184:
+Command 'set -euo pipefail;  
+        augur align             --sequences results/filtered_mp.fasta             --reference-sequence config/reference_mp.gb             --output results/aligned_mp.fasta             --remove-reference             --nthreads 1' died with <Signals.SIGINT: 2>.
+[Mon Aug 24 14:37:49 2026]
+Error in rule align:
+    message: None
+    jobid: 41
+    input: results/filtered_mp.fasta, config/reference_mp.gb
+    output: results/aligned_mp.fasta
+    shell:
+        
+        augur align             --sequences results/filtered_mp.fasta             --reference-sequence config/reference_mp.gb             --output results/aligned_mp.fasta             --remove-reference             --nthreads 1
+        
+        (command exited with non-zero exit code)
+RuleException:
+CalledProcessError in file "/Users/jort/coding/h5nx-reassortment-and-risk-assessment/treesort-sameStrains-replicates/20260302-newReplicates/for-parcc/20260824-filter-testing/60perGroup-0/Snakefile", line 184:
+Command 'set -euo pipefail;  
+        augur align             --sequences results/filtered_na.fasta             --reference-sequence config/reference_na.gb             --output results/aligned_na.fasta             --remove-reference             --nthreads 1' died with <Signals.SIGINT: 2>.
+[Mon Aug 24 14:37:49 2026]
+Error in rule align:
+    message: None
+    jobid: 39
+    input: results/filtered_na.fasta, config/reference_na.gb
+    output: results/aligned_na.fasta
+    shell:
+        
+        augur align             --sequences results/filtered_na.fasta             --reference-sequence config/reference_na.gb             --output results/aligned_na.fasta             --remove-reference             --nthreads 1
+        
+        (command exited with non-zero exit code)
+RuleException:
+CalledProcessError in file "/Users/jort/coding/h5nx-reassortment-and-risk-assessment/treesort-sameStrains-replicates/20260302-newReplicates/for-parcc/20260824-filter-testing/60perGroup-0/Snakefile", line 184:
+Command 'set -euo pipefail;  
+        augur align             --sequences results/filtered_pb2.fasta             --reference-sequence config/reference_pb2.gb             --output results/aligned_pb2.fasta             --remove-reference             --nthreads 1' died with <Signals.SIGINT: 2>.
+[Mon Aug 24 14:37:49 2026]
+Error in rule align:
+    message: None
+    jobid: 4
+    input: results/filtered_pb2.fasta, config/reference_pb2.gb
+    output: results/aligned_pb2.fasta
+    shell:
+        
+        augur align             --sequences results/filtered_pb2.fasta             --reference-sequence config/reference_pb2.gb             --output results/aligned_pb2.fasta             --remove-reference             --nthreads 1
+        
+        (command exited with non-zero exit code)
+Complete log(s): /Users/jort/coding/h5nx-reassortment-and-risk-assessment/treesort-sameStrains-replicates/20260302-newReplicates/for-parcc/20260824-filter-testing/60perGroup-0/.snakemake/log/2026-08-24T142300.080579.snakemake.log
+WorkflowError:
+At least one job did not complete successfully.

@@ -1,0 +1,101 @@
+Assuming unrestricted shared filesystem usage.
+None
+host: BGS-STU22-136
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 10
+Rules claiming more threads will be scaled down.
+Job stats:
+job                count
+---------------  -------
+all                    1
+filtered_folder        8
+total                  9
+
+Select jobs to execute...
+Execute 8 jobs...
+[Wed Aug 26 10:04:40 2026]
+Job 69: Generating filtered folder
+Reason: Missing output files: filtered/filtered_ha.fasta, filtered/filtered_ha_filtered.txt; Code has changed since last execution
+Shell command: 
+        mkdir -p filtered &&             cp results/filtered_ha.fasta filtered/filtered_ha.fasta &&             cp results/filtered_ha_filtered.txt filtered/filtered_ha_filtered.txt
+        
+[Wed Aug 26 10:04:40 2026]
+Job 72: Generating filtered folder
+Reason: Missing output files: filtered/filtered_mp.fasta, filtered/filtered_mp_filtered.txt; Code has changed since last execution
+Shell command: 
+        mkdir -p filtered &&             cp results/filtered_mp.fasta filtered/filtered_mp.fasta &&             cp results/filtered_mp_filtered.txt filtered/filtered_mp_filtered.txt
+        
+[Wed Aug 26 10:04:40 2026]
+Job 68: Generating filtered folder
+Reason: Missing output files: filtered/filtered_pa.fasta, filtered/filtered_pa_filtered.txt; Code has changed since last execution
+Shell command: 
+        mkdir -p filtered &&             cp results/filtered_pa.fasta filtered/filtered_pa.fasta &&             cp results/filtered_pa_filtered.txt filtered/filtered_pa_filtered.txt
+        
+[Wed Aug 26 10:04:40 2026]
+Job 66: Generating filtered folder
+Reason: Missing output files: filtered/filtered_pb2.fasta, filtered/filtered_pb2_filtered.txt; Code has changed since last execution
+Shell command: 
+        mkdir -p filtered &&             cp results/filtered_pb2.fasta filtered/filtered_pb2.fasta &&             cp results/filtered_pb2_filtered.txt filtered/filtered_pb2_filtered.txt
+        
+[Wed Aug 26 10:04:40 2026]
+Job 71: Generating filtered folder
+Reason: Missing output files: filtered/filtered_na.fasta, filtered/filtered_na_filtered.txt; Code has changed since last execution
+Shell command: 
+        mkdir -p filtered &&             cp results/filtered_na.fasta filtered/filtered_na.fasta &&             cp results/filtered_na_filtered.txt filtered/filtered_na_filtered.txt
+        
+[Wed Aug 26 10:04:40 2026]
+Job 73: Generating filtered folder
+Reason: Missing output files: filtered/filtered_ns_filtered.txt, filtered/filtered_ns.fasta; Code has changed since last execution
+Shell command: 
+        mkdir -p filtered &&             cp results/filtered_ns.fasta filtered/filtered_ns.fasta &&             cp results/filtered_ns_filtered.txt filtered/filtered_ns_filtered.txt
+        
+[Wed Aug 26 10:04:40 2026]
+Job 67: Generating filtered folder
+Reason: Missing output files: filtered/filtered_pb1.fasta, filtered/filtered_pb1_filtered.txt; Code has changed since last execution
+Shell command: 
+        mkdir -p filtered &&             cp results/filtered_pb1.fasta filtered/filtered_pb1.fasta &&             cp results/filtered_pb1_filtered.txt filtered/filtered_pb1_filtered.txt
+        
+[Wed Aug 26 10:04:40 2026]
+Job 70: Generating filtered folder
+Reason: Missing output files: filtered/filtered_np_filtered.txt, filtered/filtered_np.fasta; Code has changed since last execution
+Shell command: 
+        mkdir -p filtered &&             cp results/filtered_np.fasta filtered/filtered_np.fasta &&             cp results/filtered_np_filtered.txt filtered/filtered_np_filtered.txt
+        
+[Wed Aug 26 10:04:40 2026]
+Finished jobid: 69 (Rule: filtered_folder)
+1 of 9 steps (11%) done
+[Wed Aug 26 10:04:40 2026]
+Finished jobid: 72 (Rule: filtered_folder)
+2 of 9 steps (22%) done
+[Wed Aug 26 10:04:40 2026]
+Finished jobid: 73 (Rule: filtered_folder)
+3 of 9 steps (33%) done
+[Wed Aug 26 10:04:40 2026]
+Finished jobid: 68 (Rule: filtered_folder)
+4 of 9 steps (44%) done
+[Wed Aug 26 10:04:40 2026]
+Finished jobid: 66 (Rule: filtered_folder)
+5 of 9 steps (56%) done
+[Wed Aug 26 10:04:40 2026]
+Finished jobid: 71 (Rule: filtered_folder)
+6 of 9 steps (67%) done
+[Wed Aug 26 10:04:40 2026]
+Finished jobid: 67 (Rule: filtered_folder)
+7 of 9 steps (78%) done
+[Wed Aug 26 10:04:40 2026]
+Finished jobid: 70 (Rule: filtered_folder)
+8 of 9 steps (89%) done
+Select jobs to execute...
+Execute 1 jobs...
+[Wed Aug 26 10:04:40 2026]
+localrule all:
+    input: auspice/flu_avian_pb2.json, auspice/flu_avian_pb1.json, auspice/flu_avian_pa.json, auspice/flu_avian_ha.json, auspice/flu_avian_np.json, auspice/flu_avian_na.json, auspice/flu_avian_mp.json, auspice/flu_avian_ns.json, filtered/filtered_pb2.fasta, filtered/filtered_pb1.fasta, filtered/filtered_pa.fasta, filtered/filtered_ha.fasta, filtered/filtered_np.fasta, filtered/filtered_na.fasta, filtered/filtered_mp.fasta, filtered/filtered_ns.fasta, filtered/filtered_pb2_filtered.txt, filtered/filtered_pb1_filtered.txt, filtered/filtered_pa_filtered.txt, filtered/filtered_ha_filtered.txt, filtered/filtered_np_filtered.txt, filtered/filtered_na_filtered.txt, filtered/filtered_mp_filtered.txt, filtered/filtered_ns_filtered.txt
+    jobid: 0
+    reason: Input files updated by another job: filtered/filtered_np.fasta, filtered/filtered_pb1.fasta, filtered/filtered_mp.fasta, filtered/filtered_ns.fasta, filtered/filtered_np_filtered.txt, filtered/filtered_na.fasta, filtered/filtered_pa.fasta, filtered/filtered_ha.fasta, filtered/filtered_ha_filtered.txt, filtered/filtered_mp_filtered.txt, filtered/filtered_pa_filtered.txt, filtered/filtered_ns_filtered.txt, filtered/filtered_pb2.fasta, filtered/filtered_na_filtered.txt, filtered/filtered_pb2_filtered.txt, filtered/filtered_pb1_filtered.txt
+    resources: tmpdir=/var/folders/d_/56m2n50525gb3y_7mkr2t1880000gp/T
+Shell command: None
+[Wed Aug 26 10:04:40 2026]
+Finished jobid: 0 (Rule: all)
+9 of 9 steps (100%) done
+Complete log(s): /Users/jort/coding/h5nx-reassortment-and-risk-assessment/treesort-sameStrains-replicates/20260302-newReplicates/for-parcc/20260824-filter-testing/full-build/60perGroup-0/.snakemake/log/2026-08-26T100439.811099.snakemake.log

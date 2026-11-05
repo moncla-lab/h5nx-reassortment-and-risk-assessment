@@ -1,0 +1,8 @@
+PB2,results/aligned_pb2_dna.fasta,results/tree-raw_pb2.nwk
+PB1,results/aligned_pb1_dna.fasta,results/tree-raw_pb1.nwk
+PA,results/aligned_pa_dna.fasta,results/tree-raw_pa.nwk
+*HA,results/aligned_ha_dna.fasta,results/tree_ha.nwk
+NP,results/aligned_np_dna.fasta,results/tree-raw_np.nwk
+NA,results/aligned_na_dna.fasta,results/tree-raw_na.nwk
+MP,results/aligned_mp_dna.fasta,results/tree-raw_mp.nwk
+NS,results/aligned_ns_dna.fasta,results/tree-raw_ns.nwk

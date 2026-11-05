@@ -1,0 +1,151 @@
+Assuming unrestricted shared filesystem usage.
+None
+host: BGS-STU22-136
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 10
+Rules claiming more threads will be scaled down.
+Job stats:
+job                  count
+-----------------  -------
+align                    1
+all                      1
+ancestral                1
+annotate_treesort        1
+cleavage_site            1
+dna                      1
+export                   1
+refine                   1
+traits                   1
+translate                1
+tree                     1
+treesort                 1
+total                   12
+
+Select jobs to execute...
+Execute 1 jobs...
+[Mon Aug 24 14:38:30 2026]
+Job 4: 
+        Aligning sequences to config/reference_ha.gb
+          - filling gaps with N
+        
+Reason: Forced execution
+Shell command: 
+        augur align             --sequences results/filtered_ha.fasta             --reference-sequence config/reference_ha.gb             --output results/aligned_ha.fasta             --remove-reference             --nthreads 1
+        
+[Mon Aug 24 15:07:24 2026]
+Finished jobid: 4 (Rule: align)
+1 of 12 steps (8%) done
+Select jobs to execute...
+Execute 3 jobs...
+[Mon Aug 24 15:07:24 2026]
+Job 3: Building tree
+Reason: Missing output files: results/tree-raw_ha.nwk; Input files updated by another job: results/aligned_ha.fasta
+Shell command: 
+        augur tree             --alignment results/aligned_ha.fasta             --output results/tree-raw_ha.nwk             --method iqtree             --nthreads 1
+        
+[Mon Aug 24 15:07:24 2026]
+Job 12: converting rna sequences in alignments to dna
+Reason: Missing output files: results/aligned_ha_dna.fasta; Input files updated by another job: results/aligned_ha.fasta
+Shell command: 
+        python scripts/rna-to-dna.py             --alignments results/aligned_ha.fasta             --dna_alignments results/aligned_ha_dna.fasta
+        
+[Mon Aug 24 15:07:24 2026]
+Job 9: determining sequences that harbor furin cleavage sites
+Reason: Missing output files: results/cleavage-site_ha.json, results/cleavage-site-sequences_ha.json; Input files updated by another job: results/aligned_ha.fasta
+Shell command: 
+        python scripts/annotate-ha-cleavage-site.py             --alignment results/aligned_ha.fasta             --furin_site_motif results/cleavage-site_ha.json             --cleavage_site_sequence results/cleavage-site-sequences_ha.json
+        
+[Mon Aug 24 15:07:25 2026]
+Finished jobid: 12 (Rule: dna)
+2 of 12 steps (17%) done
+[Mon Aug 24 15:07:27 2026]
+Finished jobid: 9 (Rule: cleavage_site)
+3 of 12 steps (25%) done
+[Mon Aug 24 15:15:52 2026]
+Finished jobid: 3 (Rule: tree)
+4 of 12 steps (33%) done
+Select jobs to execute...
+Execute 1 jobs...
+[Mon Aug 24 15:15:52 2026]
+Job 2: 
+        Refining tree
+          - estimate timetree
+          - use const coalescent timescale
+          - estimate marginal node dates
+        
+Reason: Missing output files: results/branch-lengths_ha.json, results/tree_ha.nwk; Input files updated by another job: results/aligned_ha.fasta, results/tree-raw_ha.nwk
+Shell command: 
+        augur refine             --tree results/tree-raw_ha.nwk             --alignment results/aligned_ha.fasta             --metadata data/metadata_dates.tsv             --output-tree results/tree_ha.nwk             --output-node-data results/branch-lengths_ha.json             --timetree             --coalescent const             --date-confidence             --date-inference marginal         
+[Mon Aug 24 19:06:27 2026]
+Finished jobid: 2 (Rule: refine)
+5 of 12 steps (42%) done
+Select jobs to execute...
+Execute 3 jobs...
+[Mon Aug 24 19:06:27 2026]
+Job 6: Inferring ancestral traits for region
+Reason: Missing output files: results/traits_ha.json; Input files updated by another job: results/tree_ha.nwk
+Shell command: 
+        augur traits             --tree results/tree_ha.nwk             --metadata data/metadata_dates.tsv             --output results/traits_ha.json             --columns region             --confidence
+        
+[Mon Aug 24 19:06:27 2026]
+Job 11: running treesort to infer reassortment events
+Reason: Missing output files: treesort/ha_treesort.tre; Input files updated by another job: results/aligned_ha_dna.fasta, results/tree_ha.nwk
+Shell command: None
+[Mon Aug 24 19:06:27 2026]
+Job 7: Reconstructing ancestral sequences and mutations
+Reason: Missing output files: results/nt-muts_ha.json; Input files updated by another job: results/aligned_ha.fasta, results/tree_ha.nwk
+Shell command: 
+        augur ancestral             --tree results/tree_ha.nwk             --alignment results/aligned_ha.fasta             --output-node-data results/nt-muts_ha.json             --inference joint            --keep-ambiguous
+        
+Traceback (most recent call last):
+
+  File "/Users/jort/anaconda3/envs/treesort-pipeline/lib/python3.12/site-packages/snakemake/executors/local.py", line 232, in spawn_job
+    subprocess.check_call(cmd, shell=True)
+
+  File "/Users/jort/anaconda3/envs/treesort-pipeline/lib/python3.12/subprocess.py", line 413, in check_call
+    raise CalledProcessError(retcode, cmd)
+
+subprocess.CalledProcessError: Command 'cd /Users/jort/coding/h5nx-reassortment-and-risk-assessment/treesort-sameStrains-replicates/20260302-newReplicates/for-parcc/20260824-filter-testing/60perGroup-0 && /Users/jort/anaconda3/envs/treesort-pipeline/bin/python3.12 -m snakemake --snakefile '/Users/jort/coding/h5nx-reassortment-and-risk-assessment/treesort-sameStrains-replicates/20260302-newReplicates/for-parcc/20260824-filter-testing/60perGroup-0/Snakefile' --target-jobs 'treesort:' --allowed-rules treesort --cores 10 --attempt 1 --force-use-threads  --force --target-files-omit-workdir-adjustment --max-inventory-time 0 --nocolor --notemp --no-hooks --nolock --ignore-incomplete --rerun-triggers input code mtime software-env params --conda-frontend 'conda' --shared-fs-usage input-output sources source-cache persistence storage-local-copies software-deployment --wrapper-prefix 'https://github.com/snakemake/snakemake-wrappers/raw/' --printshellcmds  --latency-wait 5 --scheduler 'ilp' --local-storage-prefix base64//LnNuYWtlbWFrZS9zdG9yYWdl --scheduler-solver-path '/Users/jort/anaconda3/envs/treesort-pipeline/bin' --default-resources base64//dG1wZGlyPXN5c3RlbV90bXBkaXI= --quiet progress rules host --mode 'subprocess' --local-groupid 'local'' returned non-zero exit status 1.
+
+
+During handling of the above exception, another exception occurred:
+
+
+Traceback (most recent call last):
+
+  File "/Users/jort/anaconda3/envs/treesort-pipeline/lib/python3.12/concurrent/futures/thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+  File "/Users/jort/anaconda3/envs/treesort-pipeline/lib/python3.12/site-packages/snakemake/executors/local.py", line 247, in cached_or_run
+    run_func(*args)
+
+  File "/Users/jort/anaconda3/envs/treesort-pipeline/lib/python3.12/site-packages/snakemake/executors/local.py", line 234, in spawn_job
+    raise SpawnedJobError()
+
+snakemake.exceptions.SpawnedJobError
+
+[Mon Aug 24 19:06:31 2026]
+Error in rule treesort:
+    message: None
+    jobid: 11
+    input: descriptor.csv, results/aligned_ha_dna.fasta, results/tree_ha.nwk
+    output: treesort/ha_treesort.tre
+[Mon Aug 24 19:28:02 2026]
+Finished jobid: 7 (Rule: ancestral)
+6 of 12 steps (50%) done
+[Mon Aug 24 19:28:29 2026]
+Finished jobid: 6 (Rule: traits)
+7 of 12 steps (58%) done
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look below for error messages
+[Mon Aug 24 19:28:29 2026]
+Error in rule treesort:
+    message: None
+    jobid: 11
+    input: descriptor.csv, results/aligned_ha_dna.fasta, results/tree_ha.nwk
+    output: treesort/ha_treesort.tre
+Complete log(s): /Users/jort/coding/h5nx-reassortment-and-risk-assessment/treesort-sameStrains-replicates/20260302-newReplicates/for-parcc/20260824-filter-testing/60perGroup-0/.snakemake/log/2026-08-24T143830.339677.snakemake.log
+WorkflowError:
+At least one job did not complete successfully.
